@@ -2,7 +2,7 @@ const updateStars = function (starGeoAndVelo) {
   const positions = starGeoAndVelo.starGeo.attributes.position.array;
   const velocities = starGeoAndVelo.starVelo;
 
-  for (let i = 2; i < positions.length+1; i += 3) {
+  for (let i = 2; i < positions.length + 1; i += 3) {
     for (let j = 0; j < velocities.length; j++) {
       if (positions[i] < -10) {
         velocities[j] = 0;

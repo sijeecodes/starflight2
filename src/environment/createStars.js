@@ -7,8 +7,8 @@ const createStarGeo = function () {
   const starVelo = new Array(starCount).fill(0);
 
   for (let i = 0; i < starCount; i++) {
-    positions[i * 3] = Math.random() * 150-75;
-    positions[i * 3 + 1] = Math.random() * 150-75;
+    positions[i * 3] = Math.random() * 150 - 75;
+    positions[i * 3 + 1] = Math.random() * 150 - 75;
     positions[i * 3 + 2] = (Math.random() * 1000);
   }
   starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));

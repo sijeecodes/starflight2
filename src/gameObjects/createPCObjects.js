@@ -17,10 +17,14 @@ function createPCShip() {
         undefined,
         function (error) { console.error(error) }
     );
-    playerShip.add(bodyCollisionCheckBox);
-    playerShip.scale.set(3, 3, 3);
+    pcShip.add(bodyCollisionCheckBox);
+    pcShip.scale.set(3, 3, 3);
 
     return pcShip;
 };
+
+function createPCBlaster() {
+
+}
 
 export { createPCShip, createPCBlaster };

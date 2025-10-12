@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { createStarGeo, createStarMaterial } from './environment/createStars';
 import updateStars from './environment/updateStars';
 import createLights from './environment/createLights';
-import { createPCShip, createPCBlasters } from './gameObjects/createPCObjecst';
+import { createPCShip } from './gameObjects/createPCObjects';
 import updateGameObjects from './gameObjects/updateGameObjects';
 import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeyStates';
 
@@ -11,7 +11,7 @@ const gameLogic = function () {
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
   const starMaterial = createStarMaterial();
   const starGeoAndVelo = createStarGeo();
-  let pcObjects = { pcShip: createPCShip(), pcBlasters: createPCBlasters() };
+  let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
   let keyStates = initKeyState();
   let scene = new THREE.Scene();
   scene = createLights(scene);

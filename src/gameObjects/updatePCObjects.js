@@ -1,26 +1,26 @@
 const updatePCObjects = function (pcObjects, keyStates) {
-    let playerRotation = pcObjects.playerShip.rotation;
-    let playerPosition = pcObjects.playerShip.position;
+    let pcShipPosition = pcObjects.pcShip.position;
+    let pcShipRotation = pcObjects.pcShip.rotation;
 
     if (keyStates.right == true) {
-        playerPosition.x -= 0.5;
+        pcShipPosition.x -= 0.5;
     }
     if (keyStates.left == true) {
-        playerPosition.x += 0.5;
+        pcShipPosition.x += 0.5;
     }
     if (keyStates.up == true) {
-        playerPosition.y -= 0.5;
+        pcShipPosition.y -= 0.5;
     }
     if (keyStates.down == true) {
-        playerPosition.y += 0.5;
+        pcShipPosition.y += 0.5;
     }
     if (keyStates.rightRoll == true) {
-        playerPosition.x -= 1;
-        playerRotation.z += 0.3;
+        pcShipPosition.x -= 1;
+        pcShipRotation.z += 0.3;
     }
     if (keyStates.leftRoll == true) {
-        playerPosition.x += 1;
-        playerRotation.z -= 0.3;
+        pcShipPosition.x += 1;
+        pcShipRotation.z -= 0.3;
     }
     if (keyStates.blaster == true) {
 

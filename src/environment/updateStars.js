@@ -1,4 +1,4 @@
-var updateStars = function (starGeoAndVelo) {
+const updateStars = function (starGeoAndVelo) {
   const positions = starGeoAndVelo.starGeo.attributes.position.array;
   const velocities = starGeoAndVelo.starVelo;
 

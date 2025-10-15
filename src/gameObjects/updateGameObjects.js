@@ -1,8 +1,8 @@
 import updatePCObjects from './updatePCObjects';
-// import updateNPCObjects from './updateNPCObjecst.js';
+import updateNPCObjects from './updateNPCObjects';
 
-const updateGameObjects = function (scene, pcObjects, keyStates) {
-    return updatePCObjects(scene, pcObjects, keyStates);
+const updateGameObjects = function (scene, pcObjects, npcObjects, keyStates) {
+    return updateNPCObjects(updatePCObjects(scene, pcObjects, keyStates), npcObjects);
 };
 
 export default updateGameObjects;

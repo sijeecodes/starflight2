@@ -1,15 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
-import { LineSegments2 } from 'three/addons/lines/LineSegments2';
-import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry';
 import { LineMaterial } from 'three/addons/lines/LineMaterial';
+import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
+import { Line2 } from 'three/addons/lines/Line2.js';
 
 function createPCShip() {
     const loader = new GLTFLoader();
     const pcShip = new THREE.Group();
     const pcShipGeo = new THREE.BoxGeometry(4.5, 1, 4);
-    const pcMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-    const bodyCollisionBox = new THREE.Mesh(pcShipGeo, pcMaterial);
+    const bodyCollisionBox = new THREE.Mesh(pcShipGeo);
     const aimFrame = createAimFrame();
 
     bodyCollisionBox.position.set(0, -0.2, 0);
@@ -23,12 +22,12 @@ function createPCShip() {
     pcShip.add(bodyCollisionBox);
     pcShip.add(aimFrame);
     pcShip.scale.set(3, 3, 3);
-
+    console.log(pcShip);
     return pcShip;
 };
 
 function createPCBlaster(position) {
-    const geometry = new THREE.BoxGeometry(0.2, 0.2, 5);
+    const geometry = new THREE.BoxGeometry(0.3, 0.3, 5);
     const material = new THREE.MeshStandardMaterial({ color: 0x42ff00 });
     const blaster = new THREE.Mesh(geometry, material);
     blaster.position.set(position.x, position.y, position.z);
@@ -42,19 +41,32 @@ function createPCBlaster(position) {
 }
 
 function createAimFrame() {
-    const wireFrameGeo = new THREE.WireframeGeometry(new THREE.ConeGeometry(1, 7, 3));
-    const lineSegment = new THREE.LineSegments(wireFrameGeo);
-    const aimFrameGeo = new LineSegmentsGeometry().fromLineSegments(lineSegment);
+    const frameGeo1 = new LineGeometry();
+    frameGeo1.setPositions([
+        0.7, -0.6, 0,
+        -0.7, -0.6, 0,
+        0, 0.5, 0,
+        0.7, -0.6, 0,
+    ]);
+    const frameGeo2 = new LineGeometry();
+    frameGeo2.setPositions([
+        0.35, -0.3, 5,
+        -0.35, -0.3, 5,
+        0, 0.25, 5,
+        0.35, -0.3, 5,
+    ]);
     const lineMaterial = new LineMaterial({
-        opacity: 0.1,
+        depthTest: false,
+        opacity: 0.15,
         transparent: true,
         color: 0x42ff00,
-        linewidth: 3,
+        linewidth: 5,
         resolution: new THREE.Vector2(window.innerWidth, window.innerHeight)
     });
-    const aimFrame = new LineSegments2(aimFrameGeo, lineMaterial);
-    aimFrame.position.set(0, 0, 50);
-    aimFrame.rotation.set((90*Math.PI/180), (60*Math.PI/180), 0);
+    const aimFrame = new THREE.Group();
+    aimFrame.add(new Line2(frameGeo1, lineMaterial));
+    aimFrame.add(new Line2(frameGeo2, lineMaterial));
+    aimFrame.position.set(0, 0, 40);
 
     return aimFrame;
 }

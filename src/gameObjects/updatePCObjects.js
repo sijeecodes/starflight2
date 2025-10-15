@@ -38,7 +38,6 @@ const updatePCObjects = function (scene, pcObjects, keyStates) {
             let newBlaster = e;
             newBlaster.position.z += e.speed;
             newBlaster.position.needsUpdate = true;
-            newBlasters.push(newBlaster);
         });
     }
 

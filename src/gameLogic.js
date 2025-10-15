@@ -8,12 +8,13 @@ import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeySta
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
 
 const gameLogic = function () {
-  const renderer = new THREE.WebGLRenderer();
+  const renderer = new THREE.WebGLRenderer({antialias: true});
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
   const starMaterial = createStarMaterial();
   const starGeoAndVelo = createStarGeo();
   const controls = new OrbitControls( camera, renderer.domElement );
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
+  let npcObjects = { npcShips: [], npcBlasters: [] };
   let keyStates = initKeyState();
   let scene = new THREE.Scene();
   scene = createLights(scene);
@@ -32,10 +33,13 @@ const gameLogic = function () {
 
   setInterval(animate, 1000 / 30);
   function animate() {
+    // let t0 = performance.now();
     updateStars(starGeoAndVelo);
-    scene = updateGameObjects(scene, pcObjects, keyStates);
+    scene = updateGameObjects(scene, pcObjects, npcObjects, keyStates);
     controls.update();
     renderer.render(scene, camera);
+    // let t1 = performance.now();
+    // console.log(`${t1 - t0} milliseconds`);
   }
 }
 

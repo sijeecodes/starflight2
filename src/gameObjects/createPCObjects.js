@@ -7,22 +7,17 @@ import { Line2 } from 'three/addons/lines/Line2.js';
 function createPCShip() {
     const loader = new GLTFLoader();
     const pcShip = new THREE.Group();
-    const pcShipGeo = new THREE.BoxGeometry(4.5, 1, 4);
-    const bodyCollisionBox = new THREE.Mesh(pcShipGeo);
     const aimFrame = createAimFrame();
-
-    bodyCollisionBox.position.set(0, -0.2, 0);
-    bodyCollisionBox.visible = false;
 
     loader.load('../3dSrc/ship.glb',
         function (object) { pcShip.add(object.scene) },
         undefined,
         function (error) { console.error(error) }
     );
-    pcShip.add(bodyCollisionBox);
     pcShip.add(aimFrame);
-    pcShip.scale.set(3, 3, 3);
-    console.log(pcShip);
+    pcShip.collisionSize = 7;
+    pcShip.blasterCoolTime = 0;
+    pcShip.blasterHeatProduce = 20;
     return pcShip;
 };
 
@@ -34,8 +29,9 @@ function createPCBlaster(position) {
     blaster.direction = new THREE.Vector2();
     blaster.direction.x = 0;
     blaster.direction.y = 0;
-    blaster.speed = 1;
+    blaster.speed = 3;
     blaster.power = 1;
+    blaster.collisionSize = 2.5;
 
     return blaster;
 }

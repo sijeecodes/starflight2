@@ -3,23 +3,25 @@ import { createStarGeo, createStarMaterial } from './environment/createStars';
 import updateStars from './environment/updateStars';
 import createLights from './environment/createLights';
 import { createPCShip } from './gameObjects/createPCObjects';
-import updateGameObjects from './gameObjects/updateGameObjects';
 import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeyStates';
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
+import collisionCheck from './collision/collisionCheck';
+import updatePCObjects from './gameObjects/updatePCObjects';
+import updateNPCObjects from './gameObjects/updateNPCObjects';
 
 const gameLogic = function () {
-  const renderer = new THREE.WebGLRenderer({antialias: true});
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
-  const starMaterial = createStarMaterial();
   const starGeoAndVelo = createStarGeo();
-  const controls = new OrbitControls( camera, renderer.domElement );
+  const controls = new OrbitControls(camera, renderer.domElement);
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
   let npcObjects = { npcShips: [], npcBlasters: [] };
   let keyStates = initKeyState();
   let scene = new THREE.Scene();
-  scene = createLights(scene);
-  scene.add(new THREE.Points(starGeoAndVelo.starGeo, starMaterial));
+
+  scene.add(new THREE.Points(starGeoAndVelo.starGeo, createStarMaterial()));
   scene.add(pcObjects.pcShip);
+  createLights(scene);
 
   window.addEventListener('keydown', (e) => keyStates = setKeyState(keyStates, e));
   window.addEventListener('keyup', (e) => keyStates = resetKeyState(keyStates, e));
@@ -35,7 +37,11 @@ const gameLogic = function () {
   function animate() {
     // let t0 = performance.now();
     updateStars(starGeoAndVelo);
-    scene = updateGameObjects(scene, pcObjects, npcObjects, keyStates);
+
+    pcObjects = updatePCObjects(scene, pcObjects, keyStates);
+    npcObjects = updateNPCObjects(scene, npcObjects);
+    collisionCheck(scene, pcObjects, npcObjects);
+
     controls.update();
     renderer.render(scene, camera);
     // let t1 = performance.now();

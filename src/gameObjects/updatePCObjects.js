@@ -1,11 +1,15 @@
 import { createPCBlaster } from './createPCObjects';
 
-
 const updatePCObjects = function (scene, pcObjects, keyStates) {
-    let shipPosition = pcObjects.pcShip.position;
-    let shipRotation = pcObjects.pcShip.rotation;
-    let blasters = pcObjects.pcBlasters;
+    const blasterCoolTime = pcObjects.pcShip.blasterCoolTime;
+    const blasterHeatProduce = pcObjects.pcShip.blasterHeatProduce;
+    const blasterRange = 250;
+    const shipPosition = pcObjects.pcShip.position;
+    const shipRotation = pcObjects.pcShip.rotation;
+    const blasters = pcObjects.pcBlasters;
     let newBlasters = [];
+
+    if (blasterCoolTime > 0) pcObjects.pcShip.blasterCoolTime -= 1;
 
     if (keyStates.right == true) {
         shipPosition.x -= 0.5;
@@ -27,21 +31,31 @@ const updatePCObjects = function (scene, pcObjects, keyStates) {
         shipPosition.x += 1;
         shipRotation.z -= 0.3;
     }
-    if (keyStates.blaster == true) {
+
+    if (keyStates.blaster == true && blasterCoolTime == 0) {
         const newBlaster = createPCBlaster(shipPosition)
-        blasters.push(newBlaster);
         scene.add(newBlaster);
-    }
-    
-    if (blasters.length > 0) {
-        blasters.forEach((e) => {
-            let newBlaster = e;
-            newBlaster.position.z += e.speed;
-            newBlaster.position.needsUpdate = true;
-        });
+        blasters.push(newBlaster);
+        pcObjects.pcShip.blasterCoolTime = blasterHeatProduce;
     }
 
-    return scene;
+    if (blasters.length > 0) {
+        newBlasters = blasters.filter((blaster) => {
+            if (blaster.position.z < blasterRange) {
+                let newBlaster = blaster;
+                newBlaster.position.z += blaster.speed;
+                newBlaster.position.needsUpdate = true;
+                blaster = newBlaster;
+                return blaster;
+            }
+            scene.remove(blaster);
+            return false;
+        });
+    }
+    blasters.length = 0;
+    blasters.push(...newBlasters);
+
+    return pcObjects;
 };
 
 export default updatePCObjects;

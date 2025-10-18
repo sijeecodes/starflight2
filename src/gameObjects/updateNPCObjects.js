@@ -1,14 +1,14 @@
 import { createNPCShip } from './createNPCObjects';
 import { createNPCBlaster } from './createNPCObjects';
 
-
-const updatePCObjects = function (scene, npcObjects) {
+const updateNPCObjects = function (scene, npcObjects) {
     if (npcObjects.npcShips.length == 0) {
         const newShip = createNPCShip();
         npcObjects.npcShips.push(newShip);
         scene.add(newShip);
     }
 
+    const blasterRange = -50;
     let shipPosition = npcObjects.npcShips[0].position;
     let blasters = npcObjects.npcBlasters;
 
@@ -19,20 +19,20 @@ const updatePCObjects = function (scene, npcObjects) {
     }
     
     if (blasters.length > 0) {
-        blasters.forEach((e, index) => {
-            if (e.position.z < -50) {
+        blasters.forEach((blaster, index) => {
+            if (blaster.position.z < blasterRange) {
 
-                scene.remove(e);
+                scene.remove(blaster);
                 npcObjects.npcBlasters.splice(index, 1);
             }
             
-            let newBlaster = e;
-            newBlaster.position.z += e.speed;
+            let newBlaster = blaster;
+            newBlaster.position.z += blaster.speed;
             newBlaster.position.needsUpdate = true;
         });
     }
 
-    return scene;
+    return npcObjects;
 };
 
-export default updatePCObjects;
+export default updateNPCObjects;

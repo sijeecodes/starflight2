@@ -9,8 +9,6 @@ const createLights = function (scene) {
     directionalLight2.position.set(-30, -10, 100);
     scene.add(directionalLight1);
     scene.add(directionalLight2);
-
-    return scene;
 }
 
 export default createLights;

@@ -17,7 +17,7 @@ function createPCShip() {
     pcShip.add(aimFrame);
     pcShip.collisionSize = 7;
     pcShip.blasterCoolTime = 0;
-    pcShip.blasterHeatProduce = 20;
+    pcShip.blasterDelay = 20;
     return pcShip;
 };
 

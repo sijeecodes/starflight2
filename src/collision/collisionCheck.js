@@ -8,7 +8,8 @@ function collisionCheck(scene, pcObjects, npcObjects) {
     const npcShips = npcObjects.npcShips;
     const npcBlasters = npcObjects.npcBlasters;
     let newBlasters = [];
-    
+    let newNpcShips = [];
+
     // pcObjects.pcShip.children[1].children[0]; // 3D obj
     // pcObjects.pcShip.position : position
     // pcObjects.pcBlasters[].geometry  : blaster box geometry
@@ -39,7 +40,7 @@ function collisionCheck(scene, pcObjects, npcObjects) {
                     pcBlasterGone = true;
                     //explosion effect;
 
-                    npc.hp = npc.hp - pcBlaster.power;
+                    npc.hp -= pcBlaster.power;
                     npc.hp <= 0 ? scene.remove(npc) : newNpcShips.push(npc);
                 } else newNpcShips.push(npc);
             } else newNpcShips.push(npc);
@@ -52,7 +53,34 @@ function collisionCheck(scene, pcObjects, npcObjects) {
     pcBlasters.push(...newBlasters);
 
     //check all enemies vs pc
+    npcShips.forEach((npc) => {
+        if (closeDistance(npc, pcShip)) {
+            if (raycastHit("npcToPc", npc, pcShip.children[1].children[0])) {
+                pcShip.hp -= 1;
+                npc.hp -= 1;
+                //explosion effect;
+
+                npc.hp <= 0 ? scene.remove(npc) : newNpcShips.push(npc);
+            } else newNpcShips.push(npc);
+        } else newNpcShips.push(npc);
+    });
+    npcShips.length = 0;
+    npcShips.push(...newNpcShips);
+
     //check all enemy blasters vs pc
+    newBlasters.length = 0;
+    npcBlasters.forEach((blaster) => {
+        if (closeDistance(blaster, pcShip)) {
+            if (raycastHit("npcToPc", blaster, pcShip.children[1].children[0])) {
+                pcShip.hp -= blaster.power;
+                //explosion effect;
+                
+                scene.remove(blaster);
+            } else newBlasters.push(blaster);
+        } else newBlasters.push(blaster);
+    });
+    npcBlasters.length = 0;
+    npcBlasters.push(...newBlasters);
 }
 
 export default collisionCheck;

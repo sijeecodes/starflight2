@@ -2,7 +2,7 @@ import { createPCBlaster } from './createPCObjects';
 
 const updatePCObjects = function (scene, pcObjects, keyStates) {
     const blasterCoolTime = pcObjects.pcShip.blasterCoolTime;
-    const blasterHeatProduce = pcObjects.pcShip.blasterHeatProduce;
+    const blasterDelay = pcObjects.pcShip.blasterDelay;
     const blasterRange = 250;
     const shipPosition = pcObjects.pcShip.position;
     const shipRotation = pcObjects.pcShip.rotation;
@@ -36,7 +36,7 @@ const updatePCObjects = function (scene, pcObjects, keyStates) {
         const newBlaster = createPCBlaster(shipPosition)
         scene.add(newBlaster);
         blasters.push(newBlaster);
-        pcObjects.pcShip.blasterCoolTime = blasterHeatProduce;
+        pcObjects.pcShip.blasterCoolTime = blasterDelay;
     }
 
     if (blasters.length > 0) {

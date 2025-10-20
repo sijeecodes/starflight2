@@ -41,7 +41,7 @@
  - patternTime : Timestamp from PatternTimer for the action to be triggered. 
  - action : The triggered action.
  - value : Value for action.
- <br>
+
  ##### Action lists: name(value)
  1. blasterTo("PC" or "Forward") : Fires blaster to "PC" or "Forward".
  2. look("PC") : Sets NPC "targetRotation" to see PC once. Does not keep rotating to face PC. 

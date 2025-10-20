@@ -35,7 +35,7 @@ function collisionCheck(scene, pcObjects, npcObjects) {
 
         npcShips.forEach((npc) => {
             if (closeDistance(pcBlaster, npc)) {
-                if (raycastHit("pcBlasterToNpc", pcBlaster, npc)) {
+                if (raycastHit(pcBlaster, npc)) {
                     scene.remove(pcBlaster);
                     pcBlasterGone = true;
                     //explosion effect;
@@ -55,7 +55,7 @@ function collisionCheck(scene, pcObjects, npcObjects) {
     //check all enemies vs pc
     npcShips.forEach((npc) => {
         if (closeDistance(npc, pcShip)) {
-            if (raycastHit("npcToPc", npc, pcShip.children[1].children[0])) {
+            if (raycastHit(npc, pcShip.children[1].children[0])) {
                 pcShip.hp -= 1;
                 npc.hp -= 1;
                 //explosion effect;
@@ -71,7 +71,7 @@ function collisionCheck(scene, pcObjects, npcObjects) {
     newBlasters.length = 0;
     npcBlasters.forEach((blaster) => {
         if (closeDistance(blaster, pcShip)) {
-            if (raycastHit("npcToPc", blaster, pcShip.children[1].children[0])) {
+            if (raycastHit(blaster, pcShip.children[1].children[0])) {
                 pcShip.hp -= blaster.power;
                 //explosion effect;
                 

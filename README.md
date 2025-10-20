@@ -6,10 +6,10 @@
  - Level Data driven NPC spawn.
  - NPC Data driven NPC stats and AI.
 
-### Level System
+## Level System
  - Level NPC Objects are spawned by Level Data.
 
-#### Level Data
+### Level Data
  - Format : [{eventTime: timeStamp, npcAI: "npcAIname", npcBasics: "npcBasicName", startingPosition: [x,y,z]}, {...} ...]
  - Event time of the first event will be checked.
  - When time is met, NPC is constructed based on data.
@@ -20,13 +20,13 @@
  3. npcBasics    : Name of NPC's basic data used for stats and rendering.
  4. startPosition : Spawn position of the NPC Object.
 
-### NPC System
+## NPC System
  - NPC stats and behaviours based on data. Three datas are combined for an NPC.
  1. NPC AI : NPC AI Patterns are triggered by conditions inside this data.
  2. NPC AI Patterns : NPC AI Pattern data, used in NPC AI. Defines NPC behaviour.
  3. NPC Basics : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
-#### NPC AI
+### NPC AI
  - Format : { aiName: { triggerType: "time / HP", triggerValue: value, aiPattern: "aiPatternName" }, aiName2: {,,,}, ... }
  - Each NPC AI data object contains 4 below attributes.
  - aiName("name") : Name of the NPC AI.
@@ -34,7 +34,7 @@
  - triggerValue(int value) : Trigger value. (game timeStamp / NPCs HP)
  - aiPattern("patternName") : Name of NPC AI Pattern to load.
 
-#### NPC AI Pattern
+### NPC AI Pattern
  - Format : { patternName: [{ pattenTime: "time", action: "nameOfAction", value: valueForAction }, {...}, ...], patternName2: [], ... }
  - A "pattenName" named NPC AI Pattern contains array of "action"s with timeStamp and values.
  - patternName : Name of the pattern. When pattern starts, PatternTimer starts.
@@ -42,7 +42,7 @@
  - action : The triggered action.
  - value : Value for action.
 
- ##### Action lists: name(value)
+ #### Action lists: name(value)
  1. blasterTo("PC" or "Forward") : Fires blaster to "PC" or "Forward".
  2. look("PC") : Sets NPC "targetRotation" to see PC once. Does not keep rotating to face PC. 
  3. setRotation(x, y, z) : Sets NPC "targetRotation" to (x, y, z).
@@ -52,11 +52,11 @@
  7. setDefaultSpeed(x, y, z) : Sets NPC "defaultSpeed" to (x, y, z) amount.
  8. setPatternTime(int value) : Sets PatternTimer to "value". Enables loop of current AI pattern. 
 
-### NPC Basics
+## NPC Basics
  - Format : { npcBasicName: { attribute1: value, attribute2: value ...}, {...}, ...}
  - Basic datas for NPC.
    
-#### Attributes : attributeName(value)
+### Attributes : attributeName(value)
  1. npcGlb("fileName") : 3D resource file for the NPC.
  2. collisionSize(int value) : Length for brief collision check. Should be set as model's longest vertex from center.
  3. hp(int value) : NPC's hp.
@@ -69,7 +69,7 @@
  10. rotationSpeed(x, y, z) : Current rotating speed.
  11. targetRotation(x, y, z) : Target rotation the NPC is rotating to.
 
-#### Other Basic NPC Attributes
+### Other Basic NPC Attributes
  1. elapsedTime : Elapsed time since NPC creation.
  2. position : Position of the NPC.
  3. rotation : Rotation of the NPC.

@@ -2,11 +2,13 @@ import * as THREE from 'three';
 import { createStarGeo, createStarMaterial } from './environment/createStars';
 import updateStars from './environment/updateStars';
 import createLights from './environment/createLights';
+import createLevelArr from './Level/createLevelArr';
 import { createPCShip } from './pcObjects/createPCObjects';
 import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeyStates';
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
 import collisionCheck from './collision/collisionCheck';
 import updatePCObjects from './pcObjects/updatePCObjects';
+import updateLevel from './Level/updateLevel';
 import updateNPCObjects from './npcObjects/updateNPCObjects';
 
 const gameLogic = function () {
@@ -14,15 +16,16 @@ const gameLogic = function () {
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
   const starGeoAndVelo = createStarGeo();
   const controls = new OrbitControls(camera, renderer.domElement);
-  let timeStamp = 0;
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
-  let npcObjects = { npcShips: [], npcBlasters: [] };
+  let npcObjects = { npcs: [], npcBlasters: [] };
   let keyStates = initKeyState();
   let scene = new THREE.Scene();
+  scene.timeStamp = 0;
 
   scene.add(new THREE.Points(starGeoAndVelo.starGeo, createStarMaterial()));
   scene.add(pcObjects.pcShip);
   createLights(scene);
+  createLevelArr(scene);
 
   window.addEventListener('keydown', (e) => keyStates = setKeyState(keyStates, e));
   window.addEventListener('keyup', (e) => keyStates = resetKeyState(keyStates, e));
@@ -36,11 +39,12 @@ const gameLogic = function () {
 
   setInterval(animate, 1000 / 30);
   function animate() {
-    timeStamp += 1;
+    scene.timeStamp += 1;
     // let t0 = performance.now();
     updateStars(starGeoAndVelo);
 
     pcObjects = updatePCObjects(scene, pcObjects, keyStates);
+    npcObjects = updateLevel(scene, npcObjects);
     npcObjects = updateNPCObjects(scene, npcObjects);
     collisionCheck(scene, pcObjects, npcObjects);
 

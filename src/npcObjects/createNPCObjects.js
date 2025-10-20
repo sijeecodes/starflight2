@@ -1,37 +1,35 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
+import npcBasicData from './npcData/npcBasicData';
+import npcAILoader from './npcAILoader';
+import npcAIPatternLoader from './npcAIPatternLoader';
 
-// npcObjects.npcShips[].children[0].children[0] : ship 3D object
-// npcObjects.npcShips[].position   : position
-// npcObjects.npcShips[].collisionSize : length of ship
-// npcObjects.npcShips[].ai         : npc AI name
-// npcObjects.npcShips[].hp         : npc HP
-// npcObjects.npcShips[].power      : npc Power
-// npcObjects.npcShips[].speed      : npc Speed
-
-// npcObjects.npcBlasters[].geometry : blaster box geometry
-// npcObjects.npcBlasters[].size     : length of blaster
-// npcObjects.npcBlasters[].position : blaster position
-// npcObjects.npcBlasters[].power    : blaster power
-
-function createNPCShip() {
+function createNPCObject(scene, npcObjects, { npcAI, npcBasic, startingPosition }) {
+    const objBasic = npcBasicData[npcBasic];
+    const obj = new THREE.Group();
     const loader = new GLTFLoader();
-    const ship = new THREE.Group();
 
-    loader.load('../3dSrc/npcShip1.glb',
-        function (object) { ship.add(object.scene) },
+    loader.load(objBasic.npcGlb,
+        function (object) { obj.add(object.scene) },
         undefined,
         function (error) { console.error(error) }
     );
-    ship.position.set(Math.random() * 20, 0, 100);
-    ship.ai = "npcAI";
-    ship.hp = 2;
-    ship.power = 1;
-    ship.speed = 1;
-    ship.collisionSize = 7;
-    ship.DoubleSide = true; 
+    
+    for (const [key, value] of Object.entries(objBasic)) {
+        obj[key] = value;
+    }
+    obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
 
-    return ship;
+    obj.elapsedTime = 0;
+    obj.npcAI = npcAILoader();//array
+    obj.aiPattern = npcAIPatternLoader()//array
+    obj.aiPatternCurrentStep = 0;
+    obj.aiPatternTime = 0;
+
+    npcObjects.npcs.push(obj);
+    scene.add(obj);
+
+    return npcObjects;
 };
 
 function createNPCBlaster(position) {
@@ -49,4 +47,4 @@ function createNPCBlaster(position) {
     return blaster;
 }
 
-export { createNPCShip, createNPCBlaster };
+export { createNPCObject, createNPCBlaster };

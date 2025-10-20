@@ -27,12 +27,11 @@
  3. NPC Basics : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
 ### NPC AI
- - Format : { aiName: { triggerType: "time / HP", triggerValue: value, aiPattern: "aiPatternName" }, aiName2: {,,,}, ... }
- - Each NPC AI data object contains 4 below attributes.
- - aiName("name") : Name of the NPC AI.
- - triggerType("timeStamp" or "HP") : AI Pattern trigger flag type. (game "timeStamp" / NPCs "HP")
- - triggerValue(int value) : Trigger value. (game timeStamp / NPCs HP)
- - aiPattern("patternName") : Name of NPC AI Pattern to load.
+ - Format : { aiName: { timeTriggered: [ { "triggerTime", "patternName" }, … ], hpTirggered: [{ "triggerHP", "patternName" }, …] }, aiName2: {[],[]}, ... }
+ - aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
+ - timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
+ - hpTriggered : When NPC's HP drops below "triggerHP", "patternName" pattern is activated.
+ - "patternName" : Name of NPC AI Pattern to load.
 
 ### NPC AI Pattern
  - Format : { patternName: [{ pattenTime: "time", action: "nameOfAction", value: valueForAction }, {...}, ...], patternName2: [], ... }
@@ -64,15 +63,18 @@
  5. defaultSpeed(x, y, z) : Default moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
  6. speed(x, y, z) : Current moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
  7. maxSpeed(x, y, z) : Max speed the NPC can get. Also used for max rotation speed.
- 8. speedAccel(x, y, z) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation.
- 9. targetPosition(x, y, z) : Target desitination the NPC is moving to.
- 10. rotationSpeed(x, y, z) : Current rotating speed.
- 11. targetRotation(x, y, z) : Target rotation the NPC is rotating to.
+ 8. speedAccel(x, y, z) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation speed.
+ 9. speedDecel(x, y, z) : Deceleration for NPC to get to defaultSpeed per frame. Also used for deceleration of NPC rotation speed.
+ 10. targetPosition(x, y, z) : Target desitination the NPC is moving to.
+ 11. rotationSpeed(x, y, z) : Current rotating speed.
+ 12. targetRotation(x, y, z) : Target rotation the NPC is rotating to.
 
 ### Other Basic NPC Attributes
  1. elapsedTime : Elapsed time since NPC creation.
- 2. position : Position of the NPC.
- 3. rotation : Rotation of the NPC.
+ 2. patternTime : Elapsed time since current AI Pattern start.
+ 3. aiPattern : Name of currently running AI Pattern.
+ 4. position : Position of the NPC.
+ 5. rotation : Rotation of the NPC.
 
 ## Misc
 

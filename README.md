@@ -10,21 +10,21 @@
  - Level NPC Objects are spawned by Level Data.
 
 ### Level Data
- - Format : [{eventTime: "timeStamp", npcAI: "npcAIname", npcBasics: "npcBasicName", startingPosition: "[x,y,z]"}, {...} ...]
+ - Format : [{eventTime: "timeStamp", npcAI: "npcAIname", npcBasic: "npcBasicName", startingPosition: "[x,y,z]"}, {...} ...]
  - Event time of the first event will be checked.
  - When time is met, NPC is constructed based on data.
  - The ran data will be removed from the level data array.
  - Each level data object conations 4 below attributes.
  1. eventTime    : Timestamp of the time the NPC Object is produced.
  2. npcAI        : Name of NPC AI pattern used for the NPC Object.
- 3. npcBasics    : Name of NPC's basic data used for stats and rendering.
+ 3. npcBasic    : Name of NPC's basic data used for stats and rendering.
  4. startPosition : Spawn position of the NPC Object.
 
 ## NPC System
  - NPC stats and behaviours based on data. Three datas are combined for an NPC.
  1. NPC AI : NPC AI Patterns are triggered by conditions inside this data.
  2. NPC AI Patterns : NPC AI Pattern data, used in NPC AI. Defines NPC behaviour.
- 3. NPC Basics : NPC speed, power, hp, collision data and 3D resource used for NPC.
+ 3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
 ### NPC AI
  - Format : { aiName: { timeTriggered: [ { "triggerTime", "patternName" }, … ], hpTirggered: [{ "triggerHP", "patternName" }, …] }, aiName2: {[],[]}, ... }
@@ -51,9 +51,9 @@
  7. setDefaultSpeed(x, y, z) : Sets NPC "defaultSpeed" to (x, y, z) amount.
  8. setPatternTime(int value) : Sets PatternTimer to "value". Enables loop of current AI pattern. 
 
-## NPC Basics
+## NPC Basic
  - Format : { npcBasicName: { attribute1: value, attribute2: value ...}, {...}, ...}
- - Basic datas for NPC.
+ - Basic data for NPC.
    
 ### Attributes : attributeName(value)
  1. npcGlb("fileName") : 3D resource file for the NPC.

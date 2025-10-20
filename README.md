@@ -10,7 +10,7 @@
  - Level NPC Objects are spawned by Level Data.
 
 ### Level Data
- - Format : [{eventTime: timeStamp, npcAI: "npcAIname", npcBasics: "npcBasicName", startingPosition: [x,y,z]}, {...} ...]
+ - Format : [{eventTime: "timeStamp", npcAI: "npcAIname", npcBasics: "npcBasicName", startingPosition: "[x,y,z]"}, {...} ...]
  - Event time of the first event will be checked.
  - When time is met, NPC is constructed based on data.
  - The ran data will be removed from the level data array.
@@ -34,7 +34,7 @@
  - "patternName" : Name of NPC AI Pattern to load.
 
 ### NPC AI Pattern
- - Format : { patternName: [{ pattenTime: "time", action: "nameOfAction", value: valueForAction }, {...}, ...], patternName2: [], ... }
+ - Format : { patternName: [{ patternTime: "time", action: "nameOfAction", value: "valueForAction" }, {...}, ...], patternName2: [], ... }
  - A "pattenName" named NPC AI Pattern contains array of "action"s with timeStamp and values.
  - patternName : Name of the pattern. When pattern starts, PatternTimer starts.
  - patternTime : Timestamp from PatternTimer for the action to be triggered. 

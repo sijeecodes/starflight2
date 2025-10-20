@@ -1,4 +1,4 @@
-import { createPCBlaster } from './createPCObjects';
+import { createPCBlaster } from '../pcObjects/createPCObjects';
 
 const updatePCObjects = function (scene, pcObjects, keyStates) {
     const blasterCoolTime = pcObjects.pcShip.blasterCoolTime;

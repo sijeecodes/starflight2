@@ -2,18 +2,19 @@ import * as THREE from 'three';
 import { createStarGeo, createStarMaterial } from './environment/createStars';
 import updateStars from './environment/updateStars';
 import createLights from './environment/createLights';
-import { createPCShip } from './gameObjects/createPCObjects';
+import { createPCShip } from './pcObjects/createPCObjects';
 import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeyStates';
 import { OrbitControls } from 'three/addons/controls/OrbitControls';
 import collisionCheck from './collision/collisionCheck';
-import updatePCObjects from './gameObjects/updatePCObjects';
-import updateNPCObjects from './gameObjects/updateNPCObjects';
+import updatePCObjects from './pcObjects/updatePCObjects';
+import updateNPCObjects from './npcObjects/updateNPCObjects';
 
 const gameLogic = function () {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
   const starGeoAndVelo = createStarGeo();
   const controls = new OrbitControls(camera, renderer.domElement);
+  let timeStamp = 0;
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
   let npcObjects = { npcShips: [], npcBlasters: [] };
   let keyStates = initKeyState();
@@ -35,6 +36,7 @@ const gameLogic = function () {
 
   setInterval(animate, 1000 / 30);
   function animate() {
+    timeStamp += 1;
     // let t0 = performance.now();
     updateStars(starGeoAndVelo);
 

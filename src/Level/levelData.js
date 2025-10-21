@@ -1,19 +1,19 @@
 const levelData = [
     {
         eventTime:  50,
-        npcAI:      "defaultAI",
+        npcAIname:      "defaultAI",
         npcBasic:  "baseNPCBasic",
         startingPosition: [Math.random() * 30, 0, 100]
     },
     {
         eventTime:  300,
-        npcAI:      "defaultAI",
+        npcAIname:      "defaultAI",
         npcBasic:  "baseNPCBasic",
         startingPosition: [Math.random() * 30, 0, 80]
     },
     {
         eventTime:  450,
-        npcAI:      "defaultAI",
+        npcAIname:      "defaultAI",
         npcBasic:  "baseNPCBasic",
         startingPosition: [Math.random() * 30, Math.random() * 10, 100]
     }

@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import npcBasicData from './npcData/npcBasicData';
-import npcAILoader from './npcAILoader';
-import npcAIPatternLoader from './npcAIPatternLoader';
+import npcAIData from './npcData/npcAIData';
+import updateNPCAI from './updateNPCAI';
 
-function createNPCObject(scene, npcObjects, { npcAI, npcBasic, startingPosition }) {
+function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosition }) {
     const objBasic = npcBasicData[npcBasic];
     const obj = new THREE.Group();
     const loader = new GLTFLoader();
@@ -14,17 +14,17 @@ function createNPCObject(scene, npcObjects, { npcAI, npcBasic, startingPosition 
         undefined,
         function (error) { console.error(error) }
     );
-    
+
     for (const [key, value] of Object.entries(objBasic)) {
         obj[key] = value;
     }
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
 
     obj.elapsedTime = 0;
-    obj.npcAI = npcAILoader();//array
-    obj.aiPattern = npcAIPatternLoader()//array
-    obj.aiPatternCurrentStep = 0;
     obj.aiPatternTime = 0;
+    obj.aiPatternCurrentStep = 0;
+    obj.npcAI = npcAIData[npcAIname];
+    updateNPCAI(obj);
 
     npcObjects.npcs.push(obj);
     scene.add(obj);

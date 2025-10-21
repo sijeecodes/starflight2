@@ -1,4 +1,5 @@
 import { createNPCBlaster } from './createNPCObjects';
+import updateNPCAI from './updateNPCAI';
 
 const updateNPCObjects = function (scene, npcObjects) {
     // const blasterRange = -50;
@@ -24,6 +25,7 @@ const updateNPCObjects = function (scene, npcObjects) {
     //         newBlaster.position.needsUpdate = true;
     //     });
     // }
+    npcObjects.npcs.forEach(obj => updateNPCAI(obj));
 
     return npcObjects;
 };

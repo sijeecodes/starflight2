@@ -27,11 +27,11 @@
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
 ### NPC AI
- - Format : { aiName: { timeTriggered: [ { "triggerTime", "patternName" }, … ], hpTirggered: [{ "triggerHP", "patternName" }, …] }, aiName2: {[],[]}, ... }
+ - Format : { aiName: { timeTriggered: [ { triggerTime: "time", patternName: "name" }, … ], hpTirggered: [{ triggerHP: "hp", patternName: "name" }, …] }, aiName2: {[],[]}, ... }
  - aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
  - timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
  - hpTriggered : When NPC's HP drops below "triggerHP", "patternName" pattern is activated.
- - "patternName" : Name of NPC AI Pattern to load.
+ - patternName : Name of NPC AI Pattern to load.
 
 ### NPC AI Pattern
  - Format : { patternName: [{ patternTime: "time", action: "nameOfAction", value: "valueForAction" }, {...}, ...], patternName2: [], ... }
@@ -42,13 +42,13 @@
  - value : Value for action.
 
  #### Action lists: name(value)
- 1. blasterTo("PC" or "Forward") : Fires blaster to "PC" or "Forward".
+ 1. blaster("PC" or "Front") : Fires blaster to "PC" or "Front".
  2. look("PC") : Sets NPC "targetRotation" to see PC once. Does not keep rotating to face PC. 
- 3. setRotation(x, y, z) : Sets NPC "targetRotation" to (x, y, z).
- 4. moveToTarget((x, y, z) or "PC") : Sets NPC "targetPosition" to (x, y, z), or (x, y) for PC's current position.
- 5. move(x, y, z) : Sets NPC "targetPosition" to move (+x, +y, +z) amount. 
- 6. ramdomMove(x, y, z) : Sets NPC "targetPosition" to move (-x ~ x, -y ~ y, -z ~ z) amount.
- 7. setDefaultSpeed(x, y, z) : Sets NPC "defaultSpeed" to (x, y, z) amount.
+ 3. setRotation([x, y, z]) : Sets NPC "targetRotation" to (x, y, z).
+ 4. moveToTarget([x, y, z] or "PC") : Sets NPC "targetPosition" to (x, y, z), or (x, y) for PC's current position.
+ 5. move([x, y, z]) : Sets NPC "targetPosition" to move (+x, +y, +z) amount. 
+ 6. ramdomMove([x, y, z]) : Sets NPC "targetPosition" to move (0 ~ x, 0 ~ y, 0 ~ z) amount.
+ 7. setDefaultSpeed([x, y, z]) : Sets NPC "defaultSpeed" to (x, y, z) amount.
  8. setPatternTime(int value) : Sets PatternTimer to "value". Enables loop of current AI pattern. 
 
 ## NPC Basic
@@ -60,14 +60,14 @@
  2. collisionSize(int value) : Length for brief collision check. Should be set as model's longest vertex from center.
  3. hp(int value) : NPC's hp.
  4. blasterPower(int value) : Damage of the blaster.
- 5. defaultSpeed(x, y, z) : Default moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
- 6. speed(x, y, z) : Current moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
- 7. maxSpeed(x, y, z) : Max speed the NPC can get. Also used for max rotation speed.
- 8. speedAccel(x, y, z) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation speed.
- 9. speedDecel(x, y, z) : Deceleration for NPC to get to defaultSpeed per frame. Also used for deceleration of NPC rotation speed.
- 10. targetPosition(x, y, z) : Target desitination the NPC is moving to.
- 11. rotationSpeed(x, y, z) : Current rotating speed.
- 12. targetRotation(x, y, z) : Target rotation the NPC is rotating to.
+ 5. defaultSpeed([x, y, z]) : Default moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
+ 6. speed([x, y, z]) : Current moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
+ 7. maxSpeed([x, y, z]) : Max speed the NPC can get. Also used for max rotation speed.
+ 8. speedAccel([x, y, z]) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation speed.
+ 9. speedDecel([x, y, z]) : Deceleration for NPC to get to defaultSpeed per frame. Also used for deceleration of NPC rotation speed.
+ 10. targetPosition([x, y, z]) : Target desitination the NPC is moving to.
+ 11. rotationSpeed([x, y, z]) : Current rotating speed.
+ 12. targetRotation([x, y, z]) : Target rotation the NPC is rotating to.
 
 ### Other Basic NPC Attributes
  1. elapsedTime : Elapsed time since NPC creation.

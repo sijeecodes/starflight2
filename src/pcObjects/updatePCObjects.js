@@ -54,8 +54,6 @@ const updatePCObjects = function (scene, pcObjects, keyStates) {
     }
     blasters.length = 0;
     blasters.push(...newBlasters);
-
-    return pcObjects;
 };
 
 export default updatePCObjects;

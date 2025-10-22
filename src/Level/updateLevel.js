@@ -8,7 +8,6 @@ function updateLevel(scene, npcObjects) {
         npcObjects = createNPCObject(scene, npcObjects, objData);
         scene.levelArr.shift();
     }
-    return npcObjects;
 }
 
 export default updateLevel;

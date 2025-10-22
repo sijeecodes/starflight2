@@ -25,23 +25,20 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     obj.aiPatternCurrentStep = 0;
     obj.npcAI = npcAIData[npcAIname];
     updateNPCAI(obj);
-
     npcObjects.npcs.push(obj);
     scene.add(obj);
-
-    return npcObjects;
 };
 
-function createNPCBlaster(position) {
+function createNPCBlaster(obj) {
     const geometry = new THREE.BoxGeometry(0.3, 0.3, 5);
     const material = new THREE.MeshStandardMaterial({ color: 0xff0800 });
     const blaster = new THREE.Mesh(geometry, material);
-    blaster.position.set(position.x, position.y, position.z);
+    blaster.position.set(obj.position);
     blaster.direction = new THREE.Vector2();
     blaster.direction.x = 0;
     blaster.direction.y = 0;
     blaster.speed = -1;
-    blaster.power = 1;
+    blaster.power = obj.power;
     blaster.collisionSize = 2.5;
 
     return blaster;

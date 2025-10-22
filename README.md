@@ -34,10 +34,10 @@
  - patternName : Name of NPC AI Pattern to load.
 
 ### NPC AI Pattern
- - Format : { patternName: [{ patternTime: "time", action: "nameOfAction", value: "valueForAction" }, {...}, ...], patternName2: [], ... }
+ - Format : { patternName: [{ actionTime: "time", action: "nameOfAction", value: "valueForAction" }, {...}, ...], patternName2: [], ... }
  - A "pattenName" named NPC AI Pattern contains array of "action"s with timeStamp and values.
  - patternName : Name of the pattern. When pattern starts, PatternTimer starts.
- - patternTime : Timestamp from PatternTimer for the action to be triggered. 
+ - actionTime : Timestamp from PatternTimer for the action to be triggered. 
  - action : The triggered action.
  - value : Value for action.
 

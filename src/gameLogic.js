@@ -42,10 +42,9 @@ const gameLogic = function () {
     scene.timeStamp += 1;
     // let t0 = performance.now();
     updateStars(starGeoAndVelo);
-
-    pcObjects = updatePCObjects(scene, pcObjects, keyStates);
-    npcObjects = updateLevel(scene, npcObjects);
-    npcObjects = updateNPCObjects(scene, npcObjects);
+    updatePCObjects(scene, pcObjects, keyStates);
+    updateLevel(scene, npcObjects);
+    updateNPCObjects(scene, npcObjects);
     collisionCheck(scene, pcObjects, npcObjects);
 
     controls.update();

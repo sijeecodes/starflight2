@@ -1,33 +1,22 @@
-import { createNPCBlaster } from './createNPCObjects';
 import updateNPCAI from './updateNPCAI';
 
-const updateNPCObjects = function (scene, npcObjects) {
-    // const blasterRange = -50;
-    // let npcPosition = npcObjects.npcs[0].position;
-    // let blasters = npcObjects.npcBlasters;
+const updateNPCObjects = function (scene, { npcs, blasters }) {
 
-    // if (npcObjects.npcBlasters.length < 1) {
-    //     const newBlaster = createNPCBlaster(npcPosition)
-    //     npcObjects.npcBlasters.push(newBlaster);
-    //     scene.add(newBlaster);
-    // }
-    
-    // if (blasters.length > 0) {
-    //     blasters.forEach((blaster, index) => {
-    //         if (blaster.position.z < blasterRange) {
+    npcs.forEach(npc => {
+        npc.elapsedTime++;
+        npc.aiPatternTime++;
+        updateNPCAI(npc);
+    });
 
-    //             scene.remove(blaster);
-    //             npcObjects.npcBlasters.splice(index, 1);
-    //         }
-            
-    //         let newBlaster = blaster;
-    //         newBlaster.position.z += blaster.speed;
-    //         newBlaster.position.needsUpdate = true;
-    //     });
-    // }
-    npcObjects.npcs.forEach(obj => updateNPCAI(obj));
+    // if targetPosition != position
+    // move to targetPosition
 
-    return npcObjects;
+    // if targetRotation != rotation
+    // rotate to targetRotation
+
+    // if position.z drops below -50
+    // remove from scene, remove data
+
 };
 
 export default updateNPCObjects;

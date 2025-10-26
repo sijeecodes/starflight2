@@ -1,22 +1,31 @@
 import updateNPCAI from './updateNPCAI';
+import updateNPCPosition from './updateNPCPosition';
+import updateNPCRotation from './updateNPCRotation';
 
-const updateNPCObjects = function (scene, { npcs, blasters }) {
-
-    npcs.forEach(npc => {
+const updateNPCObjects = function (scene, { npcs, npcBlasters }) {
+    if (npcs.length < 1) return;
+    let newNPCList = npcs.filter(npc => {
         npc.elapsedTime++;
         npc.aiPatternTime++;
+
         updateNPCAI(npc);
+        updateNPCPosition(scene, npc);
+        updateNPCRotation(npc);
+
+        if (npc.position.z < -30) {
+            scene.remove(npc);
+            return false;
+        }
+        return true;
     });
 
-    // if targetPosition != position
-    // move to targetPosition
+    npcs.length = 0;
+    npcs.push(...newNPCList);
 
-    // if targetRotation != rotation
-    // rotate to targetRotation
-
-    // if position.z drops below -50
-    // remove from scene, remove data
-
+    if (npcBlasters.length < 1) return;
+    npcBlasters.forEach(blaster => {
+        updateNPCPosition(scene, blaster);
+    });
 };
 
 export default updateNPCObjects;

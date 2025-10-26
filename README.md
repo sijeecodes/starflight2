@@ -14,16 +14,16 @@
  - Event time of the first event will be checked.
  - When time is met, NPC is constructed based on data.
  - The ran data will be removed from the level data array.
- - Each level data object conations 4 below attributes.
+ - Each level data object contains 4 below attributes.
  1. eventTime    : Timestamp of the time the NPC Object is produced.
  2. npcAI        : Name of NPC AI pattern used for the NPC Object.
  3. npcBasic    : Name of NPC's basic data used for stats and rendering.
  4. startPosition : Spawn position of the NPC Object.
 
 ## NPC System
- - NPC stats and behaviours based on data. Three datas are combined for an NPC.
+ - NPC stats and behaviors based on data. Three data are combined for an NPC.
  1. NPC AI : NPC AI Patterns are triggered by conditions inside this data.
- 2. NPC AI Patterns : NPC AI Pattern data, used in NPC AI. Defines NPC behaviour.
+ 2. NPC AI Patterns : NPC AI Pattern data, used in NPC AI. Defines NPC behavior.
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
 ### NPC AI
@@ -62,10 +62,10 @@
  4. blasterPower(int value) : Damage of the blaster.
  5. defaultSpeed([x, y, z]) : Default moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
  6. speed([x, y, z]) : Current moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
- 7. maxSpeed([x, y, z]) : Max speed the NPC can get. Also used for max rotation speed.
+ 7. maxSpeed(value) : Max speed the NPC can get. Also used for max rotation speed.
  8. speedAccel([x, y, z]) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation speed.
- 9. speedDecel([x, y, z]) : Deceleration for NPC to get to defaultSpeed per frame. Also used for deceleration of NPC rotation speed.
- 10. targetPosition([x, y, z]) : Target desitination the NPC is moving to.
+ 9. speedDecel([x, y, z]) : Deceleration multiple for NPC to get to defaultSpeed per frame. Should be below 1. Also used for deceleration of NPC rotation speed.
+ 10. targetPosition([x, y, z]) : Target destination the NPC is moving to.
  11. rotationSpeed([x, y, z]) : Current rotating speed.
  12. targetRotation([x, y, z]) : Target rotation the NPC is rotating to.
 

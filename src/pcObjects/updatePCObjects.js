@@ -3,7 +3,8 @@ import { createPCBlaster } from '../pcObjects/createPCObjects';
 const updatePCObjects = function (scene, pcObjects, keyStates) {
     const blasterCoolTime = pcObjects.pcShip.blasterCoolTime;
     const blasterDelay = pcObjects.pcShip.blasterDelay;
-    const blasterRange = 250;
+    const blasterRange = 300;
+    const speed = 1;
     const shipPosition = pcObjects.pcShip.position;
     const shipRotation = pcObjects.pcShip.rotation;
     const blasters = pcObjects.pcBlasters;
@@ -12,23 +13,23 @@ const updatePCObjects = function (scene, pcObjects, keyStates) {
     if (blasterCoolTime > 0) pcObjects.pcShip.blasterCoolTime -= 1;
 
     if (keyStates.right == true) {
-        shipPosition.x -= 0.5;
+        shipPosition.x -= speed;
     }
     if (keyStates.left == true) {
-        shipPosition.x += 0.5;
+        shipPosition.x += speed;
     }
     if (keyStates.up == true) {
-        shipPosition.y -= 0.5;
+        shipPosition.y -= speed;
     }
     if (keyStates.down == true) {
-        shipPosition.y += 0.5;
+        shipPosition.y += speed;
     }
     if (keyStates.rightRoll == true) {
-        shipPosition.x -= 1;
+        shipPosition.x -= speed;
         shipRotation.z += 0.3;
     }
     if (keyStates.leftRoll == true) {
-        shipPosition.x += 1;
+        shipPosition.x += speed;
         shipRotation.z -= 0.3;
     }
 

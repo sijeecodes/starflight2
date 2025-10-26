@@ -5,7 +5,7 @@ function updateLevel(scene, npcObjects) {
 
     let objData = scene.levelArr[0];
     if (objData.eventTime <= scene.timeStamp) {
-        npcObjects = createNPCObject(scene, npcObjects, objData);
+        createNPCObject(scene, npcObjects, objData);
         scene.levelArr.shift();
     }
 }

@@ -17,7 +17,7 @@ function createPCShip() {
     pcShip.add(aimFrame);
     pcShip.collisionSize = 7;
     pcShip.blasterCoolTime = 0;
-    pcShip.blasterDelay = 20;
+    pcShip.blasterDelay = 3;
     return pcShip;
 };
 
@@ -29,7 +29,7 @@ function createPCBlaster(position) {
     blaster.direction = new THREE.Vector2();
     blaster.direction.x = 0;
     blaster.direction.y = 0;
-    blaster.speed = 3;
+    blaster.speed = 5;
     blaster.power = 1;
     blaster.collisionSize = 2.5;
 
@@ -39,17 +39,17 @@ function createPCBlaster(position) {
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([
-        0.7, -0.6, 0,
-        -0.7, -0.6, 0,
-        0, 0.5, 0,
-        0.7, -0.6, 0,
+        2.8, -2.4, 0,
+        -2.8, -2.4, 0,
+        0, 2.0, 0,
+        2.8, -2.4, 0,
     ]);
     const frameGeo2 = new LineGeometry();
     frameGeo2.setPositions([
-        0.35, -0.3, 5,
-        -0.35, -0.3, 5,
-        0, 0.25, 5,
-        0.35, -0.3, 5,
+        1.4, -1.2, 5,
+        -1.4, -1.2, 5,
+        0, 1.0, 5,
+        1.47, -1.2, 5,
     ]);
     const lineMaterial = new LineMaterial({
         depthTest: false,
@@ -62,7 +62,7 @@ function createAimFrame() {
     const aimFrame = new THREE.Group();
     aimFrame.add(new Line2(frameGeo1, lineMaterial));
     aimFrame.add(new Line2(frameGeo2, lineMaterial));
-    aimFrame.position.set(0, 0, 40);
+    aimFrame.position.set(0, 0, 50);
 
     return aimFrame;
 }

@@ -19,6 +19,7 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
         obj[key] = value;
     }
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
+    obj.targetPosition = [startingPosition[0], startingPosition[1], startingPosition[2]];
 
     obj.elapsedTime = 0;
     obj.aiPatternTime = 0;

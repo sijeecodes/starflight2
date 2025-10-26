@@ -1,6 +1,6 @@
 const npcBasicData = {
     baseNPCBasic: {
-        npcGlb:         '../3dSrc/npcShip1.glb',
+        npcGlb:         '../artSrc/npcShip1.glb',
         collisionSize:  7,
         hp:             3,
         blasterPower:   1,
@@ -14,7 +14,7 @@ const npcBasicData = {
         targetRotation: [0, 0, 0]
     },
     baseNPCBasic1: {
-        npcGlb:         '../3dSrc/npcShip1.glb',
+        npcGlb:         '../artSrc/npcShip1.glb',
         collisionSize:  7,
         hp:             3,
         blasterPower:   1,

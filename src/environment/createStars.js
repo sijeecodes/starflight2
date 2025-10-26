@@ -18,9 +18,9 @@ const createStarGeo = function () {
 const createStarMaterial = function () {
   return new THREE.PointsMaterial({
     color: 0xffffff,
-    size: 3,
+    size: 3.3,
     transparent: true,
-    map: new THREE.TextureLoader().load('3DSrc/star.png'),
+    map: new THREE.TextureLoader().load('artSrc/star.png'),
   });
 };
 

@@ -1,6 +1,4 @@
 function updateNPCPosition(scene, obj) {
-    console.log(obj, scene);
-
     if (obj.targetPosition.length < 3) return;
 
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
@@ -41,8 +39,6 @@ function updateNPCPosition(scene, obj) {
         obj.position.z = currentPos[2] + obj.speed[2];
         obj.targetPosition = currentPos;
     }
-
-    console.log(obj.position);
 }
 
 function estimateTime(currentPos, targetPos, maxSpeed) {

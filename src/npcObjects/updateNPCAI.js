@@ -21,7 +21,7 @@ function setPatternTime(obj, time) {
     for (let i = 0; i < obj.aiPattern.length; i++) {
         if (obj.aiPattern[i].actionTime >= time) {
             obj.aiPatternCurrentStep = i - 1;
-            break;
+            return;
         }
     }
 }

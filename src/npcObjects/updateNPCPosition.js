@@ -7,7 +7,7 @@ function updateNPCPosition(scene, obj) {
     let speed = obj.speed;
     let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
 
-    if (estTime > 10) {
+    if (estTime > 5) {
         let targetSpeed = obj.targetPosition.map((p, i) => (p - currentPos[i]) / estTime);
 
         targetSpeed.forEach((target, i) => {
@@ -35,6 +35,7 @@ function updateNPCPosition(scene, obj) {
     obj.position.x = currentPos[0] + speed[0];
     obj.position.y = currentPos[1] + speed[1];
     obj.position.z = currentPos[2] + speed[2];
+    obj.speed = [speed[0], speed[1], speed[2]];
 }
 
 function estimateTime(currentPos, targetPos, maxSpeed) {

@@ -22,13 +22,13 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     obj.targetPosition = [startingPosition[0], startingPosition[1], startingPosition[2]];
     obj.targetRotation = [0, 0, 0];
     obj.rotationSpeed = [0, 0, 0];
-    obj.speed = [0,0,0];
+    obj.speed = [0, 0, 0];
     obj.elapsedTime = 0;
     obj.aiPatternTime = 0;
     obj.aiPatternCurrentStep = 0;
     obj.npcAI = npcAIData[npcAIname];
     updateNPCAI(obj);
-    
+
     npcObjects.npcs.push(obj);
     scene.add(obj);
 };

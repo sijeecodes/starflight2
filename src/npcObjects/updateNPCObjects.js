@@ -4,6 +4,7 @@ import updateNPCRotation from './updateNPCRotation';
 
 const updateNPCObjects = function (scene, { npcs, npcBlasters }) {
     if (npcs.length < 1) return;
+
     let newNPCList = npcs.filter(npc => {
         npc.elapsedTime++;
         npc.aiPatternTime++;
@@ -23,6 +24,7 @@ const updateNPCObjects = function (scene, { npcs, npcBlasters }) {
     npcs.push(...newNPCList);
 
     if (npcBlasters.length < 1) return;
+
     npcBlasters.forEach(blaster => {
         updateNPCPosition(scene, blaster);
     });

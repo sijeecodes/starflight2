@@ -1,43 +1,78 @@
-import { createPCBlaster } from '../pcObjects/createPCObjects';
+import updatePCBlasters from './updatePCBlasters';
 
 const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStates) {
-    const blasterRange = 400;
-    const blasterCoolTime = pcShip.blasterCoolTime;
-    const blasterDelay = pcShip.blasterDelay;
-    let newBlasters = [];
+    let [ maxX, maxY, maxZ ] = pcShip.maxSpeed;
+    let [ accelX, accelY, accelZ ] = pcShip.speedAccel;
+    let [ decelX, decelY, decelZ ] = pcShip.speedDecel;
     let [ speedX, speedY, speedZ ] = pcShip.speed;
-    let [ maxSpeedX, maxSpeedY, maxSpeedZ ] = pcShip.maxSpeed;
-    let [ speedAccelX, speedAccelY, speedAccelZ ] = pcShip.speedAccel;
-    let [ speedDecelX, speedDecelY, speedDecelZ ] = pcShip.speedDecel;
+    let pos = pcShip.position;
+    let rot = pcShip.rotation;
+    let diagonal = false;
     
     function speedDecelerateX() {
-        if (speedX != 0) speedX = speedX * speedDecelX;
+        if (speedX != 0) speedX = speedX * decelX;
         if (Math.abs(speedX) < 0.001) speedX = 0;
     }
 
     function speedDecelerateY() {
-        if (speedY != 0) speedY = speedY * speedDecelY;
+        if (speedY != 0) speedY = speedY * decelY;
         if (Math.abs(speedY) < 0.001) speedY = 0;
     }
 
-    if (blasterCoolTime > 0) pcShip.blasterCoolTime -= 1;
-    
     if (keyStates.right && keyStates.left) {
         speedDecelerateX();
     } else {
-        if (keyStates.right && speedX <= maxSpeedX) {
-            if (speedX < 0) speedX = speedX * speedDecelX;
+        if ((keyStates.up && !keyStates.down) || (!keyStates.up && keyStates.down)) {
+            maxX = maxX * 0.86;
+            maxY = maxY * 0.86;
+            accelX = accelX * 0.86;
+            accelY = accelY * 0.86;
+            decelX = 1 - ((1 - decelX) * 0.86);
+            decelY = 1 - ((1 - decelY) * 0.86);
+            diagonal = true;
+        }
 
-            speedX += speedAccelX;
-            if (speedX >= maxSpeedX) speedX = maxSpeedX;
+        if (keyStates.right && pos.x > -40) {
+            if (diagonal) {
+                if (speedX > 0) speedX = speedX * decelX;
+
+                if (speedX < -maxX) {
+                    speedX = speedX * decelX;
+                    if (speedX > -maxX) speedX = -maxX;
+                }
+                else {
+                    speedX -= accelX;
+                    if (speedX < -maxX) speedX = -maxX;
+                }
+            }
+            else {
+                if (speedX > 0) speedX = speedX * decelX;
+    
+                speedX -= accelX;
+                if (speedX < -maxX) speedX = -maxX;
+            }
         } 
         else speedDecelerateX();
 
-        if (keyStates.left && speedX >= -maxSpeedX) {
-            if (speedX > 0) speedX = speedX * speedDecelX;
+        if (keyStates.left && pos.x < 40) { 
+            if (diagonal) {
+                if (speedX < 0) speedX = speedX * decelX;
 
-            speedX -= speedAccelX;
-            if (speedX <= -maxSpeedX) speedX = -maxSpeedX;
+                if (speedX > maxX) {
+                    speedX = speedX * decelX;
+                    if (speedX < maxX) speedX = maxX;
+                }
+                else {
+                    speedX += accelX;
+                    if (speedX > maxX) speedX = maxX;
+                }
+            }
+            else {
+                if (speedX < 0) speedX = speedX * decelX;
+    
+                speedX += accelX;
+                if (speedX > maxX) speedX = maxX;
+            }
         } 
         else speedDecelerateX();
     }
@@ -45,65 +80,81 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
     if (keyStates.up && keyStates.down) {
         speedDecelerateY();
     } else {
-        if (keyStates.up && speedY <= maxSpeedY) {
-            speedY += speedAccelY;
-            if (speedY >= maxSpeedY) speedY = maxSpeedY;
+        if ((keyStates.right && !keyStates.left) || (!keyStates.right && keyStates.left)) {
+            maxX = maxX / 2;
+            maxY = maxY / 2;
+            accelX = accelX / 2;
+            accelY = accelY / 2;
+            decelX = 1 - ((1 - decelX) / 2);
+            decelY = 1 - ((1 - decelY) / 2);
+            diagonal = true;
+        }
+
+        if (keyStates.up && pos.y > -20) {
+            if (diagonal) {
+                if (speedY > 0) speedY = speedY * decelY;
+
+                if (speedY < -maxY) {
+                    speedY = speedY * decelY;
+                    if (speedY > -maxY) speedY = -maxY;
+                }
+                else {
+                    speedY -= accelY;
+                    if (speedY < -maxY) speedY = -maxY;
+                }
+            }
+            else {
+                if (speedY > 0) speedY = speedY * decelY;
+    
+                speedY -= accelY;
+                if (speedY < -maxY) speedY = -maxY;
+            }
         } 
         else speedDecelerateY();
 
-        if (keyStates.down && speedY >= -maxSpeedY) {
-            speedY -= speedAccelY;
-            if (speedY <= -maxSpeedY) speedY = -maxSpeedY;
+        if (keyStates.down && pos.y < 20) {
+            if (diagonal) {
+                if (speedY < 0) speedY = speedY * decelY;
+
+                if (speedY > maxY) {
+                    speedY = speedY * decelY;
+                    if (speedY < maxY) speedY = maxY;
+                }
+                else {
+                    speedY += accelY;
+                    if (speedY > maxY) speedY = maxY;
+                }
+            }
+            else {
+                if (speedY < 0) speedY = speedY * decelY;
+    
+                speedY += accelY;
+                if (speedY > maxY) speedY = maxY;
+            }
         } 
         else speedDecelerateY();
     }
-
 
     if (keyStates.rightRoll == true) {
-        pcShip.position.x -= 2.5;
-        pcShip.rotation.z += 0.3;
+        pos.x -= 2.5;
+        rot.z += 0.3;
     }
     if (keyStates.leftRoll == true) {
-        pcShip.position.x += 2.5;
-        pcShip.rotation.z -= 0.3;
+        pos.x += 2.5;
+        rot.z -= 0.3;
     }
 
-    pcShip.position.x -= speedX;
-    pcShip.position.y -= speedY;
+    pcShip.position.x += speedX;
+    pcShip.position.y += speedY;
     pcShip.speed = [speedX, speedY, speedZ];
-    pcShip.rotation.z = speedX / maxSpeedX / 12 * Math.PI;
-    pcShip.rotation.y = -speedX / maxSpeedX / 15 * Math.PI;
-    pcShip.rotation.x = speedY / maxSpeedY / 15 * Math.PI;
-    camera.rotation.z = Math.PI + speedX / maxSpeedX / 80 * Math.PI;
+    pcShip.rotation.z = -speedX / maxX / 12 * Math.PI;
+    pcShip.rotation.y = speedX / maxX / 30 * Math.PI;
+    pcShip.rotation.x = -speedY / maxY / 30 * Math.PI;
+    camera.rotation.z = Math.PI + speedX / maxX / 150 * Math.PI;
     camera.rotation.y = -pcShip.position.x / 1000;
     camera.rotation.x = Math.PI - pcShip.position.y / 1000;
 
-    if (keyStates.blaster == true && blasterCoolTime == 0) {
-        const newBlaster = createPCBlaster(pcShip);
-        scene.add(newBlaster);
-        pcBlasters.push(newBlaster);
-        pcShip.blasterCoolTime = blasterDelay;
-    }
-
-    if (pcBlasters.length > 0) {
-        newBlasters = pcBlasters.filter((blaster) => {
-            if (blaster.position.z < blasterRange) {
-                let newBlaster = blaster;
-                newBlaster.position.x += blaster.speed[0];
-                newBlaster.position.y += blaster.speed[1];
-                newBlaster.position.z += blaster.speed[2];
-                // newBlaster.rotation.y += 0.7;
-                newBlaster.position.needsUpdate = true;
-
-                blaster = newBlaster;
-                return blaster;
-            }
-            scene.remove(blaster);
-            return false;
-        });
-    }
-    pcBlasters.length = 0;
-    pcBlasters.push(...newBlasters);
+    updatePCBlasters(scene, pcShip, pcBlasters, keyStates);
 };
 
 export default updatePCObjects;

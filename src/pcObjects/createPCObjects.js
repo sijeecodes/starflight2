@@ -19,9 +19,9 @@ function createPCShip() {
     pcShip.blasterCoolTime = 0;
     pcShip.blasterDelay = 1;
     pcShip.speed = [0, 0, 0];
-    pcShip.maxSpeed = [3, 1.5, 2.8];
-    pcShip.speedAccel = [0.4, 0.2, 0.4];
-    pcShip.speedDecel = [0.9, 0.9, 0.9];
+    pcShip.maxSpeed = [3.2, 1.6, 2.8];
+    pcShip.speedAccel = [0.8, 0.4, 0.4];
+    pcShip.speedDecel = [0.90, 0.90, 0.90];
 
     return pcShip;
 };
@@ -33,21 +33,22 @@ function createPCBlaster(pcShip) {
     // const geometry = new THREE.CapsuleGeometry(2, 8, 3, 7);   //rad, h, cap seg, rad seg
     // const geometry = new THREE.ConeGeometry( 2, 8, 3 );         //rad, h, rad seg
     // const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    const material = new THREE.MeshStandardMaterial({ color: 0xff9900, toneMapped: false, emissive: 0xd01212, emissiveIntensity: 10 });
+    const material = new THREE.MeshStandardMaterial({ color: 0xff9900, emissive: 0xd01212, emissiveIntensity: 10, transparent: true, opacity: 0.7 });
     const blaster = new THREE.Mesh(geometry, material);
     blaster.speed = [0, 0, 25];
     blaster.position.set(pcShip.position.x, pcShip.position.y, pcShip.position.z);
 
-    blaster.rotation.x = pcShip.rotation.x - (90*Math.PI/180);
+    // blaster.rotation.x = pcShip.rotation.x - (90*Math.PI/180);
+    blaster.rotation.x = pcShip.rotation.x;
     blaster.rotation.y = pcShip.rotation.y;
     blaster.rotation.z = pcShip.rotation.z;
     blaster.speed[0] = -pcShip.speed[0];
     blaster.speed[1] = -pcShip.speed[1];
     blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
-                        - Math.pow(blaster.speed[0], 2)
-                        - Math.pow(blaster.speed[1], 2));
+                                 - Math.pow(blaster.speed[0], 2)
+                                 - Math.pow(blaster.speed[1], 2));
     blaster.power = 1;
-    blaster.collisionSize = 5;
+    blaster.collisionSize = 3;
 
     return blaster;
 }
@@ -55,24 +56,24 @@ function createPCBlaster(pcShip) {
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([
-        2.8, -2.4, 0,
-        -2.8, -2.4, 0,
-        0, 2.0, 0,
-        2.8, -2.4, 0,
+         2.8, -2.4,  0,
+        -2.8, -2.4,  0,
+           0,  2.0,  0,
+         2.8, -2.4,  0
     ]);
     const frameGeo2 = new LineGeometry();
     frameGeo2.setPositions([
-        1.4, -1.2, 5,
+         1.4, -1.2, 5,
         -1.4, -1.2, 5,
-        0, 1.0, 5,
-        1.47, -1.2, 5,
+           0,  1.0, 5,
+        1.47, -1.2, 5
     ]);
     const lineMaterial = new LineMaterial({
-        depthTest: false,
-        opacity: 0.15,
-        transparent: true,
         color: 0x42ff00,
+        opacity: 0.3,
         linewidth: 5,
+        depthTest: false,
+        transparent: true,
         resolution: new THREE.Vector2(window.innerWidth, window.innerHeight)
     });
     const aimFrame = new THREE.Group();

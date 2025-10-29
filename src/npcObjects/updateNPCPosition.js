@@ -4,41 +4,37 @@ function updateNPCPosition(scene, obj) {
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
     if (currentPos == obj.targetPosition && obj.speed == [0, 0, 0]) return;
 
-    let time = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
-    if (time > 1) {
-        let targetSpeed = obj.targetPosition.map((p, index) => {
-            let result = (p - currentPos[index]) / time;
-            return result;
-        });
-        targetSpeed.forEach((tSpeed, index) => {
-            if (tSpeed >= 0) {
-                if (tSpeed > obj.speed[index]) {
-                    obj.speed[index] += obj.speedAccel[index];
-                    if (tSpeed < obj.speed[index]) obj.speed[index] = tSpeed;
+    let speed = obj.speed;
+    let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
+
+    if (estTime > 10) {
+        let targetSpeed = obj.targetPosition.map((p, i) => (p - currentPos[i]) / estTime);
+
+        targetSpeed.forEach((target, i) => {
+            if (target >= 0) {
+                if (target > speed[i]) {
+                    speed[i] += obj.speedAccel[i];
+                    if (speed[i] > target) speed[i] = target;
                 }
             } else {
-                if (tSpeed < obj.speed[index]) {
-                    obj.speed[index] -= obj.speedAccel[index];
-                    if (tSpeed > obj.speed[index]) obj.speed[index] = tSpeed;
+                if (target < speed[i]) {
+                    speed[i] -= obj.speedAccel[i];
+                    if (speed[i] < target) speed[i] = target;
                 }
             }
         });
-        obj.position.x = currentPos[0] + obj.speed[0];
-        obj.position.y = currentPos[1] + obj.speed[1];
-        obj.position.z = currentPos[2] + obj.speed[2];
-
     } else {
-        obj.speed.forEach((currSpeed, index) => {
-            obj.speed[index] = currSpeed * obj.speedDecel[index];
+        speed.forEach((speedOfAxis, i) => {
+            speed[i] = speedOfAxis * obj.speedDecel[i];
         });
-        if (obj.speed.filter((speed) => Math.abs(speed) > 0.001).length == 0) {
-            obj.speed = [0, 0, 0];
+        if (speed.filter((speedOfAxis) => Math.abs(speedOfAxis) > 0.01).length == 0) {
+            speed = [0, 0, 0];
+            obj.targetPosition = currentPos;
         };
-        obj.position.x = currentPos[0] + obj.speed[0];
-        obj.position.y = currentPos[1] + obj.speed[1];
-        obj.position.z = currentPos[2] + obj.speed[2];
-        obj.targetPosition = currentPos;
     }
+    obj.position.x = currentPos[0] + speed[0];
+    obj.position.y = currentPos[1] + speed[1];
+    obj.position.z = currentPos[2] + speed[2];
 }
 
 function estimateTime(currentPos, targetPos, maxSpeed) {
@@ -47,7 +43,7 @@ function estimateTime(currentPos, targetPos, maxSpeed) {
     let z = Math.pow((currentPos[2] - targetPos[2]), 2);
     let distance = Math.sqrt(x + y + z);
 
-    return distance / maxSpeed * 3;
+    return distance / maxSpeed;
 }
 
 export default updateNPCPosition;

@@ -10,6 +10,7 @@ import collisionCheck from './collision/collisionCheck';
 import updatePCObjects from './pcObjects/updatePCObjects';
 import updateLevel from './Level/updateLevel';
 import updateNPCObjects from './npcObjects/updateNPCObjects';
+import updateExplosion from './effects/updateExplosion';
 // import { OrbitControls } from 'three/addons/controls/OrbitControls';
 
 const gameLogic = function () {
@@ -19,6 +20,7 @@ const gameLogic = function () {
   // const controls = new OrbitControls(camera, renderer.domElement);
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
   let npcObjects = { npcs: [], npcBlasters: [] };
+  let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
   let keyStates = initKeyState();
   let scene = new THREE.Scene();
   scene.timeStamp = 0;
@@ -46,7 +48,8 @@ const gameLogic = function () {
     updatePCObjects(scene, camera, pcObjects, keyStates);
     updateLevel(scene, npcObjects);
     updateNPCObjects(scene, npcObjects);
-    collisionCheck(scene, pcObjects, npcObjects);
+    collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
+    updateExplosion(explosionObjects)
 
     // controls.update();
     renderer.render(scene, camera);

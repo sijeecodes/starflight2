@@ -20,13 +20,13 @@ function raycastHit(origin, target) {
     }
 
     if (collided) {
-        target.traverse((child) => {
+        origin.traverse((child) => {
             if (child.isMesh) child.material.color.set(0xff0000);
         });
         return true;
 
     } else {
-        target.traverse((child) => {
+        origin.traverse((child) => {
             if (child.isMesh) child.material.color.set(0xffffff);
         });
     }

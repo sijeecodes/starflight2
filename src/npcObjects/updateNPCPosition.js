@@ -5,25 +5,34 @@ function updateNPCPosition(scene, obj) {
     if (currentPos == obj.targetPosition && obj.speed == [0, 0, 0]) return;
 
     let speed = obj.speed;
+    let arrived = false;
     let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
 
-    if (estTime > 5) {
+    if (estTime > obj.maxSpeed) {
         let targetSpeed = obj.targetPosition.map((p, i) => (p - currentPos[i]) / estTime);
 
         targetSpeed.forEach((target, i) => {
-            if (target >= 0) {
-                if (target > speed[i]) {
-                    speed[i] += obj.speedAccel[i];
-                    if (speed[i] > target) speed[i] = target;
-                }
-            } else {
-                if (target < speed[i]) {
-                    speed[i] -= obj.speedAccel[i];
-                    if (speed[i] < target) speed[i] = target;
-                }
-            }
+            if (target * speed[i] < 0) arrived = true;
         });
-    } else {
+
+        if (!arrived) {
+            targetSpeed.forEach((target, i) => {
+                if (target >= 0) {
+                    if (target > speed[i]) {
+                        speed[i] += obj.speedAccel[i];
+                        if (speed[i] > target) speed[i] = target;
+                    }
+                } else {
+                    if (target < speed[i]) {
+                        speed[i] -= obj.speedAccel[i];
+                        if (speed[i] < target) speed[i] = target;
+                    }
+                }
+            });
+        } else decelerate()
+    } else decelerate();
+
+    function decelerate() {
         speed.forEach((speedOfAxis, i) => {
             speed[i] = speedOfAxis * obj.speedDecel[i];
         });
@@ -32,6 +41,7 @@ function updateNPCPosition(scene, obj) {
             obj.targetPosition = currentPos;
         };
     }
+
     obj.position.x = currentPos[0] + speed[0];
     obj.position.y = currentPos[1] + speed[1];
     obj.position.z = currentPos[2] + speed[2];

@@ -11,13 +11,13 @@ import updatePCObjects from './pcObjects/updatePCObjects';
 import updateLevel from './Level/updateLevel';
 import updateNPCObjects from './npcObjects/updateNPCObjects';
 import updateExplosion from './effects/updateExplosion';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls'; ///////////////////////////////
 
 const gameLogic = function () {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
   const starGeoAndVelo = createStarGeo();
-  // const controls = new OrbitControls(camera, renderer.domElement);
+  // const controls = new OrbitControls(camera, renderer.domElement); /////////////////////////////////
   let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
   let npcObjects = { npcs: [], npcBlasters: [] };
   let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
@@ -47,11 +47,11 @@ const gameLogic = function () {
     updateStars(starGeoAndVelo);
     updatePCObjects(scene, camera, pcObjects, keyStates);
     updateLevel(scene, npcObjects);
-    updateNPCObjects(scene, npcObjects);
+    updateNPCObjects(scene, pcObjects.pcShip.position, npcObjects);
     collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
     updateExplosion(explosionObjects)
 
-    // controls.update();
+    // controls.update(); ///////////////////////////////////////////////////////////
     renderer.render(scene, camera);
     // let t1 = performance.now();
     // console.log(`${t1 - t0} milliseconds`);

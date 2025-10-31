@@ -1,9 +1,10 @@
 const npcBasicData = {
     baseNPCBasic: {
-        npcGlb:         '../artSrc/npcShip1.glb',
+        npcGlb:         '../artSrc/npcShip4.glb',
         collisionSize:  7,
-        hp:             3,
+        hp:             30,
         blasterPower:   1,
+        blasterSpeed:   1,
         defaultSpeed:   [0, 0, 0],
         speed:          [0, 0, 0],
         maxSpeed:       3,
@@ -14,10 +15,11 @@ const npcBasicData = {
         targetRotation: [0, 0, 0]
     },
     baseNPCBasic1: {
-        npcGlb:         '../artSrc/npcShip1.glb',
+        npcGlb:         '../artSrc/npcShip3.glb',
         collisionSize:  7,
         hp:             3,
         blasterPower:   1,
+        blasterSpeed:   1,
         defaultSpeed:   [0, 0, 0],
         speed:          [0, 0, 0],
         maxSpeed:       3,

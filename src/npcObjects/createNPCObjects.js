@@ -26,6 +26,7 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     obj.elapsedTime = 0;
     obj.aiPatternTime = 0;
     obj.aiPatternCurrentStep = 0;
+    obj.fireBlaster = "none";
     obj.npcAI = npcAIData[npcAIname];
     updateNPCAI(obj);
 
@@ -33,19 +34,25 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     scene.add(obj);
 };
 
-function createNPCBlaster(obj) {
+function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
+    if (npc.fireBlaster == "none") return;
+
+    const value = npc.fireBlaster;
     const geometry = new THREE.BoxGeometry(0.3, 0.3, 5);
     const material = new THREE.MeshStandardMaterial({ color: 0xff0800 });
     const blaster = new THREE.Mesh(geometry, material);
-    blaster.position.set(obj.position);
-    blaster.direction = new THREE.Vector2();
-    blaster.direction.x = 0;
-    blaster.direction.y = 0;
-    blaster.speed = -1;
-    blaster.power = obj.power;
-    blaster.collisionSize = 2.5;
+    blaster.position.copy(npc.position);
+    blaster.rotation.copy(npc.rotation);
+    blaster.rotation.y += Math.PI;
+    blaster.speed = npc.blasterSpeed;
+    blaster.power = npc.power;
+    blaster.collisionSize = 3;
+    
+    if(npc.fireBlaster == "pc") blaster.lookAt(pcPos.x, pcPos.y, pcPos.z);
 
-    return blaster;
+    npc.fireBlaster = "none";
+    scene.add(blaster);
+    npcBlasters.push(blaster);
 }
 
 export { createNPCObject, createNPCBlaster };

@@ -1,5 +1,4 @@
 import npcAIPatternLoader from './npcAIPatternLoader';
-import { createNPCBlaster } from './createNPCObjects';
 
 function updateNPCAI(obj) {
     npcAIPatternLoader(obj);
@@ -11,7 +10,7 @@ function updateNPCAI(obj) {
         const value = obj.aiPattern[obj.aiPatternCurrentStep].value;
 
         if (action == "move")           setTargetPosition(obj, value);
-        if (action == "blaster")        createNPCBlaster(obj);
+        if (action == "blaster")        setNPCBlaster(obj, value);
         if (action == "setPatternTime") setPatternTime(obj, value);
     }
 }
@@ -24,6 +23,10 @@ function setPatternTime(obj, time) {
             return;
         }
     }
+}
+
+function setNPCBlaster(obj, value) {
+    obj.fireBlaster = value;
 }
 
 function setTargetPosition(obj, value) {

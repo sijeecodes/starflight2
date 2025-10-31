@@ -1,5 +1,5 @@
-function updateNPCPosition(scene, obj) {
-    if (obj.targetPosition.length < 3) return;
+function updateNPCPosition(obj) {
+    if (!obj.targetPosition || obj.targetPosition.length < 3) return;
 
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
     if (currentPos == obj.targetPosition && obj.speed == [0, 0, 0]) return;

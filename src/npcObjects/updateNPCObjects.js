@@ -1,8 +1,10 @@
 import updateNPCAI from './updateNPCAI';
 import updateNPCPosition from './updateNPCPosition';
 import updateNPCRotation from './updateNPCRotation';
+import updateNPCBlasters from './updateNPCBlasters';
+import { createNPCBlaster } from './createNPCObjects';
 
-const updateNPCObjects = function (scene, { npcs, npcBlasters }) {
+const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
     if (npcs.length < 1) return;
 
     let newNPCList = npcs.filter(npc => {
@@ -10,8 +12,11 @@ const updateNPCObjects = function (scene, { npcs, npcBlasters }) {
         npc.aiPatternTime++;
 
         updateNPCAI(npc);
-        updateNPCPosition(scene, npc);
+        updateNPCPosition(npc);
         updateNPCRotation(npc);
+        
+        createNPCBlaster(scene, pcPos, npc, npcBlasters);
+        updateNPCBlasters(scene, npcBlasters);
 
         if (npc.position.z < -30) {
             scene.remove(npc);

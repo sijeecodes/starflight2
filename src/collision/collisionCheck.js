@@ -63,7 +63,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     newBlasters.length = 0;
     npcBlasters.forEach((blaster) => {
         if (closeDistance(blaster, pcShip)) {
-            if (raycastHit(blaster, pcShip.children[1].children[0])) {
+            if (raycastHit(pcShip.children[1].children[0], blaster)) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
                 pcShip.hp -= blaster.power;
                 //explosion effect;

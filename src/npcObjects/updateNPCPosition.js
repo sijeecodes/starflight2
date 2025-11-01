@@ -2,15 +2,18 @@ function updateNPCPosition(obj) {
     if (!obj.targetPosition || obj.targetPosition.length < 3) return;
 
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
-    if (currentPos == obj.targetPosition && obj.speed == [0, 0, 0]) return;
+    if (currentPos == obj.targetPosition 
+        && obj.speed == [0, 0, 0]) return;
 
     let speed = obj.speed;
     let arrived = false;
     let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
 
     if (estTime > obj.maxSpeed) {
-        let targetSpeed = obj.targetPosition.map((p, i) => (p - currentPos[i]) / estTime);
+        let targetSpeed = obj.targetPosition
+                             .map((p, i) => (p - currentPos[i]) / estTime);
 
+        //in target speed turns opposite of current speed == just past target point
         targetSpeed.forEach((target, i) => {
             if (target * speed[i] < 0) arrived = true;
         });
@@ -36,7 +39,10 @@ function updateNPCPosition(obj) {
         speed.forEach((speedOfAxis, i) => {
             speed[i] = speedOfAxis * obj.speedDecel[i];
         });
-        if (speed.filter((speedOfAxis) => Math.abs(speedOfAxis) > 0.01).length == 0) {
+
+        if (speed.filter((speedOfAxis) => Math.abs(speedOfAxis) > 0.01)
+                 .length == 0) {
+
             speed = [0, 0, 0];
             obj.targetPosition = currentPos;
         };

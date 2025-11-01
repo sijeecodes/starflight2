@@ -2,7 +2,7 @@ const npcAIData = {
     defaultAI: { 
         timeTriggered: [ 
             { triggerTime: 0,  aiPattern: "basicPattern" }, 
-            { triggerTime: 240,  aiPattern: "loopPattern" }, 
+            { triggerTime: 90,  aiPattern: "loopPattern" }, 
         ], 
         hpTriggered: [
             // { triggerHP: 10,  aiPattern: "basicPattern" }, 
@@ -12,7 +12,7 @@ const npcAIData = {
     aiName1: { 
         timeTriggered: [ 
             { triggerTime: 0,  aiPattern: "basicPattern1" }, 
-            { triggerTime: 240,  aiPattern: "loopPattern1" }, 
+            { triggerTime: 90,  aiPattern: "loopPattern1" }, 
         ], 
         hpTriggered: [
             // { triggerHP: 10,  aiPattern: "basicPattern" }, 
@@ -22,7 +22,7 @@ const npcAIData = {
     aiName2: { 
         timeTriggered: [ 
             { triggerTime: 0,  aiPattern: "basicPattern2" }, 
-            { triggerTime: 240,  aiPattern: "loopPattern2" }, 
+            { triggerTime: 90,  aiPattern: "loopPattern2" }, 
         ], 
         hpTriggered: [
             // { triggerHP: 10,  aiPattern: "basicPattern" }, 

@@ -11,7 +11,7 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         npc.elapsedTime++;
         npc.aiPatternTime++;
 
-        updateNPCAI(npc);
+        updateNPCAI(npc, pcPos);
         updateNPCPosition(npc);
         updateNPCRotation(npc);
         

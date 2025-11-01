@@ -1,4 +1,4 @@
-function updateExplosion({ sprites, materials, velocities, lifetimes, rotations }) {
+function updateExplosions({ sprites, materials, velocities, lifetimes, rotations }) {
     if (!sprites || sprites.length < 1) return;
 
     const newSprites = [];
@@ -50,4 +50,4 @@ function updateExplosion({ sprites, materials, velocities, lifetimes, rotations 
     rotations.push(...newRotations);
 }
 
-export default updateExplosion;
+export default updateExplosions;

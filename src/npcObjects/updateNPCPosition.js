@@ -46,6 +46,10 @@ function updateNPCPosition(obj) {
     obj.position.y = currentPos[1] + speed[1];
     obj.position.z = currentPos[2] + speed[2];
     obj.speed = [speed[0], speed[1], speed[2]];
+
+    obj.translateX(obj.defaultSpeed[0]);
+    obj.translateY(obj.defaultSpeed[1]);
+    obj.translateZ(-obj.defaultSpeed[2]);
 }
 
 function estimateTime(currentPos, targetPos, maxSpeed) {

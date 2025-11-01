@@ -9,10 +9,11 @@ function updateNPCAI(obj, pcPos) {
         const action = obj.aiPattern[obj.aiPatternCurrentStep].action;
         const value = obj.aiPattern[obj.aiPatternCurrentStep].value;
 
-        if (action == "move")           setTargetPosition(obj, value);
-        if (action == "blaster")        setNPCBlaster(obj, value);
-        if (action == "setPatternTime") setPatternTime(obj, value);
-        if (action == "look")           setTargetRotation(obj, value, pcPos);
+        if (action == "move")               setTargetPosition(obj, value);
+        if (action == "blaster")            setNPCBlaster(obj, value);
+        if (action == "setPatternTime")     setPatternTime(obj, value);
+        if (action == "setDefaultSpeed")    setDefaultSpeed(obj, value);
+        if (action == "setRotation")        setTargetRotation(obj, value, pcPos);
     }
 }
 
@@ -54,6 +55,12 @@ function setTargetRotation(obj, value, pcPos) {
         obj.targetRotation[1] = obj.rotation.y + value[1];
         obj.targetRotation[2] = obj.rotation.z + value[2];
     }
+}
+
+function setDefaultSpeed(obj, value) {
+    obj.defaultSpeed[0] = value[0];
+    obj.defaultSpeed[1] = value[1];
+    obj.defaultSpeed[2] = value[2];
 }
 
 export default updateNPCAI;

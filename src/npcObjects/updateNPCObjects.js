@@ -14,11 +14,14 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         updateNPCAI(npc, pcPos);
         updateNPCPosition(npc);
         updateNPCRotation(npc);
-        
+
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
         updateNPCBlasters(scene, npcBlasters);
 
-        if (npc.position.z < -30) {
+        if (npc.position.z < -200
+            || Math.abs(npc.position.x) > 300
+            || Math.abs(npc.position.y) > 150) {
+
             scene.remove(npc);
             return false;
         }

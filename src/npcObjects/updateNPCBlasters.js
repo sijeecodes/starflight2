@@ -1,17 +1,14 @@
-function updateNPCBlasters (scene, npcBlasters) {
+function updateNPCBlasters(scene, npcBlasters) {
     if (!npcBlasters) return;
-    
+
     let newBlasters = [];
     if (npcBlasters.length > 0) {
         newBlasters = npcBlasters.filter((blaster) => {
-            if (blaster.position.z > -100) {
-                let newBlaster = blaster;
-                blaster.translateZ(blaster.speed);
-                blaster = newBlaster;
-                return blaster;
+            if (blaster.position.z < -200) {
+                scene.remove(blaster);
+                return false;
             }
-            scene.remove(blaster);
-            return false;
+            return blaster.translateZ(blaster.speed);
         });
     }
     npcBlasters.length = 0;

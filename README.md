@@ -42,15 +42,14 @@
  - value : Value for action.
 
  #### Action lists: name(value)
- 1. blaster("PC" or "Front") : Fires blaster to "PC" or "Front".
- 2. look("PC") : Sets NPC "targetRotation" to see PC once. Does not keep rotating to face PC. 
- 3. setRotation([x, y, z]) : Sets NPC "targetRotation" to (x, y, z).
- 4. moveToTarget([x, y, z] or "PC") : Sets NPC "targetPosition" to (x, y, z), or (x, y) for PC's current position.
- 5. move([x, y, z]) : Sets NPC "targetPosition" to move (+x, +y, +z) amount. 
- 6. ramdomMove([x, y, z]) : Sets NPC "targetPosition" to move (0 ~ x, 0 ~ y, 0 ~ z) amount.
- 7. setDefaultSpeed([x, y, z]) : Sets NPC "defaultSpeed" to (x, y, z) amount.
- 8. setPatternTime(int value) : Sets PatternTimer to "value". Enables loop of current AI pattern. 
-
+ 1. move([x, y, z]) : Sets NPC "targetPosition" to move (+x, +y, +z) amount.
+ 2. moveTo([x, y, z]) : Sets NPC "targetPosition" to (x, y, z).
+ 3. ramdomMoveTo([x1, x2, y1, y2, z1, z2]) : Sets NPC "targetPosition" to move in (x1 ~ x2, y1 ~ y2, z1 ~ z2) range.
+ 4. blaster("pc" or "front") : Fires blaster to "PC" or "Front".
+ 5. setPatternTime(int value) : Sets PatternTimer to "value". Set 0 to loop current AI pattern. 
+ 6. setDefaultSpeed([x, y, z]) : Sets NPC "defaultSpeed" to (x, y, z). Moves based on NPC(not world axis).
+ 7. setRotation([x, y, z] or "pc") : Sets NPC "targetRotation" to (x, y, z) or to face pc.
+ 
 ## NPC Basic
  - Format : { npcBasicName: { attribute1: value, attribute2: value ...}, {...}, ...}
  - Basic data for NPC.
@@ -61,13 +60,12 @@
  3. hp(int value) : NPC's hp.
  4. blasterPower(int value) : Damage of the blaster.
  5. defaultSpeed([x, y, z]) : Default moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
- 6. speed([x, y, z]) : Current moving speed. (0, 0, 1) will make NPC move z direction of 1 every 1/30 second.
- 7. maxSpeed(value) : Max speed the NPC can get. Also used for max rotation speed.
- 8. speedAccel([x, y, z]) : Acceleration for NPC to get to maxSpeed per frame. Also used for acceleration of NPC rotation speed.
- 9. speedDecel([x, y, z]) : Deceleration multiple for NPC to get to defaultSpeed per frame. Should be below 1. Also used for deceleration of NPC rotation speed.
+ 6. speed([x, y, z]) : Current moving speed. (0, 0, 1) will make NPC move z direction(world axis) of 1 every 1/30 second.
+ 7. maxSpeed(value) : Max speed the NPC can get.
+ 8. speedAccel([x, y, z]) : Acceleration for NPC to get to maxSpeed per frame.
+ 9. speedDecel([x, y, z]) : Deceleration multiple for NPC. Should be below 1. Also used for NPC rotation speed.
  10. targetPosition([x, y, z]) : Target destination the NPC is moving to.
- 11. rotationSpeed([x, y, z]) : Current rotating speed.
- 12. targetRotation([x, y, z]) : Target rotation the NPC is rotating to.
+ 11. targetRotation([x, y, z]) : Target rotation the NPC is rotating to.
 
 ### Other Basic NPC Attributes
  1. elapsedTime : Elapsed time since NPC creation.

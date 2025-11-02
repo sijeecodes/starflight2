@@ -5,7 +5,7 @@ import updateNPCBlasters from './updateNPCBlasters';
 import { createNPCBlaster } from './createNPCObjects';
 
 const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
-    if (npcs.length < 1) return;
+    if (npcs.length < 1 && npcBlasters.length < 1) return;
 
     let newNPCList = npcs.filter(npc => {
         npc.elapsedTime++;
@@ -14,9 +14,7 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         updateNPCAI(npc, pcPos);
         updateNPCPosition(npc);
         updateNPCRotation(npc);
-
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
-        updateNPCBlasters(scene, npcBlasters);
 
         if (npc.position.z < -200
             || Math.abs(npc.position.x) > 300
@@ -27,15 +25,10 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         }
         return true;
     });
-
     npcs.length = 0;
     npcs.push(...newNPCList);
 
-    if (npcBlasters.length < 1) return;
-
-    npcBlasters.forEach(blaster => {
-        updateNPCPosition(scene, blaster);
-    });
+    updateNPCBlasters(scene, npcBlasters);
 };
 
 export default updateNPCObjects;

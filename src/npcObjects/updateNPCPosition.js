@@ -9,7 +9,7 @@ function updateNPCPosition(obj) {
     let arrived = false;
     let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);
 
-    if (estTime > obj.maxSpeed) {
+    if (estTime > obj.maxSpeed/2) {
         let targetSpeed = obj.targetPosition
                              .map((p, i) => (p - currentPos[i]) / estTime);
 

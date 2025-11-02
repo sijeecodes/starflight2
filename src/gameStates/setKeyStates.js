@@ -11,25 +11,33 @@ const initKeyState = function () {
 }
 
 const setKeyState = function (keyStates, event) {
-    if (event.code == "KeyD") keyStates.right = true;
-    if (event.code == "KeyA") keyStates.left = true;
-    if (event.code == "KeyW") keyStates.up = true;
-    if (event.code == "KeyS") keyStates.down = true;
-    if (event.code == "KeyE") keyStates.rightRoll = true;
-    if (event.code == "KeyQ") keyStates.leftRoll = true;
-    if (event.code == "Space") keyStates.blaster = true;
+    if (event.code == "KeyD") { keyStates.right = true; return keyStates; }
+    if (event.code == "KeyA") { keyStates.left = true; return keyStates; }
+    if (event.code == "KeyW") { keyStates.up = true; return keyStates; }
+    if (event.code == "KeyS") { keyStates.down = true; return keyStates; }
+    if (event.code == "ArrowRight") { keyStates.right = true; return keyStates; }
+    if (event.code == "ArrowLeft") { keyStates.left = true; return keyStates; }
+    if (event.code == "ArrowUp") { keyStates.up = true; return keyStates; }
+    if (event.code == "ArrowDown") { keyStates.down = true; return keyStates; }
+    if (event.code == "KeyV") { keyStates.rightRoll = true; return keyStates; }
+    if (event.code == "KeyC") { keyStates.leftRoll = true; return keyStates; }
+    if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
 
     return keyStates;
 }
 
 const resetKeyState = function (keyStates, event) {
-    if (event.code == "KeyD") keyStates.right = false;
-    if (event.code == "KeyA") keyStates.left = false;
-    if (event.code == "KeyW") keyStates.up = false;
-    if (event.code == "KeyS") keyStates.down = false;
-    if (event.code == "KeyE") keyStates.rightRoll = false;
-    if (event.code == "KeyQ") keyStates.leftRoll = false;
-    if (event.code == "Space") keyStates.blaster = false;
+    if (event.code == "KeyD") { keyStates.right = false; return keyStates; }
+    if (event.code == "KeyA") { keyStates.left = false; return keyStates; }
+    if (event.code == "KeyW") { keyStates.up = false; return keyStates; }
+    if (event.code == "KeyS") { keyStates.down = false; return keyStates; }
+    if (event.code == "ArrowRight") { keyStates.right = false; return keyStates; }
+    if (event.code == "ArrowLeft") { keyStates.left = false; return keyStates; }
+    if (event.code == "ArrowUp") { keyStates.up = false; return keyStates; }
+    if (event.code == "ArrowDown") { keyStates.down = false; return keyStates; }
+    if (event.code == "KeyV") { keyStates.rightRoll = false; return keyStates; }
+    if (event.code == "KeyC") { keyStates.leftRoll = false; return keyStates; }
+    if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
 
     return keyStates;
 }

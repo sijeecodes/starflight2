@@ -35,8 +35,7 @@ const gameLogic = function () {
     window.addEventListener('keydown', (e) => keyStates = setKeyState(keyStates, e));
     window.addEventListener('keyup', (e) => keyStates = resetKeyState(keyStates, e));
 
-    camera.position.set(0, 0, -200);
-    camera.lookAt(0, 0, 0);
+    camera.position.set(0, 10, -200);
 
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);

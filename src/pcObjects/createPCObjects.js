@@ -19,36 +19,34 @@ function createPCShip() {
     pcShip.blasterCoolTime = 0;
     pcShip.blasterDelay = 1;
     pcShip.speed = [0, 0, 0];
-    pcShip.maxSpeed = [3.2, 1.6, 2.8];
-    pcShip.speedAccel = [0.8, 0.4, 0.4];
-    pcShip.speedDecel = [0.90, 0.90, 0.90];
+    pcShip.maxSpeed = [3.2, 1.8, 2.8];
+    pcShip.speedAccel = [0.6, 0.4, 0.3];
+    pcShip.speedDecel = [0.92, 0.92, 0.92];
 
     return pcShip;
 };
 
 function createPCBlaster(pcShip) {
     const blasterSpeed = 9;
-    // const geometry = new THREE.BoxGeometry(1, 1, 10);
-    const geometry = new THREE.SphereGeometry(3, 7, 3);      //rad, width seg, height seg
-    // const geometry = new THREE.CapsuleGeometry(2, 8, 3, 7);   //rad, h, cap seg, rad seg
-    // const geometry = new THREE.ConeGeometry( 2, 8, 3 );         //rad, h, rad seg
-    // const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    const material = new THREE.MeshStandardMaterial({ color: 0xff9900, emissive: 0xd01212, emissiveIntensity: 10, transparent: true, opacity: 0.7 });
+    const geometry = new THREE.SphereGeometry(3, 5, 5); //rad, width seg, height seg
+    const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
+        color: 0x00ffff,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending,
+    });
+
     const blaster = new THREE.Mesh(geometry, material);
     blaster.speed = [0, 0, 25];
-    blaster.position.set(pcShip.position.x, pcShip.position.y, pcShip.position.z);
-
-    // blaster.rotation.x = pcShip.rotation.x - (90*Math.PI/180);
-    blaster.rotation.x = pcShip.rotation.x;
-    blaster.rotation.y = pcShip.rotation.y;
-    blaster.rotation.z = pcShip.rotation.z;
-    blaster.speed[0] = -pcShip.speed[0];
-    blaster.speed[1] = -pcShip.speed[1];
+    blaster.position.copy(pcShip.position);
+    blaster.rotation.copy(pcShip.rotation);
+    blaster.speed[0] = pcShip.speed[0];
+    blaster.speed[1] = pcShip.speed[1];
     blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
                                  - Math.pow(blaster.speed[0], 2)
                                  - Math.pow(blaster.speed[1], 2));
     blaster.power = 1;
-    blaster.collisionSize = 3;
+    blaster.collisionSize = 4;
 
     return blaster;
 }
@@ -63,10 +61,10 @@ function createAimFrame() {
     ]);
     const frameGeo2 = new LineGeometry();
     frameGeo2.setPositions([
-         1.4, -1.2, 5,
-        -1.4, -1.2, 5,
-           0,  1.0, 5,
-        1.47, -1.2, 5
+         1.4, -1.2, 30,
+        -1.4, -1.2, 30,
+           0,  1.0, 30,
+        1.47, -1.2, 30
     ]);
     const lineMaterial = new LineMaterial({
         color: 0x42ff00,
@@ -79,7 +77,7 @@ function createAimFrame() {
     const aimFrame = new THREE.Group();
     aimFrame.add(new Line2(frameGeo1, lineMaterial));
     aimFrame.add(new Line2(frameGeo2, lineMaterial));
-    aimFrame.position.set(0, 0, 50);
+    aimFrame.position.set(0, 0, 70);
 
     return aimFrame;
 }

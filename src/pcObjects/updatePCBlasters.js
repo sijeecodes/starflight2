@@ -18,14 +18,10 @@ function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
     if (pcBlasters.length > 0) {
         newBlasters = pcBlasters.filter((blaster) => {
             if (blaster.position.z < blasterRange) {
-                let newBlaster = blaster;
-                newBlaster.position.x += blaster.speed[0];
-                newBlaster.position.y += blaster.speed[1];
-                newBlaster.position.z += blaster.speed[2];
-                // newBlaster.rotation.y += 0.7;
-                newBlaster.position.needsUpdate = true;
-
-                blaster = newBlaster;
+                blaster.position.x += blaster.speed[0];
+                blaster.position.y += blaster.speed[1];
+                blaster.position.z += blaster.speed[2];
+                blaster.position.needsUpdate = true;
                 return blaster;
             }
             scene.remove(blaster);

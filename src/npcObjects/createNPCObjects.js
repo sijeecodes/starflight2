@@ -6,30 +6,20 @@ import updateNPCAI from './updateNPCAI';
 
 function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosition }) {
     const objBasic = npcBasicData[npcBasic];
-    const obj = new THREE.Group();
+    let obj = new THREE.Group();
     const loader = new GLTFLoader();
 
-    loader.load(objBasic.npcGlb,
-        function (object) { obj.add(object.scene) },
-        undefined,
-        function (error) { console.error(error) }
-    );
-
-    for (const [key, value] of Object.entries(objBasic)) {
-        obj[key] = value;
-    }
+    loader.load(objBasic.npcGlb, (object) => obj.add(object.scene));
+    obj = deepCopy(obj, objBasic);
+    obj.npcAI = deepCopy(obj.npcAI, npcAIData[npcAIname]);
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
     obj.targetPosition = [startingPosition[0], startingPosition[1], startingPosition[2]];
-    obj.targetRotation = [0, 0, 0];
-    obj.speed = [0, 0, 0];
     obj.elapsedTime = 0;
     obj.aiPatternTime = 0;
     obj.aiPatternCurrentStep = 0;
     obj.fireBlaster = "none";
-    obj.npcAI = npcAIData[npcAIname];
-    updateNPCAI(obj);
-
     npcObjects.npcs.push(obj);
+    updateNPCAI(obj);
     scene.add(obj);
 };
 
@@ -46,12 +36,31 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     blaster.speed = npc.blasterSpeed;
     blaster.power = npc.power;
     blaster.collisionSize = 3;
-    
-    if(npc.fireBlaster == "pc") blaster.lookAt(pcPos.x, pcPos.y, pcPos.z);
+
+    if (npc.fireBlaster == "pc") blaster.lookAt(pcPos.x, pcPos.y, pcPos.z);
 
     npc.fireBlaster = "none";
     scene.add(blaster);
     npcBlasters.push(blaster);
+}
+
+function deepCopy(target = {}, data = {}) {
+    if (typeof data != 'object' || data == null) return target;
+
+    for (const [key, value] of Object.entries(data)) {
+        if (Array.isArray(value)) {
+            target[key] = value.map(item => {
+                if (typeof item == 'object' && item != null) {
+                    return deepCopy({}, item);
+                } else return item;
+            });
+        } else if (typeof value == 'object' && value != null) {
+            deepCopy(target[key] || {}, value);
+        } else {
+            target[key] = value;
+        }
+    }
+    return target;
 }
 
 export { createNPCObject, createNPCBlaster };

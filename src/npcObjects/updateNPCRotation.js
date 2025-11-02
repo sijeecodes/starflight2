@@ -1,34 +1,22 @@
-import { Euler } from 'three';
-
 function updateNPCRotation(obj) {
-    let r = [obj.rotation.x, obj.rotation.y, obj.rotation.z];
     const targetR = obj.targetRotation;
+    let r = [obj.rotation.x, obj.rotation.y, obj.rotation.z];
 
-    if (Math.abs(r[0] - targetR[0]) < obj.rotationSpeed
-        && Math.abs(r[1] - targetR[1]) < obj.rotationSpeed
-        && Math.abs(r[2] - targetR[2]) < obj.rotationSpeed
-    ) return;
+    if ((obj == targetR)) return;
 
     const needR = r.map((r, i) => {
         if (Math.abs(r - targetR[i]) < Math.PI) return targetR[i] - r;
-        
+
         return differenceWithPI(r) + differenceWithPI(targetR[i]);
     });
-
-    const estimateTime = Math.max(...needR.map(r => Math.abs(r))) / obj.rotationSpeed;
-    obj.rotation.x = r[0] + needR[0]/estimateTime;
-    obj.rotation.y = r[1] + needR[1]/estimateTime;
-    obj.rotation.z = r[2] + needR[2]/estimateTime;
-
-    if(estimateTime < 2) {
-        obj.targetRotation[0] = obj.rotation.x;
-        obj.targetRotation[1] = obj.rotation.y;
-        obj.targetRotation[2] = obj.rotation.z;
-    }
+    
+    obj.rotation.x += needR[0] * (1 - obj.speedDecel[0]);
+    obj.rotation.y += needR[1] * (1 - obj.speedDecel[1]);
+    obj.rotation.z += needR[2] * (1 - obj.speedDecel[2]);
 }
 
 function differenceWithPI(n) {
-    if (n > Math.PI) return n - 2*Math.PI;
+    if (n > Math.PI) return n - 2 * Math.PI;
     return -n;
 }
 

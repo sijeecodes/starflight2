@@ -11,7 +11,6 @@ const npcBasicData = {
         speedAccel:     [0.1, 0.1, 0.1],
         speedDecel:     [0.9, 0.9, 0.9],
         targetPosition: [],
-        rotationSpeed:  0.01,
         targetRotation: [0, 0, 0]
     },
     baseNPCBasic1: {
@@ -26,7 +25,6 @@ const npcBasicData = {
         speedAccel:     [0.1, 0.1, 0.1],
         speedDecel:     [0.9, 0.9, 0.9],
         targetPosition: [],
-        rotationSpeed:  0.01,
         targetRotation: [0, 0, 0]
     },
 };

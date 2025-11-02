@@ -6,6 +6,7 @@ const initKeyState = function () {
         down: false,
         rightRoll: false,
         leftRoll: false,
+        boost: false,
         blaster: false
     };
 }
@@ -21,8 +22,10 @@ const setKeyState = function (keyStates, event) {
     if (event.code == "ArrowDown") { keyStates.down = true; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = true; return keyStates; }
+    if (event.code == "KeyX") { keyStates.boost = true; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
 
+    // console.log(event);
     return keyStates;
 }
 
@@ -37,6 +40,7 @@ const resetKeyState = function (keyStates, event) {
     if (event.code == "ArrowDown") { keyStates.down = false; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = false; return keyStates; }
+    if (event.code == "KeyX") { keyStates.boost = false; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
 
     return keyStates;

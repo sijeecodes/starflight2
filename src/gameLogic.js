@@ -12,13 +12,13 @@ import updatePCObjects from './pcObjects/updatePCObjects';
 import updateLevel from './Level/updateLevel';
 import updateNPCObjects from './npcObjects/updateNPCObjects';
 import updateExplosions from './effects/updateExplosions';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls'; ///////////////////////////////
+import { OrbitControls } from 'three/addons/controls/OrbitControls'; ///////////////////////////////
 
 const gameLogic = function () {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
     const starGeoAndVelo = createStarGeo();
-    // const controls = new OrbitControls(camera, renderer.domElement); /////////////////////////////////
+    const controls = new OrbitControls(camera, renderer.domElement); /////////////////////////////////
     let backgroundObjs = [];
     let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
     let npcObjects = { npcs: [], npcBlasters: [] };
@@ -26,8 +26,9 @@ const gameLogic = function () {
     let keyStates = initKeyState();
     let scene = new THREE.Scene();
     scene.timeStamp = 0;
-    scene.add(new THREE.Points(starGeoAndVelo.starGeo, createStarMaterial()));
+    scene.boostSpeed = 0;
     scene.add(pcObjects.pcShip);
+    scene.add(new THREE.Points(starGeoAndVelo.starGeo, createStarMaterial()));
     createBackground(scene, backgroundObjs);
     createLights(scene);
     createLevelArr(scene);
@@ -53,7 +54,7 @@ const gameLogic = function () {
         collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
         updateExplosions(explosionObjects)
 
-        // controls.update(); ///////////////////////////////////////////////////////////
+        controls.update(); ///////////////////////////////////////////////////////////
         renderer.render(scene, camera);
         // let t1 = performance.now();
         // console.log(`${t1 - t0} milliseconds`);

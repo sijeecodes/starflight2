@@ -16,6 +16,11 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         updateNPCRotation(npc);
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
 
+        if (npc.position.z < 0) {
+            npc.targetRotation = [0, 0, 0];
+            npc.targetPosition.z = -300;
+        }
+
         if (npc.position.z < -200
             || Math.abs(npc.position.x) > 300
             || Math.abs(npc.position.y) > 150) {

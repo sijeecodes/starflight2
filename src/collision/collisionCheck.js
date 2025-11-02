@@ -16,7 +16,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
         let pcBlasterGone = false;
 
         npcs.forEach((npc) => {
-            if (closeDistance(pcBlaster, npc)) {
+            if (closeDistance(npc, pcBlaster)) {
                 if (raycastHit(npc, pcBlaster)) {
                     console.log("Blaster & NPC Hit!");/////////////////////
                     createExplosion(scene, pcBlaster, "hit", explosionObjects);
@@ -62,7 +62,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     //check all enemy blasters vs pc
     newBlasters.length = 0;
     npcBlasters.forEach((blaster) => {
-        if (closeDistance(blaster, pcShip)) {
+        if (closeDistance(pcShip, blaster)) {
             if (raycastHit(pcShip.children[1].children[0], blaster)) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
                 pcShip.hp -= blaster.power;

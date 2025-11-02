@@ -1,7 +1,7 @@
 const npcBasicData = {
     baseNPCBasic: {
         npcGlb:         '../artSrc/npcShip4.glb',
-        collisionSize:  7,
+        collisionSize:  10,
         hp:             30,
         blasterPower:   1,
         blasterSpeed:   1,
@@ -15,7 +15,7 @@ const npcBasicData = {
     },
     baseNPCBasic1: {
         npcGlb:         '../artSrc/npcShip3.glb',
-        collisionSize:  7,
+        collisionSize:  10,
         hp:             3,
         blasterPower:   1,
         blasterSpeed:   1,

@@ -3,14 +3,13 @@ import * as THREE from 'three';
 function raycastHit(origin, target) {
     const raycaster = new THREE.Raycaster();
     const direction = new THREE.Vector3();
-    const targetCenter = target.position;
     const vertices = getVertices(origin);
     let collided = false;
     raycaster.params.Mesh.threshold = 0.01;
 
     for (const vertex of vertices) {
-        raycaster.set(vertex, direction.subVectors(vertex, targetCenter).normalize());
-        raycaster.far = 1;
+        raycaster.set(vertex, direction.subVectors(vertex, target.position).normalize());
+        raycaster.far = origin.collisionSize;
 
         const intersects = raycaster.intersectObject(target, true);
         if (intersects.length > 0) {

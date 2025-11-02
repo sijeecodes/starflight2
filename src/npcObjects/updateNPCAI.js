@@ -50,8 +50,7 @@ function setRandomTargetPositionTo(obj, value) {
     const newValueX = Math.random() * Math.abs(value[1] - value[0]) + value[0];
     const newValueY = Math.random() * Math.abs(value[3] - value[2]) + value[2];
     const newValueZ = Math.random() * Math.abs(value[5] - value[4]) + value[4];
-    console.log([newValueX, newValueY, newValueZ]);
-
+    
     setTargetPositionTo(obj, [newValueX, newValueY, newValueZ]);
 }
 

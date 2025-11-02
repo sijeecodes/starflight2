@@ -1,19 +1,17 @@
-const updateStars = function (starGeoAndVelo) {
-    const positions = starGeoAndVelo.starGeo.attributes.position.array;
-    const velocities = starGeoAndVelo.starVelo;
+const updateStars = function (scene, starGeo) {
+    const positions = starGeo.attributes.position.array;
+    const boost = scene.boostSpeed;
 
     for (let i = 2; i < positions.length + 1; i += 3) {
-        for (let j = 0; j < velocities.length; j++) {
-            if (positions[i] < -10) {
-                velocities[j] = 0;
-                positions[i] = 1000;
-            } else {
-                velocities[j] -= 0.00007;
-                positions[i] += velocities[j];
-            }
+        if (positions[i] < -200) {
+            positions[i - 2] = Math.random() * 150 - 75;
+            positions[i - 1] = Math.random() * 150 - 75;
+            positions[i] = 1000;
+        } else {
+            positions[i] -= 25 + boost * 10;
         }
     }
-    starGeoAndVelo.starGeo.attributes.position.needsUpdate = true;
+    starGeo.attributes.position.needsUpdate = true;
 };
 
 export default updateStars;

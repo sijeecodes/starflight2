@@ -8,6 +8,7 @@ function updateNPCBlasters(scene, npcBlasters) {
                 scene.remove(blaster);
                 return false;
             }
+            blaster.position.z -= scene.boostSpeed;
             return blaster.translateZ(blaster.speed);
         });
     }

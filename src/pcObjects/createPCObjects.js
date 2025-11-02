@@ -9,11 +9,7 @@ function createPCShip() {
     const pcShip = new THREE.Group();
     const aimFrame = createAimFrame();
 
-    loader.load('../artSrc/ship.glb',
-        function (object) { pcShip.add(object.scene) },
-        undefined,
-        function (error) { console.error(error) }
-    );
+    loader.load('../artSrc/ship.glb', (object) => pcShip.add(object.scene));
     pcShip.add(aimFrame);
     pcShip.collisionSize = 7;
     pcShip.blasterCoolTime = 0;
@@ -21,7 +17,7 @@ function createPCShip() {
     pcShip.speed = [0, 0, 0];
     pcShip.maxSpeed = [3.0, 1.8, 3];
     pcShip.speedAccel = [0.6, 0.4, 0.6];
-    pcShip.speedDecel = [0.93, 0.93, 0.93];
+    pcShip.speedDecel = [0.93, 0.93, 0.90];
     pcShip.rolling = false;
 
     return pcShip;
@@ -44,8 +40,8 @@ function createPCBlaster(pcShip) {
     blaster.speed[0] = pcShip.speed[0];
     blaster.speed[1] = pcShip.speed[1];
     blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
-                                 - Math.pow(blaster.speed[0], 2)
-                                 - Math.pow(blaster.speed[1], 2));
+                       - Math.pow(blaster.speed[0], 2)
+                       - Math.pow(blaster.speed[1], 2));
     blaster.power = 1;
     blaster.collisionSize = 4;
 
@@ -55,16 +51,16 @@ function createPCBlaster(pcShip) {
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([
-         2.8, -2.4,  0,
-        -2.8, -2.4,  0,
-           0,  2.0,  0,
-         2.8, -2.4,  0
+        2.8, -2.4, 0,
+        -2.8, -2.4, 0,
+        0, 2.0, 0,
+        2.8, -2.4, 0
     ]);
     const frameGeo2 = new LineGeometry();
     frameGeo2.setPositions([
-         1.4, -1.2, 30,
+        1.4, -1.2, 30,
         -1.4, -1.2, 30,
-           0,  1.0, 30,
+        0, 1.0, 30,
         1.47, -1.2, 30
     ]);
     const lineMaterial = new LineMaterial({

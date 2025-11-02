@@ -4,7 +4,6 @@ const createStarGeo = function () {
     const starCount = 100;
     const starGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(starCount * 3);
-    const starVelo = new Array(starCount).fill(0);
 
     for (let i = 0; i < starCount; i++) {
         positions[i * 3] = Math.random() * 150 - 75;
@@ -12,7 +11,7 @@ const createStarGeo = function () {
         positions[i * 3 + 2] = (Math.random() * 1000);
     }
     starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    return { starGeo, starVelo };
+    return starGeo;
 };
 
 const createStarMaterial = function () {

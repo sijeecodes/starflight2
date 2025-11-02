@@ -8,7 +8,7 @@ function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
 
     if (blasterCoolTime > 0) pcShip.blasterCoolTime -= 1;
 
-    if (keyStates.blaster && blasterCoolTime == 0) {
+    if (keyStates.blaster && blasterCoolTime == 0 && !keyStates.boost) {
         const newBlaster = createPCBlaster(pcShip);
         scene.add(newBlaster);
         pcBlasters.push(newBlaster);
@@ -20,7 +20,7 @@ function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
             if (blaster.position.z < blasterRange) {
                 blaster.position.x += blaster.speed[0];
                 blaster.position.y += blaster.speed[1];
-                blaster.position.z += blaster.speed[2];
+                blaster.position.z += blaster.speed[2] - scene.boostSpeed;
                 blaster.position.needsUpdate = true;
                 return blaster;
             }

@@ -30,9 +30,6 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
         } else if (scene.boostSpeed > 0) {
             scene.boostSpeed = scene.boostSpeed * decelZ;
             if (scene.boostSpeed < 0.01) scene.boostSpeed = 0;
-
-            console.log(scene.boostSpeed);
-
         }
 
         if (keyStates.right && keyStates.left) {
@@ -202,6 +199,8 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
         pcShip.rotation.y = speedX / maxX / 30 * Math.PI;
         pcShip.rotation.x = -speedY / maxY / 30 * Math.PI;
     }
+
+    pcShip.position.z = scene.boostSpeed * 15;
 
     camera.rotation.z = Math.PI + speedX / maxX / 150 * Math.PI;
     camera.rotation.y = -pcShip.position.x / 1000;

@@ -1,4 +1,4 @@
-function updateNPCPosition(obj) {
+function updateNPCPosition(scene, obj) {
     if (!obj.targetPosition || obj.targetPosition.length < 3) return;
 
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
@@ -50,7 +50,7 @@ function updateNPCPosition(obj) {
 
     obj.position.x = currentPos[0] + speed[0];
     obj.position.y = currentPos[1] + speed[1];
-    obj.position.z = currentPos[2] + speed[2];
+    obj.position.z = currentPos[2] + speed[2] - scene.boostSpeed * 1.5;
     obj.speed = [speed[0], speed[1], speed[2]];
 
     obj.translateX(obj.defaultSpeed[0]);

@@ -21,8 +21,13 @@ const setKeyState = function (keyStates, event) {
     if (event.code == "ArrowUp") { keyStates.up = true; return keyStates; }
     if (event.code == "ArrowDown") { keyStates.down = true; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = true; return keyStates; }
+    if (event.code == "KeyE") { keyStates.rightRoll = true; return keyStates; }
+    if (event.code == "Comma") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = true; return keyStates; }
+    if (event.code == "KeyQ") { keyStates.leftRoll = true; return keyStates; }
+    if (event.code == "KeyM") { keyStates.leftRoll = true; return keyStates; }
     if (event.code == "KeyX") { keyStates.boost = true; return keyStates; }
+    if (event.code == "Period") { keyStates.boost = true; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
 
     // console.log(event);
@@ -39,8 +44,13 @@ const resetKeyState = function (keyStates, event) {
     if (event.code == "ArrowUp") { keyStates.up = false; return keyStates; }
     if (event.code == "ArrowDown") { keyStates.down = false; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = false; return keyStates; }
+    if (event.code == "KeyE") { keyStates.rightRoll = false; return keyStates; }
+    if (event.code == "Comma") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = false; return keyStates; }
+    if (event.code == "KeyQ") { keyStates.leftRoll = false; return keyStates; }
+    if (event.code == "KeyM") { keyStates.leftRoll = false; return keyStates; }
     if (event.code == "KeyX") { keyStates.boost = false; return keyStates; }
+    if (event.code == "Period") { keyStates.boost = false; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
 
     return keyStates;

@@ -12,13 +12,14 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         npc.aiPatternTime++;
 
         updateNPCAI(npc, pcPos);
-        updateNPCPosition(npc);
+        updateNPCPosition(scene, npc);
         updateNPCRotation(npc);
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
 
         if (npc.position.z < 0) {
+            npc.aiPattern = [];
             npc.targetRotation = [0, 0, 0];
-            npc.targetPosition.z = -300;
+            npc.targetPosition[2] = -300;
         }
 
         if (npc.position.z < -200

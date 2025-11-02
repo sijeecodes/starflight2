@@ -5,7 +5,7 @@ const npcBasicData = {
         hp:             30,
         blasterPower:   1,
         blasterSpeed:   1,
-        defaultSpeed:   [0, 0, 0.1],
+        defaultSpeed:   [0, 0, 0],
         speed:          [0, 0, 0],
         maxSpeed:       3,
         speedAccel:     [0.1, 0.1, 0.1],

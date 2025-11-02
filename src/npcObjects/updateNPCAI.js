@@ -2,6 +2,7 @@ import npcAIPatternLoader from './npcAIPatternLoader';
 
 function updateNPCAI(obj, pcPos) {
     npcAIPatternLoader(obj);
+
     if (!obj.aiPattern || !obj.aiPattern[obj.aiPatternCurrentStep + 1]) return;
     
     if (obj.aiPattern[obj.aiPatternCurrentStep + 1].actionTime <= obj.aiPatternTime) {
@@ -10,6 +11,8 @@ function updateNPCAI(obj, pcPos) {
         const value = obj.aiPattern[obj.aiPatternCurrentStep].value;
 
         if (action == "move")               setTargetPosition(obj, value);
+        if (action == "moveTo")             setTargetPositionTo(obj, value);
+        if (action == "randomMoveTo")       setRandomTargetPositionTo(obj, value);
         if (action == "blaster")            setNPCBlaster(obj, value);
         if (action == "setPatternTime")     setPatternTime(obj, value);
         if (action == "setDefaultSpeed")    setDefaultSpeed(obj, value);
@@ -35,6 +38,21 @@ function setTargetPosition(obj, value) {
     obj.targetPosition[0] = obj.position.x + value[0];
     obj.targetPosition[1] = obj.position.y + value[1];
     obj.targetPosition[2] = obj.position.z + value[2];
+}
+
+function setTargetPositionTo(obj, value) {
+    obj.targetPosition[0] = value[0];
+    obj.targetPosition[1] = value[1];
+    obj.targetPosition[2] = value[2];
+}
+
+function setRandomTargetPositionTo(obj, value) {
+    const newValueX = Math.random() * Math.abs(value[1] - value[0]) + value[0];
+    const newValueY = Math.random() * Math.abs(value[3] - value[2]) + value[2];
+    const newValueZ = Math.random() * Math.abs(value[5] - value[4]) + value[4];
+    console.log([newValueX, newValueY, newValueZ]);
+
+    setTargetPositionTo(obj, [newValueX, newValueY, newValueZ]);
 }
 
 function setTargetRotation(obj, value, pcPos) {

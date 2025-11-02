@@ -13,6 +13,7 @@ const npcAIData = {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "basicPattern1" },
             { triggerTime: 90, aiPattern: "loopPattern1" },
+            { triggerTime: 300, aiPattern: "randomMove1" },
         ],
         hpTriggered: [
             // { triggerHP: 10,  aiPattern: "basicPattern" }, 

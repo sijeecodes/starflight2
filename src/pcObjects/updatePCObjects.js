@@ -149,8 +149,9 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
         }
     }
 
-    if (!pcShip.rolling && keyStates.rightRoll && !scene.boostSpeed) {
+    if (!pcShip.rolling && keyStates.rightRoll && !scene.boostSpeed && pcShip.rollCoolTime == 0) {
         pcShip.rolling = "rightRoll";
+        pcShip.rollCoolTime = pcShip.rollDelay;
         rot.z += (Math.PI * 2 - rot.z) * 0.25;
         speedX = 0;
         speedY = 0;
@@ -169,8 +170,9 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
             speedDecelerateX();
         }
     }
-    if (!pcShip.rolling && keyStates.leftRoll && !scene.boostSpeed) {
+    if (!pcShip.rolling && keyStates.leftRoll && !scene.boostSpeed && pcShip.rollCoolTime == 0) {
         pcShip.rolling = "leftRoll";
+        pcShip.rollCoolTime = pcShip.rollDelay;
         rot.z += (-Math.PI * 2 - rot.z) * 0.25;
         speedX = 0;
         speedY = 0;
@@ -189,9 +191,11 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
             speedDecelerateX();
         }
     }
+    if (pcShip.rollCoolTime > 0) pcShip.rollCoolTime--;
 
     pcShip.position.x += speedX;
     pcShip.position.y += speedY;
+    pcShip.position.z = scene.boostSpeed * 15;
     pcShip.speed = [speedX, speedY, speedZ];
 
     if (!pcShip.rolling) {
@@ -199,8 +203,6 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
         pcShip.rotation.y = speedX / maxX / 30 * Math.PI;
         pcShip.rotation.x = -speedY / maxY / 30 * Math.PI;
     }
-
-    pcShip.position.z = scene.boostSpeed * 15;
 
     camera.rotation.z = Math.PI + speedX / maxX / 150 * Math.PI;
     camera.rotation.y = -pcShip.position.x / 1000;

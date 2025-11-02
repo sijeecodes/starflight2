@@ -19,6 +19,8 @@ function createPCShip() {
     pcShip.speedAccel = [0.6, 0.4, 0.6];
     pcShip.speedDecel = [0.93, 0.93, 0.90];
     pcShip.rolling = false;
+    pcShip.rollCoolTime = 0;
+    pcShip.rollDelay = 45;
 
     return pcShip;
 };

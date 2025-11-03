@@ -1,7 +1,7 @@
 import { createPCBlaster } from '../pcObjects/createPCObjects';
 
 function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
-    const blasterRange = 400;
+    const blasterRange = 800;
     const blasterCoolTime = pcShip.blasterCoolTime;
     const blasterDelay = pcShip.blasterDelay;
     let newBlasters = [];

@@ -60,8 +60,6 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     npc.fireBlaster = "none";
     scene.add(blaster);
     npcBlasters.push(blaster);
-
-    console.log(blaster.position.z);
 }
 
 function deepCopy(target = {}, data = {}) {

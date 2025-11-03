@@ -18,7 +18,7 @@ function createBackground(scene, backgroundObjs) {
         {
             size: [60, 60],
             position: [120, - 100, 700],
-            speed: 0.07
+            speed: 0.05
         }
     );
     makeBackgroundObject(
@@ -26,9 +26,9 @@ function createBackground(scene, backgroundObjs) {
         backgroundObjs,
         '../../artSrc/planet2.png',
         {
-            size: [60, 60],
-            position: [120, 50, 400],
-            speed: 0.05
+            size: [120, 120],
+            position: [120, 50, 700],
+            speed: 0.08
         }
     );
 }

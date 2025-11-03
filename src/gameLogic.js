@@ -37,7 +37,7 @@ const gameLogic = function () {
 
     renderer.setPixelRatio(window.devicePixelRatio);
     setWindow(window, document, keyStates, camera, renderer);
-    camera.position.set(0, 15, -200);
+    camera.position.set(0, 10, -200);
     document.getElementById("canvas").appendChild(renderer.domElement);
 
     setInterval(animate, 1000 / 30);

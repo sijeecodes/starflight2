@@ -216,7 +216,7 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
 
     camera.rotation.z = Math.PI + speedX / maxX / 150 * Math.PI;
     camera.rotation.y = -pcShip.position.x / 1000;
-    camera.rotation.x = Math.PI - (pcShip.position.y - 50) / 1000;
+    camera.rotation.x = Math.PI - (pcShip.position.y - 80) / 1000;
 
     updatePCBlasters(scene, pcShip, pcBlasters, keyStates);
 };

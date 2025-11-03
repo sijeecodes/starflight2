@@ -69,10 +69,10 @@ function createAimFrame() {
     ]);
     const frameGeo2 = new LineGeometry();
     frameGeo2.setPositions([
-        1.4, -1.2, 30,
-        -1.4, -1.2, 30,
-        0, 1.0, 30,
-        1.47, -1.2, 30
+        1.4, -1.2, 50,
+        -1.4, -1.2, 50,
+        0, 1.0, 50,
+        1.47, -1.2, 50
     ]);
     const lineMaterial = new LineMaterial({
         color: 0x42ff00,
@@ -85,7 +85,7 @@ function createAimFrame() {
     const aimFrame = new THREE.Group();
     aimFrame.add(new Line2(frameGeo1, lineMaterial));
     aimFrame.add(new Line2(frameGeo2, lineMaterial));
-    aimFrame.position.set(0, 0, 70);
+    aimFrame.position.set(0, 0, 150);
 
     return aimFrame;
 }

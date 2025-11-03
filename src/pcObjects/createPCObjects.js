@@ -11,7 +11,7 @@ function createPCShip() {
 
     loader.load('../artSrc/ship.glb', (object) => pcShip.add(object.scene));
     pcShip.add(aimFrame);
-    pcShip.collisionSize = 7;
+    pcShip.collisionSize = 8;
     pcShip.blasterCoolTime = 0;
     pcShip.blasterDelay = 1;
     pcShip.speed = [0, 0, 0];
@@ -20,14 +20,23 @@ function createPCShip() {
     pcShip.speedDecel = [0.93, 0.93, 0.90];
     pcShip.rolling = false;
     pcShip.rollCoolTime = 0;
-    pcShip.rollDelay = 45;
+    pcShip.rollDelay = 30;
+    pcShip.rollCost = 20;
+    pcShip.boostCost = 1;
+    pcShip.hpMax = 100;
+    pcShip.hp = 100;
+    pcShip.hpDisplayed = 100;
+    pcShip.energyMax = 100
+    pcShip.energy = 50;
+    pcShip.energyDisplayed = 50;
+    pcShip.energyRecharge = 10;
 
     return pcShip;
 };
 
 function createPCBlaster(pcShip) {
-    const blasterSpeed = 9;
-    const geometry = new THREE.SphereGeometry(3, 5, 5); //rad, width seg, height seg
+    const blasterSpeed = 10;
+    const geometry = new THREE.SphereGeometry(3, 5, 5);  //rad, width seg, height seg
     const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
         color: 0x00ffff,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
         transparent: true,

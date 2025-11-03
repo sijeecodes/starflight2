@@ -19,16 +19,19 @@ function raycastHit(origin, target) {
     }
 
     if (collided) {
-        origin.traverse((child) => {
+        target.traverse((child) => {
             if (child.isMesh) child.material.color.set(0xff0000);
         });
-        return true;
 
-    } else {
-        origin.traverse((child) => {
-            if (child.isMesh) child.material.color.set(0xffffff);
-        });
+        setInterval(
+            target.traverse((child) => { 
+                if (child.isMesh) child.material.color.set(0xffffff) 
+            })
+            , 100
+        )
+        return true;
     }
+    
     return false;
 }
 

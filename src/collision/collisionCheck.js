@@ -16,8 +16,8 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
         let pcBlasterGone = false;
 
         npcs.forEach((npc) => {
-            if (closeDistance(npc, pcBlaster)) {
-                if (raycastHit(npc, pcBlaster)) {
+            if (closeDistance(pcBlaster, npc)) {
+                if (raycastHit(pcBlaster, npc)) {
                     console.log("Blaster & NPC Hit!");/////////////////////
                     createExplosion(scene, pcBlaster, "hit", explosionObjects);
                     scene.remove(pcBlaster);
@@ -28,7 +28,6 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                         createExplosion(scene, pcBlaster, "explode", explosionObjects);
                         scene.remove(npc);
                     } else newNpcs.push(npc);
-                    
                 } else newNpcs.push(npc);
             } else newNpcs.push(npc);
         });
@@ -44,10 +43,10 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
         if (closeDistance(npc, pcShip)) {
             if (raycastHit(npc, pcShip.children[1].children[0])) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
-                pcShip.hp -= 1;
+                pcShip.hp -= npc.power;
                 npc.hp -= 1;
                 //explosion effect;
-                console.log("NPC & PC Hit!");/////////////////////
+                console.log("NPC & PC Hit!", pcShip.hp, npc.power);/////////////////////
 
                 if ( npc.hp <= 0 ) {
                     createExplosion(scene, npc, "explode", explosionObjects);
@@ -62,12 +61,12 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     //check all enemy blasters vs pc
     newBlasters.length = 0;
     npcBlasters.forEach((blaster) => {
-        if (closeDistance(pcShip, blaster)) {
-            if (raycastHit(pcShip.children[1].children[0], blaster)) {
+        if (closeDistance(blaster, pcShip)) {
+            if (raycastHit(blaster, pcShip.children[1].children[0])) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
                 pcShip.hp -= blaster.power;
                 //explosion effect;
-                console.log("blaster & PC Hit!");/////////////////////
+                console.log("blaster & PC Hit!", pcShip.hp, blaster.power);/////////////////////
 
                 scene.remove(blaster);
             } else newBlasters.push(blaster);
@@ -75,6 +74,8 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     });
     npcBlasters.length = 0;
     npcBlasters.push(...newBlasters);
+
+    if (pcShip.hp < 0) pcShip.hp = 0;
 }
 
 export default collisionCheck;

@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'starfont';
+  src:          url('./artSrc/starfont.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    display: block;
+    background: black;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+#canvas {
+    position: fixed;
+    background: black;
+    z-index: 1;
+    display: 0;
+}
+
+#gameUI {
+    display:block;
+    z-index: 10;
+}
+
+#inGame {
+    display: block;
+    padding: 1rem 1rem 1rem 1rem;
+    z-index: 10;
+}
+
+.gaugeBar {
+    height: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+#hp {
+    background: greenyellow;
+    width: 400px;
+}
+
+#energy {
+    background: cyan;
+    width: 200px;
+}

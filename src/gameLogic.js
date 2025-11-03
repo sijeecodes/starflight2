@@ -1,17 +1,19 @@
 import * as THREE from 'three';
 import { createStarGeo, createStarMaterial } from './environment/createStars';
-import updateStars from './environment/updateStars';
+import { createPCShip } from './pcObjects/createPCObjects';
+import { initKeyState } from './ui/setKeyStates';
+import setWindow from './ui/setWindow';
 import createBackground from './environment/createBackground';
 import createLights from './environment/createLights';
-import createLevelArr from './Level/createLevelArr';
-import { createPCShip } from './pcObjects/createPCObjects';
-import { initKeyState, setKeyState, resetKeyState } from './gameStates/setKeyStates';
+import createLevelArr from './level/createLevelArr';
 import collisionCheck from './collision/collisionCheck';
 import updateBackground from './environment/updateBackground';
+import updateStars from './environment/updateStars';
+import updateLevel from './level/updateLevel';
 import updatePCObjects from './pcObjects/updatePCObjects';
-import updateLevel from './Level/updateLevel';
 import updateNPCObjects from './npcObjects/updateNPCObjects';
 import updateExplosions from './effects/updateExplosions';
+import updateGauge from './ui/updateGauge';
 // import { OrbitControls } from 'three/addons/controls/OrbitControls'; ///////////////////////////////
 
 const gameLogic = function () {
@@ -33,14 +35,10 @@ const gameLogic = function () {
     createLights(scene);
     createLevelArr(scene);
 
-    window.addEventListener('keydown', (e) => keyStates = setKeyState(keyStates, e));
-    window.addEventListener('keyup', (e) => keyStates = resetKeyState(keyStates, e));
-
-    camera.position.set(0, 10, -200);
-
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    setWindow(window, document, keyStates, camera, renderer);
+    camera.position.set(0, 10, -200);
+    document.getElementById("canvas").appendChild(renderer.domElement);
 
     setInterval(animate, 1000 / 30);
     function animate() {
@@ -53,6 +51,7 @@ const gameLogic = function () {
         updateNPCObjects(scene, pcObjects.pcShip.position, npcObjects);
         collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
         updateExplosions(explosionObjects)
+        updateGauge(document, pcObjects);
 
         // controls.update(); ///////////////////////////////////////////////////////////
         renderer.render(scene, camera);

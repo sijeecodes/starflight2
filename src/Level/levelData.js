@@ -1,22 +1,67 @@
 const levelData = [
     {
-        eventTime:  50,
-        npcAIname:  "defaultAI",
-        npcBasic:   "baseNPCBasic1",
-        startingPosition: [30, 0, 200]
+        eventTime: 30,
+        npcAIname: "droneAI",
+        npcBasic: "droneBasic",
+        startingPosition: [30, 0, 800]
     },
     {
-        eventTime:  90,
-        npcAIname:  "aiName2",
-        npcBasic:   "baseNPCBasic",
-        startingPosition: [-30, 0, 200]
+        eventTime: 60,
+        npcAIname: "bomberAI",
+        npcBasic: "bomberBasic",
+        startingPosition: [30, 0, 800]
     },
     {
-        eventTime:  150,
-        npcAIname:  "aiName1",
-        npcBasic:   "baseNPCBasic",
-        startingPosition: [0, -15, 200]
-    }
+        eventTime: 120,
+        npcAIname: "fighterAI",
+        npcBasic: "fighterBasic",
+        startingPosition: [30, 0, 800]
+    },
+    {
+        eventTime: 150,
+        npcAIname: "destroyerAI",
+        npcBasic: "destroyerBasic",
+        startingPosition: [30, 0, 800]
+    },
+    {
+        eventTime: 10,
+        npcAIname: "cruiserAI",
+        npcBasic: "cruiserBasic",
+        startingPosition: [30, 0, 800]
+    }, 
+
+    // {
+    //     eventTime: 30,
+    //     npcAIname: "droneAI",
+    //     npcBasic: "droneBasic",
+    //     startingPosition: [30, 0, 800]
+    // },
+    // {
+    //     eventTime: 60,
+    //     npcAIname: "bomberAI",
+    //     npcBasic: "bomberBasic",
+    //     startingPosition: [30, 0, 800]
+    // },
+    // {
+    //     eventTime: 120,
+    //     npcAIname: "fighterAI",
+    //     npcBasic: "fighterBasic",
+    //     startingPosition: [30, 0, 800]
+    // },
+    // {
+    //     eventTime: 150,
+    //     npcAIname: "destroyerAI",
+    //     npcBasic: "destroyerBasic",
+    //     startingPosition: [30, 0, 800]
+    // },
+    // {
+    //     eventTime: 300,
+    //     npcAIname: "cruiserAI",
+    //     npcBasic: "cruiserBasic",
+    //     startingPosition: [30, 0, 800]
+    // },
+
+
 ];
 
 export default levelData;

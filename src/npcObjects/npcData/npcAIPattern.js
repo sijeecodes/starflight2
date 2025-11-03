@@ -1,12 +1,6 @@
 const npcAIPattern = {
     basicPattern: [
-        { actionTime: 0, action: "move", value: [10, 5, -50] },
-    ],
-    basicPattern1: [
-        { actionTime: 0, action: "move", value: [0, 0, -50] },
-    ],
-    basicPattern2: [
-        { actionTime: 0, action: "moveTo", value: [-30, 0, 150] },
+        { actionTime: 0, action: "move", value: [0, 0, -600] },
     ],
     loopPattern: [
         { actionTime: 20, action: "move",               value: [10, 5, 0] },
@@ -19,24 +13,17 @@ const npcAIPattern = {
         { actionTime: 160, action: "blaster",           value: "pc" },        
         { actionTime: 180, action: "setPatternTime",    value: 0 },
     ],
-    loopPattern1: [
-        { actionTime: 35, action: "setRotation",        value: "pc" },
-        { actionTime: 50, action: "blaster",            value: "front" },
-        { actionTime: 70, action: "blaster",            value: "front" },
-        { actionTime: 125, action: "setRotation",       value: "pc" },
-        { actionTime: 140, action: "blaster",           value: "front" },
-        { actionTime: 160, action: "blaster",           value: "front" },        
-        { actionTime: 180, action: "setPatternTime",    value: 0 },
-    ],
-    randomMove1: [
-        { actionTime: 20, action: "randomMoveTo",         value: [-15, 15, -5, 5, 150, 150] },
+    randomMove: [
+        { actionTime: 20, action: "randomMoveTo",       value: [-20, 20, -10, 10, 150, 200] },
         { actionTime: 50, action: "setRotation",        value: "pc" },
         { actionTime: 70, action: "blaster",            value: "front" },
         { actionTime: 80, action: "blaster",            value: "front" },
-        { actionTime: 90, action: "randomMoveTo",         value: [-15, 15, -5, 5, 150, 150] },
+        { actionTime: 100, action: "blaster",            value: "front" },
+        { actionTime: 100, action: "randomMoveTo",       value: [-20, 20, -10, 10, 150, 200] },
         { actionTime: 120, action: "setRotation",       value: "pc" },        
         { actionTime: 140, action: "blaster",           value: "front" },
         { actionTime: 160, action: "blaster",           value: "front" },        
+        { actionTime: 180, action: "blaster",           value: "front" },        
         { actionTime: 180, action: "setPatternTime",    value: 0 },
     ],
     charge: [

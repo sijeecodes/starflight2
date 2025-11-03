@@ -34,31 +34,6 @@ function createPCShip() {
     return pcShip;
 };
 
-function createPCBlaster(pcShip) {
-    const blasterSpeed = 10;
-    const geometry = new THREE.SphereGeometry(3, 5, 5);  //rad, width seg, height seg
-    const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
-        color: 0x00ffff,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
-        transparent: true,
-        opacity: 0.8,
-        blending: THREE.AdditiveBlending,
-    });
-
-    const blaster = new THREE.Mesh(geometry, material);
-    blaster.speed = [0, 0, 25];
-    blaster.position.copy(pcShip.position);
-    blaster.rotation.copy(pcShip.rotation);
-    blaster.speed[0] = pcShip.speed[0];
-    blaster.speed[1] = pcShip.speed[1];
-    blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
-                       - Math.pow(blaster.speed[0], 2)
-                       - Math.pow(blaster.speed[1], 2));
-    blaster.power = 1;
-    blaster.collisionSize = 4;
-
-    return blaster;
-}
-
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([
@@ -88,6 +63,31 @@ function createAimFrame() {
     aimFrame.position.set(0, 0, 150);
 
     return aimFrame;
+}
+
+function createPCBlaster(pcShip) {
+    const blasterSpeed = 10;
+    const geometry = new THREE.SphereGeometry(3, 5, 5);  //rad, width seg, height seg
+    const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
+        color: 0x00ffff,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending,
+    });
+
+    const blaster = new THREE.Mesh(geometry, material);
+    blaster.speed = [0, 0, 25];
+    blaster.position.copy(pcShip.position);
+    blaster.rotation.copy(pcShip.rotation);
+    blaster.speed[0] = pcShip.speed[0];
+    blaster.speed[1] = pcShip.speed[1];
+    blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
+                       - Math.pow(blaster.speed[0], 2)
+                       - Math.pow(blaster.speed[1], 2));
+    blaster.power = 1;
+    blaster.collisionSize = 4;
+
+    return blaster;
 }
 
 export { createPCShip, createPCBlaster };

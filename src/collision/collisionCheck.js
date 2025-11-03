@@ -29,7 +29,10 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                         scene.remove(npc);
                     } else newNpcs.push(npc);
                 } else newNpcs.push(npc);
-            } else newNpcs.push(npc);
+            } else {
+ 
+                newNpcs.push(npc);
+            }
         });
         pcBlasterGone ? null : newBlasters.push(pcBlaster);
         npcs.length = 0;
@@ -54,6 +57,15 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                 } else newNpcs.push(npc);
             } else newNpcs.push(npc);
         } else newNpcs.push(npc);
+
+        if (npc.hitMark > 0) {
+            npc.hitMark -= 1;
+            if (npc.hitMark == 0) {
+                npc.traverse((child) => { 
+                    if (child.isMesh) child.material.color.set(0xffffff) 
+                })
+            }
+        }
     });
     npcs.length = 0;
     npcs.push(...newNpcs);

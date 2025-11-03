@@ -22,15 +22,10 @@ function raycastHit(origin, target) {
         target.traverse((child) => {
             if (child.isMesh) child.material.color.set(0xff0000);
         });
-
-        setInterval(
-            target.traverse((child) => { 
-                if (child.isMesh) child.material.color.set(0xffffff) 
-            })
-            , 100
-        )
+        target.hitMark = 3;
         return true;
     }
+
     
     return false;
 }

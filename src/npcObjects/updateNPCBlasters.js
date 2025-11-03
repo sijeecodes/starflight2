@@ -4,7 +4,7 @@ function updateNPCBlasters(scene, npcBlasters) {
     let newBlasters = [];
     if (npcBlasters.length > 0) {
         newBlasters = npcBlasters.filter((blaster) => {
-            if (blaster.position.z < -200) {
+            if (blaster.position.z < -200 || Math.abs(blaster.position.y) > 100 || Math.abs(blaster.position.x) > 200) {
                 scene.remove(blaster);
                 return false;
             }

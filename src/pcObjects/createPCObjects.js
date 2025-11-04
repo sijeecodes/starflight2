@@ -29,7 +29,9 @@ function createPCShip() {
     pcShip.energyMax = 100
     pcShip.energy = 50;
     pcShip.energyDisplayed = 50;
-    pcShip.energyRecharge = 10;
+    pcShip.energyCoolTime = 60;
+    pcShip.energyDelay = 60;
+    pcShip.energyRecharge = 20;
 
     return pcShip;
 };

@@ -198,8 +198,11 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
         }
     }
     if (pcShip.rollCoolTime > 0) pcShip.rollCoolTime--;
-    if (pcShip.energy <= pcShip.energyMax && scene.timeStamp % 90 == 0) {
+
+    pcShip.energyCoolTime--;
+    if (pcShip.energy <= pcShip.energyMax && pcShip.energyCoolTime <= 0) {
         pcShip.energy += pcShip.energyRecharge;
+        pcShip.energyCoolTime = pcShip.energyDelay;
         if(pcShip.energy > pcShip.energyMax) pcShip.energy = pcShip.energyMax;
     }
 

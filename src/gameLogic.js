@@ -42,7 +42,9 @@ const gameLogic = function () {
 
     setInterval(animate, 1000 / 30);
     function animate() {
-        scene.timeStamp += 1;
+        scene.timeStamp++;
+        pcObjects.pcShip.energyDelay++;
+
         // let t0 = performance.now();
         updateStars(scene, starGeo);
         updateBackground(scene, backgroundObjs);
@@ -52,6 +54,7 @@ const gameLogic = function () {
         collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
         updateExplosions(explosionObjects)
         updateGauge(document, pcObjects);
+        
 
         // controls.update(); ///////////////////////////////////////////////////////////
         renderer.render(scene, camera);

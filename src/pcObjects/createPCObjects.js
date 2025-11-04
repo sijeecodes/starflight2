@@ -62,7 +62,7 @@ function createAimFrame() {
     const aimFrame = new THREE.Group();
     aimFrame.add(new Line2(frameGeo1, lineMaterial));
     aimFrame.add(new Line2(frameGeo2, lineMaterial));
-    aimFrame.position.set(0, 0, 150);
+    aimFrame.position.set(0, 0, 120);
 
     return aimFrame;
 }
@@ -84,8 +84,8 @@ function createPCBlaster(pcShip) {
     blaster.speed[0] = pcShip.speed[0];
     blaster.speed[1] = pcShip.speed[1];
     blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
-                       - Math.pow(blaster.speed[0], 2)
-                       - Math.pow(blaster.speed[1], 2));
+        - Math.pow(blaster.speed[0], 2)
+        - Math.pow(blaster.speed[1], 2));
     blaster.power = 1;
     blaster.collisionSize = 4;
 

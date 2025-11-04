@@ -119,7 +119,6 @@ const npcAIData = {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "fighterIntroPattern" },
             { triggerTime: 250, aiPattern: "fighterRandomMove1H" },
-            { triggerTime: 300, aiPattern: "randomMove" },
         ],
         hpTriggered: [
             // { triggerHP: 10,  aiPattern: "basicPattern" }, 

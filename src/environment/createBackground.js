@@ -47,7 +47,11 @@ function makeBackgroundObject(
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(fileName,
         function () {
-            const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true });
+            const material = new THREE.MeshBasicMaterial({ 
+                map: texture, 
+                side: THREE.DoubleSide, 
+                transparent: true
+            });
             const backgroundObj = new THREE.Mesh(backgroundGeo, material);
             backgroundObj.position.set(positionX, positionY, positionZ);
             backgroundObj.lookAt(0, 0, 0);

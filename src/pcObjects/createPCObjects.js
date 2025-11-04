@@ -15,8 +15,8 @@ function createPCShip() {
     pcShip.blasterCoolTime = 0;
     pcShip.blasterDelay = 1;
     pcShip.speed = [0, 0, 0];
-    pcShip.maxSpeed = [3.0, 1.8, 3];
-    pcShip.speedAccel = [0.6, 0.4, 0.6];
+    pcShip.maxSpeed = [3.0, 1.8, 4];
+    pcShip.speedAccel = [0.6, 0.4, 0.5];
     pcShip.speedDecel = [0.93, 0.93, 0.90];
     pcShip.rolling = false;
     pcShip.rollCoolTime = 0;

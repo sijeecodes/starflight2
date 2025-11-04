@@ -8,7 +8,7 @@ const updateStars = function (scene, starGeo) {
             positions[i - 1] = Math.random() * 150 - 75;
             positions[i] = 1000;
         } else {
-            positions[i] -= 25 + boost * 10;
+            positions[i] -= 20 + boost * 12;
         }
     }
     starGeo.attributes.position.needsUpdate = true;

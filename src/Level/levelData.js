@@ -44,19 +44,19 @@ const levelData = [
         startingPosition: [35, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 0,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [-35, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 0,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [35, -15, 700]
     },
         {
-        eventTime: 10,
+        eventTime: 0,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [-35, -15, 700]
@@ -65,69 +65,75 @@ const levelData = [
     //// drone squad of 8
     ////top left
     {
-        eventTime: 100,
+        eventTime: 90,
         npcAIname: "droneAIrandom1Q",
         npcBasic: "droneBasic",
         startingPosition: [20, 10, 700]
     },
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom1Q",
         npcBasic: "droneBasic",
         startingPosition: [40, 10, 700]
     },
     ///top right
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom2Q",
         npcBasic: "droneBasic",
         startingPosition: [-20, 10, 700]
     },
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom2Q",
         npcBasic: "droneBasic",
         startingPosition: [-40, 10, 700]
     },
     ////bottom left
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom3Q",
         npcBasic: "droneBasic",
         startingPosition: [20, -10, 700]
     },
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom3Q",
         npcBasic: "droneBasic",
         startingPosition: [40, -10, 700]
     },
     ////bottom right
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom4Q",
         npcBasic: "droneBasic",
         startingPosition: [-20, -10, 700]
     },
     {
-        eventTime: 100,
+        eventTime: 0,
         npcAIname: "droneAIrandom4Q",
         npcBasic: "droneBasic",
         startingPosition: [-40, -10, 700]
     },
 
     {
-        eventTime: 500,
+        eventTime: 400,
         npcAIname: "fighterAIrandom1H",
         npcBasic: "fighterBasic",
         startingPosition: [30, 0, 700]
     },
 
     {
-        eventTime: 650,
+        eventTime: 0,
         npcAIname: "destroyerAIrandom2H",
         npcBasic: "destroyerBasic",
         startingPosition: [-30, 0, 700]
+    },
+    {
+        eventTime: 100,
+        npcAIname: "fighterAIrandom1H",
+        npcBasic: "fighterBasic",
+        startingPosition: [30, 0, 700]
     },
 ];
 

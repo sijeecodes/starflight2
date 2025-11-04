@@ -20,7 +20,7 @@ const npcBasicData = {
     },
     droneBasic: {
         npcGlb:         '../artSrc/npcShip1.glb',
-        collisionSize:  7,
+        collisionSize:  8,
         hp:             1,
         power:          1,
         maxSpeed:       3,
@@ -58,7 +58,7 @@ const npcBasicData = {
     },
     fighterBasic: {
         npcGlb:         '../artSrc/npcShip5.glb',
-        collisionSize:  8,
+        collisionSize:  10,
         hp:             3,
         power:          2,
         maxSpeed:       3,

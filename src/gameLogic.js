@@ -43,8 +43,6 @@ const gameLogic = function () {
     setInterval(animate, 1000 / 30);
     function animate() {
         scene.timeStamp++;
-        pcObjects.pcShip.energyDelay++;
-
         // let t0 = performance.now();
         updateStars(scene, starGeo);
         updateBackground(scene, backgroundObjs);

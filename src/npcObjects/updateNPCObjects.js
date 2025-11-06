@@ -16,7 +16,7 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         updateNPCRotation(npc);
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
 
-        if (npc.position.z < 0) {
+        if (npc.position.z < 0 && npc.type != 'asteroid') {
             npc.aiPattern = [];
             npc.targetRotation = [0, 0, 0];
             npc.targetPosition[2] = -300;

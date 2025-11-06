@@ -45,9 +45,7 @@ const npcAIPattern = {
     cruiserIntroPattern: [ // need time 600
         { actionTime: 0, action: "move", value: [0, 0, -500] },
     ],
-    asteroidIntroPattern: [
-        { actionTime: 0, action: "setDefaultSpeed", value: [0, 0, 10] },
-    ],
+    asteroidIntroPattern: [],
 
     droneRandomMove1Q: [
         { actionTime: 0, action: "randomMoveTo", value: [10, 30, 5, 15, 130, 160] },

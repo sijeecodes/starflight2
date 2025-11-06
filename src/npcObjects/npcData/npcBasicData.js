@@ -1,6 +1,7 @@
 const npcBasicData = {
     baseNPCBasic: {
         npcGlb:         '../artSrc/npcShip3.glb',
+        type:           'npcShip',
         collisionSize:  10,
         hp:             30,
         power:          1,
@@ -20,6 +21,7 @@ const npcBasicData = {
     },
     droneBasic: {
         npcGlb:         '../artSrc/npcShip1.glb',
+        type:           'npcShip',
         collisionSize:  8,
         hp:             1,
         power:          1,
@@ -39,6 +41,7 @@ const npcBasicData = {
     },
     bomberBasic: {
         npcGlb:         '../artSrc/npcShip3.glb',
+        type:           'npcShip',
         collisionSize:  10,
         hp:             5,
         power:          3,
@@ -58,6 +61,7 @@ const npcBasicData = {
     },
     fighterBasic: {
         npcGlb:         '../artSrc/npcShip5.glb',
+        type:           'npcShip',
         collisionSize:  10,
         hp:             3,
         power:          2,
@@ -77,6 +81,7 @@ const npcBasicData = {
     },
     destroyerBasic: {
         npcGlb:         '../artSrc/npcShip6.glb',
+        type:           'npcShip',
         collisionSize:  10,
         hp:             10,
         power:          3,
@@ -96,6 +101,7 @@ const npcBasicData = {
     },
     cruiserBasic: {
         npcGlb:         '../artSrc/npcShip10.glb',
+        type:           'npcShip',
         collisionSize:  30,
         hp:             45,
         power:          5,
@@ -113,24 +119,23 @@ const npcBasicData = {
         blasterSpeed:   7,
         blasterPower:   20,
     },
-    asteroidBasic: {
+    asteroid1Basic: {
         npcGlb:         '../artSrc/asteroid1.glb',
-        collisionSize:  8,
+        type:           'asteroid',
+        collisionSize:  15,
         hp:             3,
-        power:          5,
-        maxSpeed:       5,
-        speedAccel:     [1, 1, 1],
-        speedDecel:     [0.9, 0.9, 0.9],
-        speed:          [0, 0, 0],
-        defaultSpeed:   [0, 0, 0],
-        targetPosition: [],
-        targetRotation: [0, 0, 0],
-        blasterColor:   '',
-        blasterShape:   '',
-        blasterRadius:  0,
-        blasterLength:  0,
-        blasterSpeed:   0,
-        blasterPower:   0,
+        power:          10,
+        defaultSpeed:   [0, 0, -9],
+        rotatingSpeed:  [0, 0, 0],
+    },
+    asteroid2Basic: {
+        npcGlb:         '../artSrc/asteroid2.glb',
+        type:           'asteroid',
+        collisionSize:  15,
+        hp:             3,
+        power:          10,
+        defaultSpeed:   [0, 0, -9],
+        rotatingSpeed:  [0, 0, 0],
     },
 };
 

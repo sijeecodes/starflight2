@@ -12,13 +12,30 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     loader.load(objBasic.npcGlb, (object) => obj.add(object.scene));
     obj = deepCopy(obj, objBasic);
     obj.npcAI = deepCopy(obj.npcAI, npcAIData[npcAIname]);
-    obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
-    obj.targetPosition = [startingPosition[0], startingPosition[1], startingPosition[2]];
     obj.elapsedTime = 0;
     obj.aiPatternTime = 0;
     obj.aiPatternCurrentStep = 0;
     obj.fireBlaster = "none";
     obj.hitMark = 0;
+    
+    if (obj.type == "asteroid") {
+        obj.scale.set(Math.random() * 1.2 + 0.4, Math.random() * 1.2 + 0.4, Math.random() * 1.2 + 0.4);
+
+        let maxScale = Math.max(obj.scale.x, obj.scale.y, obj.scale.z);
+        obj.collisionSize = maxScale * obj.collisionSize;
+        obj.hp = Math.ceil(maxScale * 2) * obj.hp;
+        obj.rotatingSpeed = [Math.random() / 10 - 0.05, Math.random() / 10 - 0.05, Math.random() / 10 - 0.05];
+    }
+    if (startingPosition == "random") {
+        startingPosition = 
+        [
+            Math.random() * 75 - 37.5,
+            Math.random() * 35 - 12.5,
+            700
+        ];
+        console.log(startingPosition);
+    }
+    obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
     npcObjects.npcs.push(obj);
     updateNPCAI(obj);
     scene.add(obj);
@@ -37,10 +54,10 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
         geometry.rotateX(Math.PI / 2);
     }
 
-    if (npc.blasterColor == "violet")   blasterColor = 0xbb00ff;
-    if (npc.blasterColor == "blue")     blasterColor = 0x00ffff;
-    if (npc.blasterColor == "green")    blasterColor = 0x00ff00;
-    if (npc.lasterColor == "orange")   blasterColor = 0xff9900;
+    if (npc.blasterColor == "violet") blasterColor = 0xbb00ff;
+    if (npc.blasterColor == "blue") blasterColor = 0x00ffff;
+    if (npc.blasterColor == "green") blasterColor = 0x00ff00;
+    if (npc.lasterColor == "orange") blasterColor = 0xff9900;
 
     const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
         color: blasterColor,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff

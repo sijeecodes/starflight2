@@ -1,10 +1,16 @@
 function updateNPCPosition(scene, obj) {
+    if (obj.type == "asteroid") {
+        obj.position.x += obj.defaultSpeed[0]; 
+        obj.position.y += obj.defaultSpeed[1]; 
+        obj.position.z += obj.defaultSpeed[2]; 
+    }
+
     if (!obj.targetPosition || obj.targetPosition.length < 3) return;
 
     let currentPos = [obj.position.x, obj.position.y, obj.position.z];
     if (currentPos == obj.targetPosition 
         && obj.speed == [0, 0, 0]) return;
-
+        
     let speed = obj.speed;
     let arrived = false;
     let estTime = estimateTime(currentPos, obj.targetPosition, obj.maxSpeed);

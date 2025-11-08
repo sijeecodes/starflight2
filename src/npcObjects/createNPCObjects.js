@@ -17,7 +17,7 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
     obj.aiPatternCurrentStep = 0;
     obj.fireBlaster = "none";
     obj.hitMark = 0;
-    
+
     if (obj.type == "asteroid") {
         obj.scale.set(Math.random() * 1.2 + 0.4, Math.random() * 1.2 + 0.4, Math.random() * 1.2 + 0.4);
 
@@ -27,13 +27,12 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
         obj.rotatingSpeed = [Math.random() / 10 - 0.05, Math.random() / 10 - 0.05, Math.random() / 10 - 0.05];
     }
     if (startingPosition == "random") {
-        startingPosition = 
-        [
-            Math.random() * 75 - 37.5,
-            Math.random() * 35 - 12.5,
-            700
-        ];
-        console.log(startingPosition);
+        startingPosition =
+            [
+                Math.random() * 75 - 37.5,
+                Math.random() * 35 - 12.5,
+                700
+            ];
     }
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
     npcObjects.npcs.push(obj);
@@ -72,6 +71,8 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     blaster.speed = npc.blasterSpeed;
     blaster.power = npc.blasterPower;
     blaster.collisionSize = npc.blasterLength;
+    blaster.translateZ(npc.collisionSize);
+    blaster.translateY(-npc.collisionSize / 5);
 
     if (npc.fireBlaster == "pc") blaster.lookAt(pcPos.x, pcPos.y, pcPos.z);
     npc.fireBlaster = "none";

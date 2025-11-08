@@ -24,12 +24,11 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
 
                     npc.hp -= pcBlaster.power;
                     if ( npc.hp <= 0 ) {
-                        createExplosion(scene, pcBlaster, "explode", explosionObjects);
+                        createExplosion(scene, npc, "explode", explosionObjects);
                         scene.remove(npc);
                     } else newNpcs.push(npc);
                 } else newNpcs.push(npc);
             } else {
- 
                 newNpcs.push(npc);
             }
         });
@@ -40,11 +39,13 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     pcBlasters.length = 0;
     pcBlasters.push(...newBlasters);
 
+    if (pcShip.rolling) return;
     //check all npcs vs pc
     npcs.forEach((npc) => {
         if (closeDistance(npc, pcShip)) {
             if (raycastHit(npc, pcShip.children[1].children[0])) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
+                createExplosion(scene, npc, "hit", explosionObjects);
                 pcShip.hp -= npc.power;
                 npc.hp -= 1;
 

@@ -275,7 +275,13 @@ const levelData = [
         npcAIname: "asteroidAI",
         npcBasic: "asteroid2Basic",
         startingPosition: "random"
-    }
+    },
+    {
+        eventTime: 10,
+        npcAIname: "bossAI",
+        npcBasic: "bossBasic",
+        startingPosition: "random"
+    },
 ];
 
 export default levelData;

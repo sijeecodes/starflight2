@@ -172,110 +172,110 @@ const levelData = [
     //     startingPosition: [30, 0, 700]
     // },
 
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
 
-    },
-    {
-        eventTime: 10,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2Basic",
-        startingPosition: "random"
-    },
+    // },
+    // {
+    //     eventTime: 10,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2Basic",
+    //     startingPosition: "random"
+    // },
     {
         eventTime: 10,
         npcAIname: "bossAI",

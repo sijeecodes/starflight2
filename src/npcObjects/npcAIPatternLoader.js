@@ -13,9 +13,9 @@ function npcAIPatternLoader(obj) {
         timeEvents.shift();
     }
     if (hpEvents.length > 0 
-        && obj.hp <= hpEvents[0].triggerTime) {
+        && obj.hp <= hpEvents[0].triggerHP) {
 
-        obj.aiPattern = npcAIPattern[timeEvents[0].aiPattern];
+        obj.aiPattern = npcAIPattern[hpEvents[0].aiPattern];
         obj.aiPatternTime = 0;
         obj.aiPatternCurrentStep = -1;
         hpEvents.shift();

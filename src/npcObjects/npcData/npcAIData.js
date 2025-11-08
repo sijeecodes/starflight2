@@ -159,6 +159,17 @@ const npcAIData = {
             // { triggerHP: 90,  aiPattern: "loopPattern" }, 
         ],
     },
+
+    bossAI: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "bossIntroPattern" },
+            { triggerTime: 500, aiPattern: "bossLoop" },
+        ],
+        hpTriggered: [
+            { triggerHP: 200,  aiPattern: "bossFinalLoop" }, 
+        ],
+    },
+
     asteroidAI: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "asteroidIntroPattern" },

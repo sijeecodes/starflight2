@@ -68,9 +68,9 @@ function setTargetRotation(obj, value, pcPos) {
         obj.targetRotation[1] = targetY + Math.PI;
         obj.targetRotation[2] = 0;
     } else {
-        obj.targetRotation[0] = obj.rotation.x + value[0];
-        obj.targetRotation[1] = obj.rotation.y + value[1];
-        obj.targetRotation[2] = obj.rotation.z + value[2];
+        obj.targetRotation[0] = value[0];
+        obj.targetRotation[1] = value[1];
+        obj.targetRotation[2] = value[2];
     }
 }
 

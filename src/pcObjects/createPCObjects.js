@@ -53,7 +53,7 @@ function createAimFrame() {
     ]);
     const lineMaterial = new LineMaterial({
         color: 0x42ff00,
-        opacity: 0.3,
+        opacity: 0.6,
         linewidth: 5,
         depthTest: false,
         transparent: true,

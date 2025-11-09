@@ -20,9 +20,9 @@ function createPCShip() {
     pcShip.speedDecel = [0.93, 0.93, 0.90];
     pcShip.rolling = false;
     pcShip.rollCoolTime = 0;
-    pcShip.rollDelay = 30;
-    pcShip.rollCost = 20;
-    pcShip.boostCost = 1;
+    pcShip.rollDelay = 15;
+    pcShip.rollCost = 15;
+    pcShip.boostCost = 2;
     pcShip.hpMax = 100;
     pcShip.hp = 100;
     pcShip.hpDisplayed = 100;
@@ -31,7 +31,7 @@ function createPCShip() {
     pcShip.energyDisplayed = 50;
     pcShip.energyCoolTime = 60;
     pcShip.energyDelay = 60;
-    pcShip.energyRecharge = 20;
+    pcShip.energyRecharge = 10;
 
     return pcShip;
 };

@@ -134,10 +134,10 @@ const npcBasicData = {
         targetRotation: [0, 0, 0],
         blasterColor:   'violet',
         blasterShape:   'sphere',
-        blasterRadius:  4,
-        blasterLength:  4,
+        blasterRadius:  3,
+        blasterLength:  3,
         blasterSpeed:   4,
-        blasterPower:   20,
+        blasterPower:   10,
         passable:       false,
     },
     asteroid1Basic: {

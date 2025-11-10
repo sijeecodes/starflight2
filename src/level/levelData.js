@@ -1,7 +1,7 @@
 const levelData = [
     // Asteroids
     {
-        eventTime: 900,
+        eventTime: 100,
         npcAIname: "asteroidAI",
         npcBasic: "asteroid1SlowBasic",
         startingPosition: "random"

@@ -862,8 +862,10 @@ const npcAIPattern = {
         { actionTime: 110, action: "blaster", value: "pc" },
         { actionTime: 120, action: "blaster", value: "pc" },
         { actionTime: 130, action: "blaster", value: "pc" },
-        { actionTime: 140, action: "randomMoveTo", value: [-15, 15, -5, 5, 80, 100] },
-        { actionTime: 300, action: "setPatternTime", value: 0 },
+        { actionTime: 140, action: "blaster", value: "pc" },
+        { actionTime: 150, action: "blaster", value: "pc" },
+        { actionTime: 160, action: "randomMoveTo", value: [-15, 15, -5, 5, 80, 100] },
+        { actionTime: 280, action: "setPatternTime", value: 0 },
     ],
 };
 

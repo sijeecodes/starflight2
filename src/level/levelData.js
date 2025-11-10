@@ -1,13 +1,55 @@
 const levelData = [
     // Asteroids
     {
-        eventTime: 100,
+        eventTime: 900,
         npcAIname: "asteroidAI",
         npcBasic: "asteroid1SlowBasic",
         startingPosition: "random"
     },
     {
+        eventTime: 20,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 20,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
         eventTime: 15,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 20,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 15,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 15,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 20,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 20,
         npcAIname: "asteroidAI",
         npcBasic: "asteroid2SlowBasic",
         startingPosition: "random"
@@ -25,7 +67,13 @@ const levelData = [
         startingPosition: "random"
     },
     {
-        eventTime: 13,
+        eventTime: 15,
+        npcAIname: "asteroidAI",
+        npcBasic: "asteroid2SlowBasic",
+        startingPosition: "random"
+    },
+    {
+        eventTime: 20,
         npcAIname: "asteroidAI",
         npcBasic: "asteroid2SlowBasic",
         startingPosition: "random"
@@ -36,55 +84,7 @@ const levelData = [
         npcBasic: "asteroid2SlowBasic",
         startingPosition: "random"
     },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 13,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 13,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 13,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    
+
     // Drones
     {
         eventTime: 200,
@@ -233,7 +233,7 @@ const levelData = [
         npcBasic: "destroyerStrongerBasic",
         startingPosition: [0, -10, 700]
     },
-    // Drones
+    // & Drones
     {
         eventTime: 100,
         npcAIname: "droneAIrandom1QRC",
@@ -359,7 +359,7 @@ const levelData = [
         startingPosition: [-30, 15, 700]
     },
 
-    // Normal Drones
+    // Drones
     {
         eventTime: 200,
         npcAIname: "droneAIrandom1HF",
@@ -466,7 +466,7 @@ const levelData = [
         npcBasic: "destroyerBasic",
         startingPosition: [-30, 5, 700]
     },
-    
+
     // Drones
     {
         eventTime: 300,
@@ -491,7 +491,7 @@ const levelData = [
         npcAIname: "droneAIrandom4Q",
         npcBasic: "droneBasic",
         startingPosition: [-25, -15, 700]
-    },   
+    },
 
     // // Middle Boss Cruiser
     {
@@ -703,6 +703,7 @@ const levelData = [
         npcBasic: "destroyerBasic",
         startingPosition: [-30, -10, 700]
     },
+
     // Drones
     {
         eventTime: 50,
@@ -731,7 +732,7 @@ const levelData = [
 
     // Cruisers
     {
-        eventTime: 180,
+        eventTime: 170,
         npcAIname: "cruiserAIstaticC",
         npcBasic: "cruiserBasic",
         startingPosition: [50, -20, 700]
@@ -742,6 +743,7 @@ const levelData = [
         npcBasic: "cruiserBasic",
         startingPosition: [-50, -20, 700]
     },
+
     // Drones
     {
         eventTime: 100,
@@ -791,9 +793,10 @@ const levelData = [
         npcBasic: "droneBasic",
         startingPosition: [-40, 7, 700]
     },
+
     // Drones
     {
-        eventTime: 350,
+        eventTime: 450,
         npcAIname: "droneAIrandom1hQR",
         npcBasic: "droneBasic",
         startingPosition: [30, 10, 700]
@@ -854,6 +857,7 @@ const levelData = [
         npcBasic: "destroyerBasic",
         startingPosition: [-30, -10, 700]
     },
+
     // Fighters
     {
         eventTime: 300,
@@ -1042,89 +1046,89 @@ const levelData = [
 
     // Bombers
     {
-        eventTime: 100,
+        eventTime: 130,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [35, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [-35, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [35, -15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [-35, -15, 700]
     },
 
+    // Drones
     {
-        eventTime: 90,
+        eventTime: 180,
         npcAIname: "droneAIrandom1hQ",
         npcBasic: "droneBasic",
         startingPosition: [20, 10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom2hQ",
         npcBasic: "droneBasic",
         startingPosition: [40, 10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom3hQ",
         npcBasic: "droneBasic",
         startingPosition: [-20, 10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom4hQ",
         npcBasic: "droneBasic",
         startingPosition: [-40, 10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom5hQ",
         npcBasic: "droneBasic",
         startingPosition: [20, -10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom6hQ",
         npcBasic: "droneBasic",
         startingPosition: [40, -10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom7hQ",
         npcBasic: "droneBasic",
         startingPosition: [-20, -10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "droneAIrandom8hQ",
         npcBasic: "droneBasic",
         startingPosition: [-40, -10, 700]
     },
 
-
     // Fighters & Destroyer
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "fighterAIrandom1H",
         npcBasic: "fighterBasic",
         startingPosition: [30, 0, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "destroyerAIrandom2H",
         npcBasic: "destroyerBasic",
         startingPosition: [-30, 0, 700]
@@ -1135,6 +1139,7 @@ const levelData = [
         npcBasic: "fighterBasic",
         startingPosition: [30, 0, 700]
     },
+
     // Bombers
     {
         eventTime: 100,
@@ -1143,11 +1148,12 @@ const levelData = [
         startingPosition: [35, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 15,
         npcAIname: "bomberAIstatic",
         npcBasic: "bomberBasic",
         startingPosition: [-35, 15, 700]
     },
+
     // Destroyers
     {
         eventTime: 300,
@@ -1161,27 +1167,28 @@ const levelData = [
         npcBasic: "destroyerBasic",
         startingPosition: [-20, 5, 700]
     },
+    
     // Fighters
     {
-        eventTime: 400,
+        eventTime: 250,
         npcAIname: "fighterAIrandom1QRC",
         npcBasic: "fighterBasic",
         startingPosition: [30, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "fighterAIrandom2QRC",
         npcBasic: "fighterBasic",
         startingPosition: [-30, 15, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "fighterAIrandom3QRC",
         npcBasic: "fighterBasic",
         startingPosition: [30, -10, 700]
     },
     {
-        eventTime: 10,
+        eventTime: 30,
         npcAIname: "fighterAIrandom4QRC",
         npcBasic: "fighterBasic",
         startingPosition: [-30, -10, 700]
@@ -1348,7 +1355,84 @@ const levelData = [
 
     // Drones
     {
-        eventTime: 450,
+        eventTime: 100,
+        npcAIname: "droneAIrandom1hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [40, 20, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom2hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [40, 7, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom3hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [-40, 20, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom4hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [-40, 7, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom5hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [40, -20, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom6hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [40, -7, 700]
+    },
+    {
+        eventTime: 15,
+        npcAIname: "droneAIrandom7hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [-40, -20, 700]
+    },
+    {
+        eventTime: 30,
+        npcAIname: "droneAIrandom8hQF",
+        npcBasic: "droneBasic",
+        startingPosition: [-40, -7, 700]
+    },
+
+    // Fighters & Destroyers
+    {
+        eventTime: 100,
+        npcAIname: "fighterAIrandom1HF",
+        npcBasic: "fighterBasic",
+        startingPosition: [35, 10, 700]
+    },
+    {
+        eventTime: 100,
+        npcAIname: "destroyerAIrandom3QF",
+        npcBasic: "destroyerBasic",
+        startingPosition: [35, -10, 700]
+    },
+    {
+        eventTime: 100,
+        npcAIname: "fighterAIrandom2QF",
+        npcBasic: "fighterBasic",
+        startingPosition: [-35, 10, 700]
+    },
+
+    {
+        eventTime: 100,
+        npcAIname: "destroyerAIrandom4QF",
+        npcBasic: "destroyerBasic",
+        startingPosition: [-35, -10, 700]
+    },
+
+    // Drones
+    {
+        eventTime: 400,
         npcAIname: "droneAIrandom1hQF",
         npcBasic: "droneBasic",
         startingPosition: [40, 20, 700]
@@ -1395,83 +1479,6 @@ const levelData = [
         npcBasic: "droneBasic",
         startingPosition: [-40, -7, 700]
     },
-
-    // // Fighters & Destroyers
-    // {
-    //     eventTime: 100,
-    //     npcAIname: "fighterAIrandom1HF",
-    //     npcBasic: "fighterBasic",
-    //     startingPosition: [35, 10, 700]
-    // },
-    // {
-    //     eventTime: 100,
-    //     npcAIname: "destroyerAIrandom3QF",
-    //     npcBasic: "destroyerBasic",
-    //     startingPosition: [35, -10, 700]
-    // },
-    // {
-    //     eventTime: 100,
-    //     npcAIname: "fighterAIrandom2QF",
-    //     npcBasic: "fighterBasic",
-    //     startingPosition: [-35, 10, 700]
-    // },
-
-    // {
-    //     eventTime: 100,
-    //     npcAIname: "destroyerAIrandom4QF",
-    //     npcBasic: "destroyerBasic",
-    //     startingPosition: [-35, -10, 700]
-    // },
-
-    // // Drones
-    // {
-    //     eventTime: 400,
-    //     npcAIname: "droneAIrandom1hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [40, 20, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom2hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [40, 7, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom3hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [-40, 20, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom4hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [-40, 7, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom5hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [40, -20, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom6hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [40, -7, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom7hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [-40, -20, 700]
-    // },
-    // {
-    //     eventTime: 15,
-    //     npcAIname: "droneAIrandom8hQF",
-    //     npcBasic: "droneBasic",
-    //     startingPosition: [-40, -7, 700]
-    // },
 
     // Fighters & Destroyers
     {

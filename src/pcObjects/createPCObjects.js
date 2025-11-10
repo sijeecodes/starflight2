@@ -23,9 +23,9 @@ function createPCShip() {
     pcShip.rollDelay = 15;
     pcShip.rollCost = 15;
     pcShip.boostCost = 2;
-    pcShip.hpMax = 100;
-    pcShip.hp = 100;
-    pcShip.hpDisplayed = 100;
+    pcShip.hpMax = 300;
+    pcShip.hp = 300;
+    pcShip.hpDisplayed = 300;
     pcShip.energyMax = 100
     pcShip.energy = 50;
     pcShip.energyDisplayed = 50;

@@ -5,7 +5,10 @@ import updateNPCBlasters from './updateNPCBlasters';
 import { createNPCBlaster } from './createNPCObjects';
 
 const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
-    if (npcs.length < 1 && npcBlasters.length < 1) return;
+    if (npcs.length < 1 && npcBlasters.length < 1) {
+        scene.timeStamp += 2;
+        return;
+    }
 
     let newNPCList = npcs.filter(npc => {
         npc.elapsedTime++;

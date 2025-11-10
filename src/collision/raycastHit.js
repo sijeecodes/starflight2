@@ -33,13 +33,16 @@ function raycastHit(origin, target) {
 
 function getVertices(obj) {
     const vertices = [];
+    const interval = 1;
+    if (obj.type == "npcBoss") interval = 12;
+
     obj.traverse((child) => {
         if (child.isMesh && child.geometry) {
             const geo = child.geometry;
             const matrix = child.matrixWorld;
             const position = geo.attributes.position;
 
-            for (let i = 0; i < position.count; i++) {
+            for (let i = 0; i < position.count; i += interval) {
                 const vertex = new THREE.Vector3();
                 vertex.fromBufferAttribute(position, i);
                 vertex.applyMatrix4(matrix);

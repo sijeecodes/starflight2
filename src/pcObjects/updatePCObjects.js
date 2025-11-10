@@ -24,6 +24,7 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
     if (!pcShip.rolling) {
         if (keyStates.boost && pcShip.energy > 0) {
             pcShip.energy -= pcShip.boostCost;
+            scene.timeStamp += 2;
 
             if (keyStates.boost && scene.boostSpeed < maxZ) {
                 scene.boostSpeed += accelZ / 2;

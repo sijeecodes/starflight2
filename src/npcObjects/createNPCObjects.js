@@ -34,6 +34,8 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
                 700
             ];
     }
+    if (obj.unpassable) scene.boostalbe = false;
+    
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
     npcObjects.npcs.push(obj);
     updateNPCAI(obj);

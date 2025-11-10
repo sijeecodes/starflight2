@@ -1,3 +1,4 @@
+import disposeObject from '../misc/disposeObject';
 import closeDistance from './closeDistance';
 import raycastHit from './raycastHit';
 import createExplosion from '../effects/createExplosion';
@@ -19,13 +20,14 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
             if (closeDistance(pcBlaster, npc)) {
                 if (raycastHit(pcBlaster, npc)) {
                     createExplosion(scene, pcBlaster, "hit", explosionObjects);
-                    scene.remove(pcBlaster);
+                    disposeObject(scene, pcBlaster);
                     pcBlasterGone = true;
 
                     npc.hp -= pcBlaster.power;
                     if ( npc.hp <= 0 ) {
                         createExplosion(scene, npc, "explode", explosionObjects);
-                        scene.remove(npc);
+                        if (npc.unpassable) scene.boostalbe = true;
+                        disposeObject(scene, npc);
                     } else newNpcs.push(npc);
                 } else newNpcs.push(npc);
             } else {
@@ -51,7 +53,9 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
 
                 if ( npc.hp <= 0 ) {
                     createExplosion(scene, npc, "explode", explosionObjects);
-                    scene.remove(npc);
+                    if (npc.unpassable) scene.boostalbe = true;
+
+                    disposeObject(scene, npc);
                 } else newNpcs.push(npc);
             } else newNpcs.push(npc);
         } else newNpcs.push(npc);
@@ -76,7 +80,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                 createExplosion(scene, pcShip, "hit", explosionObjects);
                 pcShip.hp -= blaster.power;
 
-                scene.remove(blaster);
+                disposeObject(scene, blaster);
             } else newBlasters.push(blaster);
         } else newBlasters.push(blaster);
     });

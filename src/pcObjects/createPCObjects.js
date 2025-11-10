@@ -87,7 +87,7 @@ function createPCBlaster(pcShip) {
         - Math.pow(blaster.speed[0], 2)
         - Math.pow(blaster.speed[1], 2));
     blaster.power = 1;
-    blaster.collisionSize = 4;
+    blaster.collisionSize = 3;
 
     return blaster;
 }

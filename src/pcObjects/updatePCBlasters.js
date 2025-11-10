@@ -1,3 +1,4 @@
+import disposeObject from '../misc/disposeObject';
 import { createPCBlaster } from '../pcObjects/createPCObjects';
 
 function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
@@ -24,7 +25,7 @@ function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
                 blaster.position.needsUpdate = true;
                 return blaster;
             }
-            scene.remove(blaster);
+            disposeObject(scene, blaster);
             return false;
         });
     }

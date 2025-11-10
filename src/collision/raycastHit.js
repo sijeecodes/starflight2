@@ -33,8 +33,8 @@ function raycastHit(origin, target) {
 
 function getVertices(obj) {
     const vertices = [];
-    const interval = 1;
-    if (obj.type == "npcBoss") interval = 12;
+    let interval = 1;
+    if (obj.type == "npcHeavy" || obj.type == "asteroid") interval = 15;
 
     obj.traverse((child) => {
         if (child.isMesh && child.geometry) {

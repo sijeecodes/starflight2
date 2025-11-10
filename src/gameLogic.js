@@ -29,6 +29,7 @@ const gameLogic = function () {
     let scene = new THREE.Scene();
     scene.timeStamp = 0;
     scene.boostSpeed = 0;
+    scene.boostalbe = true;
     scene.add(pcObjects.pcShip);
     scene.add(new THREE.Points(starGeo, createStarMaterial()));
     createBackground(scene, backgroundObjs);
@@ -49,7 +50,7 @@ const gameLogic = function () {
         updateLevel(scene, npcObjects);
         updateNPCObjects(scene, pcObjects.pcShip.position, npcObjects);
         collisionCheck(scene, pcObjects, npcObjects, explosionObjects);
-        updateExplosions(explosionObjects)
+        updateExplosions(scene, explosionObjects)
         updateGauge(document, pcObjects);
         
 

@@ -1,3 +1,5 @@
+import disposeObject from "../misc/disposeObject";
+
 function updateNPCBlasters(scene, npcBlasters) {
     if (!npcBlasters) return;
 
@@ -5,7 +7,7 @@ function updateNPCBlasters(scene, npcBlasters) {
     if (npcBlasters.length > 0) {
         newBlasters = npcBlasters.filter((blaster) => {
             if (blaster.position.z < -200 || Math.abs(blaster.position.y) > 70 || Math.abs(blaster.position.x) > 200) {
-                scene.remove(blaster);
+                disposeObject(scene, blaster);
                 return false;
             }
             blaster.position.z -= scene.boostSpeed;

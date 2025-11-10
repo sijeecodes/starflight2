@@ -1,4 +1,7 @@
-function updateExplosions({ sprites, materials, velocities, lifetimes, rotations }) {
+import disposeSprite from "../misc/disposeSprite";
+
+function updateExplosions(scene, { sprites, materials, velocities, lifetimes, rotations }) {
+    console.log(scene, sprites, materials, velocities, lifetimes, rotations);
     if (!sprites || sprites.length < 1) return;
 
     const newSprites = [];
@@ -8,7 +11,10 @@ function updateExplosions({ sprites, materials, velocities, lifetimes, rotations
     const newRotations = [];
 
     sprites.forEach((s, i) => {
-        if (lifetimes[i] <= 0) return;
+        if (lifetimes[i] <= 0) {
+            disposeSprite(scene, s.uuid);
+            return;   
+        }
 
         s.position.x += velocities[i].x;
         s.position.y += velocities[i].y;

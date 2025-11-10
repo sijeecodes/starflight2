@@ -1,3 +1,4 @@
+import disposeObject from '../misc/disposeObject';
 import updateNPCAI from './updateNPCAI';
 import updateNPCPosition from './updateNPCPosition';
 import updateNPCRotation from './updateNPCRotation';
@@ -10,7 +11,9 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         return;
     }
 
-    let newNPCList = npcs.filter(npc => {
+    let newNPCList = npcs
+        .filter(npc => {
+            
         npc.elapsedTime++;
         npc.aiPatternTime++;
 
@@ -29,7 +32,8 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
             || Math.abs(npc.position.x) > 300
             || Math.abs(npc.position.y) > 150) {
 
-            scene.remove(npc);
+            if (npc.unpassable) scene.boostalbe = true;
+            disposeObject(scene, npc);
             return false;
         }
         return true;

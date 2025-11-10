@@ -23,6 +23,14 @@ const npcAIData = {
     },
 
     // Drone
+    droneAIrandom: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 30, aiPattern: "droneBlastLoop" },   
+            { triggerTime: 200, aiPattern: "droneRandomMove" },
+        ],
+        hpTriggered: [],
+    },
     droneAIrandom1H: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneIntroPattern" },
@@ -122,6 +130,20 @@ const npcAIData = {
         hpTriggered: [],
     },
     // Drone Front Line
+    droneAIrandom1HF: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove1HF" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom2HF: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove2HF" },
+        ],
+        hpTriggered: [],
+    },
     droneAIrandom1QF: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneIntroPattern" },
@@ -207,7 +229,21 @@ const npcAIData = {
         hpTriggered: [],
     },
     // Drone Front Line Sortie from Right
-    droneAIrandom1hQFS: {
+    droneAIrandom1HR: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove1HR" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom2HR: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove2HR" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom1hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -215,7 +251,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom2hQFS: {
+    droneAIrandom2hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -223,7 +259,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom3hQFS: {
+    droneAIrandom3hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -231,7 +267,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom4hQFS: {
+    droneAIrandom4hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -239,7 +275,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom5hQFS: {
+    droneAIrandom5hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -247,7 +283,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom6hQFS: {
+    droneAIrandom6hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -255,7 +291,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom7hQFS: {
+    droneAIrandom7hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -263,7 +299,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom8hQFS: {
+    droneAIrandom8hQFRS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromR" },
             { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
@@ -272,7 +308,7 @@ const npcAIData = {
         hpTriggered: [],
     },
     // Drone Front Line Sortie from Left
-    droneAIrandom1hQFS: {
+    droneAIrandom1hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -280,7 +316,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom2hQFS: {
+    droneAIrandom2hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -288,7 +324,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom3hQFS: {
+    droneAIrandom3hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -296,7 +332,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom4hQFS: {
+    droneAIrandom4hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -304,7 +340,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom5hQFS: {
+    droneAIrandom5hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -312,7 +348,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom6hQFS: {
+    droneAIrandom6hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -320,7 +356,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom7hQFS: {
+    droneAIrandom7hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -328,11 +364,157 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom8hQFS: {
+    droneAIrandom8hQFLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
             { triggerTime: 190, aiPattern: "droneRandomMove8hQF" },
+        ],
+        hpTriggered: [],
+    },
+        // Drone Front Line Sortie from Right Charger
+    droneAIrandom1hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 160, aiPattern: "droneRandomMove1hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom2hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 130, aiPattern: "droneRandomMove2hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom3hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 180, aiPattern: "droneRandomMove3hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom4hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 150, aiPattern: "droneRandomMove4hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom5hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 120, aiPattern: "droneRandomMove5hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom6hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 170, aiPattern: "droneRandomMove6hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom7hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 140, aiPattern: "droneRandomMove7hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom8hQFRSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromR" },
+            { triggerTime: 15, aiPattern: "droneSortieFromRAfter" },
+            { triggerTime: 190, aiPattern: "droneRandomMove8hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    // Drone Front Line Sortie from Left Charger
+    droneAIrandom1hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 160, aiPattern: "droneRandomMove1hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom2hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 130, aiPattern: "droneRandomMove2hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom3hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 180, aiPattern: "droneRandomMove3hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom4hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 150, aiPattern: "droneRandomMove4hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom5hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 120, aiPattern: "droneRandomMove5hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom6hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 170, aiPattern: "droneRandomMove6hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom7hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 140, aiPattern: "droneRandomMove7hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom8hQFLSC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneSortieFromL" },
+            { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
+            { triggerTime: 190, aiPattern: "droneRandomMove8hQF" },
+            { triggerTime: 490, aiPattern: "charge" },
         ],
         hpTriggered: [],
     },
@@ -421,6 +603,39 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
+    // Drone Rear Line Charger   
+    droneAIrandom1QRC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove1QR" },
+            { triggerTime: 450,  aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom2QRC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove2QR" },
+            { triggerTime: 450,  aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom3QRC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove3QR" },
+            { triggerTime: 450,  aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
+    droneAIrandom4QRC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "droneIntroPattern" },
+            { triggerTime: 200, aiPattern: "droneRandomMove4QR" },
+            { triggerTime: 450,  aiPattern: "charge" },
+        ],
+        hpTriggered: [],
+    },
     // Drone Front Line Sortie from Right
     droneAIrandom1hQRS: {
         timeTriggered: [
@@ -487,7 +702,7 @@ const npcAIData = {
         hpTriggered: [],
     },
     // Drone Front Line Sortie from Left
-    droneAIrandom1hQRS: {
+    droneAIrandom1hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -495,7 +710,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom2hQRS: {
+    droneAIrandom2hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -503,7 +718,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom3hQRS: {
+    droneAIrandom3hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -511,7 +726,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom4hQRS: {
+    droneAIrandom4hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -519,7 +734,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom5hQRS: {
+    droneAIrandom5hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -527,7 +742,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom6hQRS: {
+    droneAIrandom6hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -535,7 +750,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },  
-    droneAIrandom7hQRS: {
+    droneAIrandom7hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -543,7 +758,7 @@ const npcAIData = {
         ],
         hpTriggered: [],
     },
-    droneAIrandom8hQRS: {
+    droneAIrandom8hQLS: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "droneSortieFromL" },
             { triggerTime: 15, aiPattern: "droneSortieFromLAfter" },
@@ -564,6 +779,7 @@ const npcAIData = {
     bomberAIstatic: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "bomberIntroPattern" },
+            { triggerTime: 60, aiPattern: "bomberBlastLoop" },
             { triggerTime: 500, aiPattern: "bomberDefaultMoveZ" },
             { triggerTime: 500, aiPattern: "bomberBlastLoop" },
         ],
@@ -571,11 +787,11 @@ const npcAIData = {
     },
 
     // Fighter
-    fighterAI: {
+    fighterAIrandom: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "fighterIntroPattern" },
-            { triggerTime: 180, aiPattern: "loopPattern" },
-            { triggerTime: 300, aiPattern: "randomMove" },
+            { triggerTime: 30, aiPattern: "fighterBlastLoop" },
+            { triggerTime: 180, aiPattern: "fighterRandomMove" },
         ],
         hpTriggered: [],
     },
@@ -742,13 +958,26 @@ const npcAIData = {
     },
 
     // Destroyer
-    destroyerAI: {
+    destroyerAIrandom: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
-            { triggerTime: 300, aiPattern: "loopPattern" },
-            { triggerTime: 300, aiPattern: "randomMove" },
+            { triggerTime: 60, aiPattern: "destroyerBlastLoop" },
+            { triggerTime: 300, aiPattern: "destroyerRandomMove" },
         ],
-        hpTriggered: [],
+        hpTriggered: [
+            { triggerHP: 4,  aiPattern: "charge" }, 
+        ],
+    },
+    destroyerAIrandomC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
+            { triggerTime: 60, aiPattern: "destroyerBlastLoop" },
+            { triggerTime: 300, aiPattern: "destroyerRandomMove" },
+            { triggerTime: 700, aiPattern: "charge" },
+        ],
+        hpTriggered: [
+            { triggerHP: 5,  aiPattern: "charge" }, 
+        ],
     },
     destroyerAIrandom1H: {
         timeTriggered: [
@@ -947,13 +1176,16 @@ const npcAIData = {
     cruiserAIstaticCarrier: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "cruiserIntroPattern" },
+            { triggerTime: 60, aiPattern: "cruiserBlastLoop" },
             { triggerTime: 500, aiPattern: "cruiserDefaultMoveZ" },
+            { triggerTime: 500, aiPattern: "cruiserBlastLoop" },
         ],
         hpTriggered: [],
     },
     cruiserAIstatic: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "cruiserIntroPattern" },
+            { triggerTime: 60, aiPattern: "cruiserBlastLoop" },
             { triggerTime: 500, aiPattern: "cruiserDefaultMoveZ" },
             { triggerTime: 500, aiPattern: "cruiserBlastLoop" },
         ],
@@ -962,6 +1194,7 @@ const npcAIData = {
     cruiserAIstaticC: {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "cruiserIntroPattern" },
+            { triggerTime: 60, aiPattern: "cruiserBlastLoop" },
             { triggerTime: 500, aiPattern: "cruiserDefaultMoveZ" },
             { triggerTime: 500, aiPattern: "cruiserBlastLoop" },
         ],
@@ -969,7 +1202,17 @@ const npcAIData = {
             { triggerHP: 5,  aiPattern: "charge" }, 
         ],
     },
-
+    cruiserBossAIstaticC: {
+        timeTriggered: [
+            { triggerTime: 0, aiPattern: "cruiserBossIntroPattern" },
+            { triggerTime: 60, aiPattern: "cruiserBlastLoop" },
+            { triggerTime: 900,  aiPattern: "cruiserDefaultMoveZ" }, 
+            { triggerTime: 900, aiPattern: "cruiserBlastLoop" },
+        ],
+        hpTriggered: [
+            { triggerHP: 10,  aiPattern: "charge" }, 
+        ],
+    },
 
     // Asteroid
     asteroidAI: {
@@ -987,7 +1230,7 @@ const npcAIData = {
             { triggerTime: 500, aiPattern: "bossLoop" },
         ],
         hpTriggered: [
-            { triggerHP: 75,  aiPattern: "bossFinalLoop" }, 
+            { triggerHP: 55,  aiPattern: "bossFinalLoop" }, 
         ],
     },
 };

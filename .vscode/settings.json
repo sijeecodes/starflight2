@@ -4,5 +4,12 @@
         "GLTF",
         "NPCAI",
         "npcs"
+    ],
+    "cSpell.ignoreWords": [
+        "QFLS",
+        "QFLSC",
+        "QFRS",
+        "QFRSC",
+        "droneAIrandom5hQFLSC"
     ]
 }

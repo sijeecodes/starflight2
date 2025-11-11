@@ -70,15 +70,36 @@ body {
     opacity: 1;
 }
 
-.titleTitle {
+h1 {
     color: black;
     text-shadow:
         5px 5px 0 Yellow,
         -5px -5px 0 Yellow,
         5px -5px 0 Yellow,
         -5px 5px 0 Yellow;
-    font-size: 10rem;
+    font-size: 9rem;
+    margin-top: 0;
     margin-bottom: 15%;
+}
+
+h2 {
+    color: black;
+    text-shadow:
+        5px 5px 0 Yellow,
+        -5px -5px 0 Yellow,
+        5px -5px 0 Yellow,
+        -5px 5px 0 Yellow;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0 auto;
+}
+
+h3 {
+    color: yellow;
+    font-size: 2.5rem;
+    padding: 0;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
 }
 
 .titleScreenOptions {
@@ -89,7 +110,7 @@ body {
 }
 
 .titleScreenOption {
-    color: #e6e6e6;
+    color: #e2e2e2;
     height: 3.5rem;
     font-size: 2.3rem;
     line-height: 2.3rem;
@@ -104,11 +125,13 @@ body {
 }
 
 .selected span {
-    color: #ffffff;
+    color: white;
     font-size: 2.7rem;
     text-shadow: 0 0 12px #eeff00,
                  0 0 24px #fbff00;
 }
+
+
 
 /* Settings Menu */
 #settings {
@@ -125,17 +148,6 @@ body {
     opacity: 0;
 }
 
-.settingsTitle {
-    color: black;
-    text-shadow:
-        5px 5px 0 Yellow,
-        -5px -5px 0 Yellow,
-        5px -5px 0 Yellow,
-        -5px 5px 0 Yellow;
-    font-size: 5rem;
-    margin-bottom: 15%;
-}
-
 .settingsOptions {
     display: flex;
     flex-direction: column;
@@ -144,13 +156,17 @@ body {
 }
 
 .settingsOption {
-    color: white;
+    color: #e2e2e2;
     height: 3.5rem;
     font-size: 2.3rem;
     line-height: 2.3rem;
     padding: 0.25rem 0;
     margin: 0.25rem 0;
     list-style-type: none;
+}
+
+.settingsContainer {
+    text-align: center;
 }
 
 .settingsOption span {
@@ -164,7 +180,24 @@ body {
     line-height: 2.3rem;
     padding: 0.25rem 0;
     margin: 0.25rem 0;
-    color: white;
+    color: #e2e2e2;
+}
+
+.controls {
+    color: #e2e2e2;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.controlsTable {
+    margin: 0 auto;
+    font-size: 1.4rem;
+}
+
+.controlsTable td {
+    padding: 0.2rem 3.5rem;
+    text-align: left;
 }
 
 /* Title Screen: Instructions Menu */
@@ -182,15 +215,21 @@ body {
     opacity: 0;
 }
 
-.instructionsTitle {
-    color: black;
-    text-shadow:
-        5px 5px 0 Yellow,
-        -5px -5px 0 Yellow,
-        5px -5px 0 Yellow,
-        -5px 5px 0 Yellow;
-    font-size: 5rem;
-    margin-bottom: 15%;
+.instructionsContainer {
+    max-width: 65rem;
+}
+
+.instructionSection {
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.instructionsContainer p,
+.instructionsContainer li {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 1rem 0;
+    color: #e2e2e2;
 }
 
 .instructionsOptions {
@@ -198,16 +237,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 4rem;
 }
 
 .instructionsOption {
-    color: white;
+    color: #e2e2e2;
     height: 3.5rem;
     font-size: 2.3rem;
     line-height: 2.3rem;
     padding: 0.25rem 0;
+    padding-left: 1rem;
     margin: 0.25rem 0;
-    list-style-type: none;
 }
 
 .instructionsOption span {

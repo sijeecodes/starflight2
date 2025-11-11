@@ -25,7 +25,7 @@
             </div>
         </div>
         <div id="titleScreen">
-            <div class="titleTitle">StarFlight</div>
+            <h1>StarFlight</h1>
             <ul class="titleScreenOptions">
                 <li class="titleScreenOption selected" id="startGame"><span>start game</span></li>
                 <li class="titleScreenOption" id="toSettings"><span>settings</span></li>
@@ -33,17 +33,46 @@
             </ul>
         </div>
         <div id="settings">
-            <div class="settingsTitle">Settings</div>
-            <ul class="settingsOptions">
-                <li class="settingsOption selected" id="returnToTitle"><span>back to title</span></li>
-                <li class="settingsOption" id="invertUpDown"><span>invert up/down keys: <span id="upDownSettings">inverted</span></span></li>
-            </ul>
+            <h2>settings</h2>
+                <div class="settingsContainer">
+                <div class="controls">
+                    <h3>controls</h3>
+                    <table class="controlsTable">
+                        <tr><td>move up</td><td id="upKey">s or ↓</td></tr>
+                        <tr><td>move down</td><td id="downKey">w or ↑</td></tr>
+                        <tr><td>move left</td><td>a or ←</td></tr>
+                        <tr><td>move right</td><td>d or →</td></tr>
+                        <tr><td>roll left</td><td>m or c</td></tr>
+                        <tr><td>roll right</td><td>, or v</td></tr>
+                        <tr><td>boost forward</td><td>. or x</td></tr>
+                        <tr><td>fire blaster</td><td>space bar</td></tr>
+                    </table>
+                </div>
+                <ul class="settingsOptions">
+                    <li class="settingsOption" id="invertUpDown"><span>invert up/down keys: <span id="upDownSettings">inverted(default)</span></span></li>
+                    <li class="settingsOption selected" id="returnToTitle"><span>back to title</span></li>
+                </ul>
+            </div>
         </div>
         <div id="instructions">
-            <div class="instructionsTitle">Instructions</div>
-            <ul class="instructionsOptions">
-                <li class="instructionsOption selected" id="returnToTitle"><span>back to title</span></li>
-            </ul>
+            <h2>instructions</h2>
+            <div class="instructionsContainer">
+                <section class="instructionSection">
+                    <h3>goal</h3>
+                    <p>destroy enemies while not getting destroyed.</p>
+                </section>
+                <section class="instructionSection">
+                    <h3>tips</h3>
+                    <ul class="tipsList">
+                        <li>put targets between the green aim triangles for better shots.</li>
+                        <li>use "roll" to dodge enemy attacks.<br> you won't get hit while rolling.</li>
+                        <li>boost forward to evade enemies attacking from sides <br>or pass through small enemies.</li>
+                    </ul>
+                </section>
+                <ul class="instructionsOptions">
+                    <li class="instructionsOption selected" id="returnToTitle"><span>back to title</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>

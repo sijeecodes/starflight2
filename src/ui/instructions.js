@@ -4,7 +4,7 @@ function instructions(scene, document, keyStates) {
     if (!keyStates.pressed) return;
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("inGame").style.opacity = 0;
-    document.getElementById("titleScreen").style.opacity = 0.1;
+    document.getElementById("titleScreen").style.opacity = 0;
     document.getElementById("settings").style.opacity = 0;
     document.getElementById("instructions").style.opacity = 1;
 

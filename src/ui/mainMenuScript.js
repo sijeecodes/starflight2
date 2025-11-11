@@ -1,4 +1,4 @@
-function mainMenuScript(scene, document, keyStates) {
+function mainMenuScript(scene, camera, document, keyStates) {
     // Placeholder for main menu logic
     if (!keyStates.pressed) return;
     
@@ -24,24 +24,25 @@ function mainMenuScript(scene, document, keyStates) {
 
     } else if (keyStates.enter) {
         const id = options[selectedMenu].id;
-        selectMenu(id);
+        selectMenu(scene, camera, document, id);
     }
 
     keyStates.pressed = false;
 }
 
-function selectMenu(id) {
-    switch (id) {
-        case "startGame":
-            console.log("Starting game...");
-            break;
-        case "instruction":
-            console.log("Opening instructions...");
-            break;
-        case "settings":
-            console.log("Opening settings...");
-            break;
+function selectMenu(scene, camera, document, id) {
+    if (id == "startGame") {
+        document.getElementById("titleScreen").style.opacity = 0;
+        document.getElementById("inGame").style.opacity = 1;
+
+        scene.gameState = "playing";
+        scene.timeStamp = 0;
+        camera.position.set(0, 10, -200);
+        camera.rotation.set(0, 0, 0);
+        return;
     }
+    if (id == "instructions") scene.gameState = "instructions";
+    if (id == "settings")     scene.gameState = "settings";
 }
 
 export default mainMenuScript;

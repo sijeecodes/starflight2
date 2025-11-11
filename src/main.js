@@ -52,15 +52,14 @@ function animate() {
     if (scene.gameState == "intro") {
 
     }
-    if (scene.gameState == "mainMenu") {
-        mainMenuScript(scene, document, keyStates);
-    }
     if (scene.gameState == "settings") {
 
     }
     if (scene.gameState == "instructions") {
 
     }
-
+    if (scene.gameState == "mainMenu") {
+        mainMenuScript(scene, camera, document, keyStates);
+    }
     renderer.render(scene, camera);
 }

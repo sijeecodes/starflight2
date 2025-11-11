@@ -15,9 +15,13 @@ function settings(scene, document, keyStates) {
         scene.gameState = "titleScreen";
     }
     if (id == "invertUpDown") {
-        keyStates.upDownKey == "inverted" ?
-            keyStates.upDownKey = "unInverted" :
-            keyStates.upDownKey = "inverted";
+        let text = "inverted(default)";
+        if (keyStates.upDownKey == "inverted") {
+            keyStates.upDownKey = "unInverted";
+            text = "not inverted"
+        } else keyStates.upDownKey = "inverted";
+
+        document.getElementById('upDownSettings').textContent = text;
     }
     keyStates.pressed = false;
 }

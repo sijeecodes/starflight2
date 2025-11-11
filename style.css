@@ -74,7 +74,7 @@ body {
     opacity: 1;
 }
 
-#title {
+.titleTitle {
     color: black;
     text-shadow:
     5px 5px 0 Yellow,
@@ -85,14 +85,14 @@ body {
     margin-bottom: 15%;
 }
 
-#mainMenuOptions {
+.titleScreenOptions {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.mainMenu {
+.titleScreenOption {
     color: white;
     height: 3.5rem;
     font-size: 2.3rem;
@@ -102,20 +102,20 @@ body {
     list-style-type: none;
 }
 
-.mainMenu span {
+.titleScreenOption span {
     display: inline-block;
     transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
 }
 
-.mainMenu.selected span {
+.titleScreenOption.selected span {
     color: #00ffff;
     font-size: 2.7rem;
     text-shadow: 0 0 12px #00ffff, 
                  0 0 24px #00ccff;
 }
 
-/* Title Screen: Instructions Menu */
-
-
 /* Title Screen: Settings Menu */
 
+
+
+/* Title Screen: Instructions Menu */

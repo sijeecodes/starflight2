@@ -9,7 +9,7 @@ import setWindow from './ui/setWindow';
 import updateStars from './environment/updateStars';
 
 import gameLogic from "./gameLogic";
-import mainMenuScript from './ui/mainMenuScript';
+import titleScreen from './ui/titleScreen';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
@@ -20,8 +20,8 @@ let pcObjects = { pcShip: createPCShip(), pcBlasters: [], upDownKey: "inverted" 
 let npcObjects = { npcs: [], npcBlasters: [] };
 let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 let scene = new THREE.Scene();
-scene.gameState = "mainMenu";//playing//gameOver//intro//settings//instructions//
-// scene.gameState = "playing";
+scene.gameState = "titleScreen";//playing//gameOver//intro//settings//instructions//
+// scene.gameState = "settings";
 scene.timeStamp = 0;
 scene.boostSpeed = 0;
 scene.boostalbe = true;
@@ -58,8 +58,8 @@ function animate() {
     if (scene.gameState == "instructions") {
 
     }
-    if (scene.gameState == "mainMenu") {
-        mainMenuScript(scene, camera, document, keyStates);
+    if (scene.gameState == "titleScreen") {
+        titleScreen(scene, camera, document, keyStates);
     }
     renderer.render(scene, camera);
 }

@@ -25,7 +25,6 @@ const setKeyState = function (keyStates, event) {
         downKey2 = "ArrowDown";
     }
     keyStates.pressed = true;
-    console.log(keyStates.upDownKey, upKey1);
     
     if (event.code == "KeyD") { keyStates.right = true; return keyStates; }
     if (event.code == "KeyA") { keyStates.left = true; return keyStates; }
@@ -46,7 +45,6 @@ const setKeyState = function (keyStates, event) {
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
     if (event.code == "Enter") { keyStates.enter = true; return keyStates; }
 
-    // console.log(event);
     return keyStates;
 }
 

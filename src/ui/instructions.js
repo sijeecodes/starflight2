@@ -1,12 +1,12 @@
 import selectMenu from "./selectMenu";
 
-function settings(scene, document, keyStates) {
+function instructions(scene, document, keyStates) {
     if (!keyStates.pressed) return;
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("inGame").style.opacity = 0;
     document.getElementById("titleScreen").style.opacity = 0.1;
-    document.getElementById("settings").style.opacity = 1;
-    document.getElementById("instructions").style.opacity = 0;
+    document.getElementById("settings").style.opacity = 0;
+    document.getElementById("instructions").style.opacity = 1;
 
     const options = [...document.querySelectorAll(".settingsOption")];
     let id = selectMenu(options, keyStates);
@@ -14,12 +14,7 @@ function settings(scene, document, keyStates) {
     if (id == "returnToTitle") {
         scene.gameState = "titleScreen";
     }
-    if (id == "invertUpDown") {
-        keyStates.upDownKey == "inverted" ?
-            keyStates.upDownKey = "unInverted" :
-            keyStates.upDownKey = "inverted";
-    }
     keyStates.pressed = false;
 }
 
-export default settings;
+export default instructions;

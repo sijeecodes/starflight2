@@ -1,4 +1,4 @@
-const selectMenu = (scene, options, keyStates) => {
+const selectMenu = (options, keyStates) => {
     let selected = options.findIndex(e => e.classList.contains("selected"));
     let upKey = keyStates.down;
     let downKey = keyStates.up;

@@ -89,7 +89,7 @@ body {
 }
 
 .titleScreenOption {
-    color: white;
+    color: #e6e6e6;
     height: 3.5rem;
     font-size: 2.3rem;
     line-height: 2.3rem;
@@ -103,11 +103,11 @@ body {
     transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
 }
 
-.titleScreenOption.selected span {
-    color: #00ffff;
+.selected span {
+    color: #ffffff;
     font-size: 2.7rem;
-    text-shadow: 0 0 12px #00ffff,
-        0 0 24px #00ccff;
+    text-shadow: 0 0 12px #eeff00,
+                 0 0 24px #fbff00;
 }
 
 /* Settings Menu */
@@ -158,12 +158,50 @@ body {
     transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
 }
 
-.settingsOption.selected span {
-    color: #00ffff;
-    font-size: 2.7rem;
-    text-shadow: 0 0 12px #00ffff,
-        0 0 24px #00ccff;
+/* Title Screen: Instructions Menu */
+#instructions {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 100;
+    opacity: 0;
 }
 
+.instructionsTitle {
+    color: black;
+    text-shadow:
+        5px 5px 0 Yellow,
+        -5px -5px 0 Yellow,
+        5px -5px 0 Yellow,
+        -5px 5px 0 Yellow;
+    font-size: 5rem;
+    margin-bottom: 15%;
+}
 
-/* Title Screen: Instructions Menu */
+.instructionsOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructionsOption {
+    color: white;
+    height: 3.5rem;
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+    padding: 0.25rem 0;
+    margin: 0.25rem 0;
+    list-style-type: none;
+}
+
+.instructionsOption span {
+    display: inline-block;
+    transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
+}

@@ -9,11 +9,11 @@ function titleScreen(scene, document, keyStates) {
     document.getElementById("instructions").style.opacity = 0;
     
     const options = [...document.querySelectorAll(".titleScreenOption")];
-    let id = selectMenu(scene, options, keyStates);
+    let id = selectMenu(options, keyStates);
 
     if (id == "startGame")      scene.gameState = "intro";
-    // if (id == "toSettings")     scene.gameState = "settings";
-    // if (id == "toInstructions") scene.gameState = "instructions";
+    if (id == "toSettings")     scene.gameState = "settings";
+    if (id == "toInstructions") scene.gameState = "instructions";
 
     keyStates.pressed = false;
 }

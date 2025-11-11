@@ -11,7 +11,7 @@ import updateStars from './environment/updateStars';
 import gameLogic from "./gameLogic";
 import titleScreen from './ui/titleScreen';
 import intro from './ui/intro';
-// import settings from './ui/settings';
+import settings from './ui/settings';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
@@ -23,7 +23,6 @@ let npcObjects = { npcs: [], npcBlasters: [] };
 let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 let scene = new THREE.Scene();
 scene.gameState = "titleScreen";//playing//gameOver//intro//settings//instructions//
-// scene.gameState = "settings";
 scene.timeStamp = 0;
 scene.boostSpeed = 0;
 scene.boostalbe = true;
@@ -53,7 +52,7 @@ function animate() {
     }
     if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
     if (scene.gameState == "intro") intro(scene, camera, document);
-    // if (scene.gameState == "settings") settings(scene, document, keyStates);
+    if (scene.gameState == "settings") settings(scene, document, keyStates);
     // if (scene.gameState == "instructions") 
 
     renderer.render(scene, camera);

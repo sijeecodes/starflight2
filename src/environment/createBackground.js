@@ -8,6 +8,40 @@ function createBackground(scene, backgroundObjs) {
         {
             size: [800, 800],
             position: [0, 0, 1000],
+            rotationY: Math.PI,
+            speed: 0
+        }
+    );
+    makeBackgroundObject(
+        scene,
+        backgroundObjs,
+        '../../artSrc/back.png',
+        {
+            size: [1000, 800],
+            position: [-600, 0, 400],
+            rotationY: Math.PI / 4,
+            speed: 0
+        }
+    );
+    makeBackgroundObject(
+        scene,
+        backgroundObjs,
+        '../../artSrc/back.png',
+        {
+            size: [1000, 800],
+            position: [-700, 0, -500],
+            rotationY: Math.PI / 2,
+            speed: 0
+        }
+    );
+    makeBackgroundObject(
+        scene,
+        backgroundObjs,
+        '../../artSrc/back.png',
+        {
+            size: [1000, 800],
+            position: [-300, -100, -1000],
+            rotationY: 0,
             speed: 0
         }
     );
@@ -18,6 +52,7 @@ function createBackground(scene, backgroundObjs) {
         {
             size: [60, 60],
             position: [120, - 100, 700],
+            rotationY: Math.PI,
             speed: 0.05
         }
     );
@@ -28,6 +63,7 @@ function createBackground(scene, backgroundObjs) {
         {
             size: [120, 120],
             position: [120, 50, 700],
+            rotationY: Math.PI,
             speed: 0.08
         }
     );
@@ -40,6 +76,7 @@ function makeBackgroundObject(
     {
         size: [sizeX, sizeY],
         position: [positionX, positionY, positionZ],
+        rotationY,
         speed
     },
 ) {
@@ -55,7 +92,7 @@ function makeBackgroundObject(
             const backgroundObj = new THREE.Mesh(backgroundGeo, material);
             backgroundObj.position.set(positionX, positionY, positionZ);
             backgroundObj.lookAt(0, 0, 0);
-            backgroundObj.rotation.y = Math.PI;
+            backgroundObj.rotation.y = rotationY;
             backgroundObj.speed = speed;
             scene.add(backgroundObj);
             backgroundObjs.push(backgroundObj);

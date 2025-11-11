@@ -3,7 +3,7 @@ const updateStars = function (scene, starGeo) {
     const boost = scene.boostSpeed;
 
     for (let i = 2; i < positions.length + 1; i += 3) {
-        if (positions[i] < -200) {
+        if (positions[i] < -700) {
             positions[i - 2] = Math.random() * 150 - 75;
             positions[i - 1] = Math.random() * 150 - 75;
             positions[i] = 1000;

@@ -7,19 +7,31 @@ const initKeyState = function () {
         rightRoll: false,
         leftRoll: false,
         boost: false,
-        blaster: false
+        blaster: false,
+        pressed: false
     };
 }
 
-const setKeyState = function (keyStates, event) {
+const setKeyState = function (keyStates, event, upDownKey) {
+    let upKey1 = "KeyW";
+    let upKey2 = "ArrowDown";
+    let downKey1 = "KeyS";
+    let downKey2 = "ArrowUp";
+    if (upDownKey == "unInverted") {
+        upKey1 = "KeyS";
+        upKey2 = "ArrowUp";
+        downKey1 = "KeyW";
+        downKey2 = "ArrowDown";
+    }
+    keyStates.pressed = true;
     if (event.code == "KeyD") { keyStates.right = true; return keyStates; }
     if (event.code == "KeyA") { keyStates.left = true; return keyStates; }
-    if (event.code == "KeyW") { keyStates.up = true; return keyStates; }
-    if (event.code == "KeyS") { keyStates.down = true; return keyStates; }
+    if (event.code == upKey1) { keyStates.up = true; return keyStates; }
+    if (event.code == downKey1) { keyStates.down = true; return keyStates; }
     if (event.code == "ArrowRight") { keyStates.right = true; return keyStates; }
     if (event.code == "ArrowLeft") { keyStates.left = true; return keyStates; }
-    if (event.code == "ArrowUp") { keyStates.up = true; return keyStates; }
-    if (event.code == "ArrowDown") { keyStates.down = true; return keyStates; }
+    if (event.code == upKey2) { keyStates.up = true; return keyStates; }
+    if (event.code == downKey2) { keyStates.down = true; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "KeyE") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "Comma") { keyStates.rightRoll = true; return keyStates; }
@@ -29,20 +41,31 @@ const setKeyState = function (keyStates, event) {
     if (event.code == "KeyX") { keyStates.boost = true; return keyStates; }
     if (event.code == "Period") { keyStates.boost = true; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
+    if (event.code == "Enter") { keyStates.enter = true; return keyStates; }
 
     // console.log(event);
     return keyStates;
 }
 
-const resetKeyState = function (keyStates, event) {
+const resetKeyState = function (keyStates, event, upDownKey) {
+    let upKey1 = "KeyW";
+    let upKey2 = "ArrowDown";
+    let downKey1 = "KeyS";
+    let downKey2 = "ArrowUp";
+    if (upDownKey == "unInverted") {
+        upKey1 = "KeyS";
+        upKey2 = "ArrowUp";
+        downKey1 = "KeyW";
+        downKey2 = "ArrowDown";
+    }
     if (event.code == "KeyD") { keyStates.right = false; return keyStates; }
     if (event.code == "KeyA") { keyStates.left = false; return keyStates; }
-    if (event.code == "KeyW") { keyStates.up = false; return keyStates; }
-    if (event.code == "KeyS") { keyStates.down = false; return keyStates; }
+    if (event.code == upKey1) { keyStates.up = false; return keyStates; }
+    if (event.code == downKey1) { keyStates.down = false; return keyStates; }
     if (event.code == "ArrowRight") { keyStates.right = false; return keyStates; }
     if (event.code == "ArrowLeft") { keyStates.left = false; return keyStates; }
-    if (event.code == "ArrowUp") { keyStates.up = false; return keyStates; }
-    if (event.code == "ArrowDown") { keyStates.down = false; return keyStates; }
+    if (event.code == upKey2) { keyStates.up = false; return keyStates; }
+    if (event.code == downKey2) { keyStates.down = false; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "KeyE") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "Comma") { keyStates.rightRoll = false; return keyStates; }
@@ -52,6 +75,7 @@ const resetKeyState = function (keyStates, event) {
     if (event.code == "KeyX") { keyStates.boost = false; return keyStates; }
     if (event.code == "Period") { keyStates.boost = false; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
+    if (event.code == "Enter") { keyStates.enter = false; return keyStates; }
 
     return keyStates;
 }

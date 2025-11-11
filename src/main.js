@@ -10,13 +10,15 @@ import updateStars from './environment/updateStars';
 
 import gameLogic from "./gameLogic";
 import titleScreen from './ui/titleScreen';
+import intro from './ui/intro';
+// import settings from './ui/settings';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);
 const starGeo = createStarGeo();
 let backgroundObjs = [];
 let keyStates = initKeyState();
-let pcObjects = { pcShip: createPCShip(), pcBlasters: [], upDownKey: "inverted" };
+let pcObjects = { pcShip: createPCShip(), pcBlasters: []};
 let npcObjects = { npcs: [], npcBlasters: [] };
 let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 let scene = new THREE.Scene();
@@ -49,17 +51,10 @@ function animate() {
         renderer.render(scene, camera);
         return;
     }
-    if (scene.gameState == "intro") {
+    if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
+    if (scene.gameState == "intro") intro(scene, camera, document);
+    // if (scene.gameState == "settings") settings(scene, document, keyStates);
+    // if (scene.gameState == "instructions") 
 
-    }
-    if (scene.gameState == "settings") {
-
-    }
-    if (scene.gameState == "instructions") {
-
-    }
-    if (scene.gameState == "titleScreen") {
-        titleScreen(scene, camera, document, keyStates);
-    }
     renderer.render(scene, camera);
 }

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'starfont';
-  src: url('./artSrc/starfont.otf') format('opentype');
+    font-family: 'starfont';
+    src: url('./artSrc/starfont.otf') format('opentype');
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 #gameUI {
-    display:block;
+    display: block;
     z-index: 10;
 }
 
@@ -40,36 +40,32 @@ body {
 }
 
 #hp {
-    background: linear-gradient(
-        180deg,
-        #ccff66 0%,
-        #66ff33 50%,
-        #009900 100%
-    );
+    background: linear-gradient(180deg,
+            #ccff66 0%,
+            #66ff33 50%,
+            #009900 100%);
     width: 400px;
 }
 
 #energy {
-    background: linear-gradient(
-        180deg,
-        #66ffff 0%,
-        #00e0ff 40%,
-        #0099ff 100%
-    );
+    background: linear-gradient(180deg,
+            #66ffff 0%,
+            #00e0ff 40%,
+            #0099ff 100%);
     width: 200px;
 }
 
-/* Title Screen: Main Menu */
+/* Title Screen */
 #titleScreen {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     z-index: 100;
     opacity: 1;
 }
@@ -77,10 +73,10 @@ body {
 .titleTitle {
     color: black;
     text-shadow:
-    5px 5px 0 Yellow,
-    -5px -5px 0 Yellow,
-    5px -5px 0 Yellow,
-    -5px 5px 0 Yellow;
+        5px 5px 0 Yellow,
+        -5px -5px 0 Yellow,
+        5px -5px 0 Yellow,
+        -5px 5px 0 Yellow;
     font-size: 10rem;
     margin-bottom: 15%;
 }
@@ -110,12 +106,64 @@ body {
 .titleScreenOption.selected span {
     color: #00ffff;
     font-size: 2.7rem;
-    text-shadow: 0 0 12px #00ffff, 
-                 0 0 24px #00ccff;
+    text-shadow: 0 0 12px #00ffff,
+        0 0 24px #00ccff;
 }
 
-/* Title Screen: Settings Menu */
+/* Settings Menu */
+#settings {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 100;
+    opacity: 0;
+}
 
+.settingsTitle {
+    color: black;
+    text-shadow:
+        5px 5px 0 Yellow,
+        -5px -5px 0 Yellow,
+        5px -5px 0 Yellow,
+        -5px 5px 0 Yellow;
+    font-size: 5rem;
+    margin-bottom: 15%;
+}
+
+.settingsOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingsOption {
+    color: white;
+    height: 3.5rem;
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+    padding: 0.25rem 0;
+    margin: 0.25rem 0;
+    list-style-type: none;
+}
+
+.settingsOption span {
+    display: inline-block;
+    transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
+}
+
+.settingsOption.selected span {
+    color: #00ffff;
+    font-size: 2.7rem;
+    text-shadow: 0 0 12px #00ffff,
+        0 0 24px #00ccff;
+}
 
 
 /* Title Screen: Instructions Menu */

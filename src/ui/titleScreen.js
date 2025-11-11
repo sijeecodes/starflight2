@@ -1,34 +1,21 @@
 import selectMenu from "./selectMenu";
 
-function titleScreen(scene, camera, document, keyStates) {
+function titleScreen(scene, document, keyStates) {
     if (!keyStates.pressed) return;
+    document.getElementById("canvas").style.opacity = 1;
+    document.getElementById("inGame").style.opacity = 0;
+    document.getElementById("titleScreen").style.opacity = 1;
+    document.getElementById("settings").style.opacity = 0;
+    document.getElementById("instructions").style.opacity = 0;
     
     const options = [...document.querySelectorAll(".titleScreenOption")];
     let id = selectMenu(scene, options, keyStates);
 
-    if (id == "startGame") {
-        document.getElementById("titleScreen").style.opacity = 0;
-        document.getElementById("inGame").style.opacity = 1;
+    if (id == "startGame")      scene.gameState = "intro";
+    // if (id == "toSettings")     scene.gameState = "settings";
+    // if (id == "toInstructions") scene.gameState = "instructions";
 
-        scene.gameState = "playing";
-        scene.timeStamp = 0;
-        camera.position.set(0, 10, -200);
-        camera.rotation.set(0, 0, 0);
-        return;
-    }
-    if (id == "instructions") {
-        document.getElementById("canvas").style.opacity = 0.5;
-        document.getElementById("titleScreen").style.opacity = 0.2;
-        document.getElementById("instructions").style.opacity = 1;
-        scene.gameState = "instructions";
-        return;
-    }
-    if (id == "settings") {
-        document.getElementById("canvas").style.opacity = 0.5;
-        document.getElementById("titleScreen").style.opacity = 0.2;
-        document.getElementById("settings").style.opacity = 1;
-        scene.gameState = "settings";
-    }
+    keyStates.pressed = false;
 }
 
 export default titleScreen;

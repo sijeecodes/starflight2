@@ -2,7 +2,7 @@ const selectMenu = (scene, options, keyStates) => {
     let selected = options.findIndex(e => e.classList.contains("selected"));
     let upKey = keyStates.down;
     let downKey = keyStates.up;
-    if (scene.upDownKey == "unInverted") {
+    if (keyStates.upDownKey == "unInverted") {
         upKey = keyStates.up;
         downKey = keyStates.down;
     }

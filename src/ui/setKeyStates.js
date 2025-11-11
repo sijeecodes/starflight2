@@ -8,22 +8,25 @@ const initKeyState = function () {
         leftRoll: false,
         boost: false,
         blaster: false,
+        upDownKey: "inverted",
         pressed: false
     };
 }
 
-const setKeyState = function (keyStates, event, upDownKey) {
+const setKeyState = function (keyStates, event) {
     let upKey1 = "KeyW";
     let upKey2 = "ArrowDown";
     let downKey1 = "KeyS";
     let downKey2 = "ArrowUp";
-    if (upDownKey == "unInverted") {
+    if (keyStates.upDownKey == "unInverted") {
         upKey1 = "KeyS";
         upKey2 = "ArrowUp";
         downKey1 = "KeyW";
         downKey2 = "ArrowDown";
     }
     keyStates.pressed = true;
+    console.log(keyStates.upDownKey, upKey1);
+    
     if (event.code == "KeyD") { keyStates.right = true; return keyStates; }
     if (event.code == "KeyA") { keyStates.left = true; return keyStates; }
     if (event.code == upKey1) { keyStates.up = true; return keyStates; }
@@ -52,12 +55,14 @@ const resetKeyState = function (keyStates, event, upDownKey) {
     let upKey2 = "ArrowDown";
     let downKey1 = "KeyS";
     let downKey2 = "ArrowUp";
-    if (upDownKey == "unInverted") {
+    if (keyStates.upDownKey == "unInverted") {
         upKey1 = "KeyS";
         upKey2 = "ArrowUp";
         downKey1 = "KeyW";
         downKey2 = "ArrowDown";
     }
+    keyStates.pressed = true;
+
     if (event.code == "KeyD") { keyStates.right = false; return keyStates; }
     if (event.code == "KeyA") { keyStates.left = false; return keyStates; }
     if (event.code == upKey1) { keyStates.up = false; return keyStates; }

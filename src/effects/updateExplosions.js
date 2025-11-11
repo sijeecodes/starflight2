@@ -1,7 +1,6 @@
 import disposeSprite from "../misc/disposeSprite";
 
 function updateExplosions(scene, { sprites, materials, velocities, lifetimes, rotations }) {
-    console.log(scene, sprites, materials, velocities, lifetimes, rotations);
     if (!sprites || sprites.length < 1) return;
 
     const newSprites = [];

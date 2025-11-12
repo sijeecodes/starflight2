@@ -1,5 +1,5 @@
-import * as THREE from 'three';
-import backgroundData from './backgroundData';
+import * as THREE from "three";
+import backgroundData from "./backgroundData";
 
 function createBackground(scene) {
     let dataset = backgroundData.map(e => e);
@@ -38,7 +38,7 @@ function makeBackgroundObject(
         },
         undefined,
         function (err) {
-            console.error('Background load failed', err);
+            console.error("Background load failed", err);
         }
     );
 }

@@ -1,9 +1,9 @@
-import disposeObject from '../misc/disposeObject';
-import updateNPCAI from './updateNPCAI';
-import updateNPCPosition from './updateNPCPosition';
-import updateNPCRotation from './updateNPCRotation';
-import updateNPCBlasters from './updateNPCBlasters';
-import { createNPCBlaster } from './createNPCObjects';
+import disposeObject from "../misc/disposeObject";
+import updateNPCAI from "./updateNPCAI";
+import updateNPCPosition from "./updateNPCPosition";
+import updateNPCRotation from "./updateNPCRotation";
+import updateNPCBlasters from "./updateNPCBlasters";
+import { createNPCBlaster } from "./createNPCObjects";
 
 const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
     if (npcs.length < 1 && npcBlasters.length < 1) {
@@ -22,7 +22,7 @@ const updateNPCObjects = function (scene, pcPos, { npcs, npcBlasters }) {
         updateNPCRotation(npc);
         createNPCBlaster(scene, pcPos, npc, npcBlasters);
 
-        if (npc.position.z < 0 && npc.type != 'asteroid') {
+        if (npc.position.z < 0 && npc.type != "asteroid") {
             npc.aiPattern = [];
             npc.targetRotation = [0, 0, 0];
             npc.targetPosition[2] = -300;

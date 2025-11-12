@@ -1,9 +1,9 @@
 import { setKeyState, resetKeyState } from "./setKeyStates";
 
 function setWindow(window, document, keyStates, camera, renderer) {
-    window.addEventListener('keydown', (e) => keyStates = setKeyState(keyStates, e));
-    window.addEventListener('keyup', (e) => keyStates = resetKeyState(keyStates, e));
-    window.addEventListener('resize', () => sizeRenderer(window, document, camera, renderer), false);
+    window.addEventListener("keydown", (e) => keyStates = setKeyState(keyStates, e));
+    window.addEventListener("keyup", (e) => keyStates = resetKeyState(keyStates, e));
+    window.addEventListener("resize", () => sizeRenderer(window, document, camera, renderer), false);
     sizeRenderer(window, document, camera, renderer);
 }
 

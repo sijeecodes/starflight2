@@ -1,11 +1,12 @@
-import { createPCShip } from './pcObjects/createPCObjects';
-import { initiatePCShip } from './pcObjects/createPCObjects';
-import disposeObject from './misc/disposeObject';
-import disposeSprite from './misc/disposeSprite';
-import createBackground from './environment/createBackground';
-import createLevelArr from './level/createLevelArr';
+import { createPCShip } from "./pcObjects/createPCObjects";
+import { initiatePCShip } from "./pcObjects/createPCObjects";
+import disposeObject from "./misc/disposeObject";
+import disposeSprite from "./misc/disposeSprite";
+import createBackground from "./environment/createBackground";
+import createLevelArr from "./level/createLevelArr";
 
-function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera) {
+function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera, gameLoop, animate) {
+
     if (scene.backgroundObjs.length > 0) scene.backgroundObjs.forEach(e => disposeSprite(scene, e.uuid));
     if (pcObjects.pcBlasters.length > 0) pcObjects.pcBlasters.forEach(e => disposeObject(scene, e));
     if (npcObjects.npcs.length > 0) npcObjects.npcs.forEach(e => disposeObject(scene, e));
@@ -13,12 +14,6 @@ function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera) {
     if (explosionObjects.sprites.length > 0) explosionObjects.sprites.forEach(e => disposeSprite(scene, e.uuid));
 
     scene.backgroundObjs = [];
-    pcObjects.pcBlasters.length = 0;
-    npcObjects = { npcs: [], npcBlasters: [] };
-    explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
-
-    console.log(scene);
-    scene.remove(scene.levelArr);
     scene.levelArr = undefined;
     scene.gameState = "titleScreen";
     scene.timeStamp = 0;

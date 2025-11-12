@@ -1,4 +1,4 @@
-import { createNPCObject } from '../npcObjects/createNPCObjects';
+import { createNPCObject } from "../npcObjects/createNPCObjects";
 
 function updateLevel(scene, npcObjects) {
     scene.timeStamp++;

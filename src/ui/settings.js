@@ -28,7 +28,7 @@ function settings(scene, document, keyStates) {
             upKey = "s or ↓";
             downKey = "w or ↑";
         }
-        document.getElementById('upDownSettings').textContent = text;
+        document.getElementById("upDownSettings").textContent = text;
         document.getElementById("upKey").textContent = upKey;
         document.getElementById("downKey").textContent = downKey;
     }

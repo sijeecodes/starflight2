@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 const createLights = function (scene) {
     scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 7));

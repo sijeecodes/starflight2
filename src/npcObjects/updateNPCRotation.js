@@ -2,7 +2,7 @@ function updateNPCRotation(obj) {
     const targetR = obj.targetRotation;
     let r = [obj.rotation.x, obj.rotation.y, obj.rotation.z];
 
-    if (obj.type == 'asteroid') {
+    if (obj.type == "asteroid") {
         obj.rotateX(obj.rotatingSpeed[0]);
         obj.rotateY(obj.rotatingSpeed[1]);
         obj.rotateZ(obj.rotatingSpeed[2]);

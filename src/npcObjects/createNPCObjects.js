@@ -1,8 +1,8 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
-import npcBasicData from './npcData/npcBasicData';
-import npcAIData from './npcData/npcAIData';
-import updateNPCAI from './updateNPCAI';
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
+import npcBasicData from "./npcData/npcBasicData";
+import npcAIData from "./npcData/npcAIData";
+import updateNPCAI from "./updateNPCAI";
 
 function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosition }) {
     const objBasic = npcBasicData[npcBasic];
@@ -83,16 +83,16 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
 }
 
 function deepCopy(target = {}, data = {}) {
-    if (typeof data != 'object' || data == null) return target;
+    if (typeof data != "object" || data == null) return target;
 
     for (const [key, value] of Object.entries(data)) {
         if (Array.isArray(value)) {
             target[key] = value.map(item => {
-                if (typeof item == 'object' && item != null) {
+                if (typeof item == "object" && item != null) {
                     return deepCopy({}, item);
                 } else return item;
             });
-        } else if (typeof value == 'object' && value != null) {
+        } else if (typeof value == "object" && value != null) {
             deepCopy(target[key] || {}, value);
         } else {
             target[key] = value;

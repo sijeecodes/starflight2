@@ -1,4 +1,4 @@
-import levelData from './levelData';
+import levelData from "./levelData";
 
 function createLevelArr(scene) {
     scene.levelArr = levelData.map(e => e);

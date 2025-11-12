@@ -1,7 +1,7 @@
-import disposeObject from '../misc/disposeObject';
-import closeDistance from './closeDistance';
-import raycastHit from './raycastHit';
-import createExplosion from '../effects/createExplosion';
+import disposeObject from "../misc/disposeObject";
+import closeDistance from "./closeDistance";
+import raycastHit from "./raycastHit";
+import createExplosion from "../effects/createExplosion";
 
 function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     const pcShip = pcObjects.pcShip;

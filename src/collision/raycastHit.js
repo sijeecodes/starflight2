@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 function raycastHit(origin, target) {
     const raycaster = new THREE.Raycaster();

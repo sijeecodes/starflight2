@@ -1,115 +1,115 @@
 const levelData = [
     // Asteroids
-    {
-        eventTime: 100,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid1SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 13,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 20,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
-    {
-        eventTime: 15,
-        npcAIname: "asteroidAI",
-        npcBasic: "asteroid2SlowBasic",
-        startingPosition: "random"
-    },
+    // {
+    //     eventTime: 100,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid1SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 13,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 20,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
+    // {
+    //     eventTime: 15,
+    //     npcAIname: "asteroidAI",
+    //     npcBasic: "asteroid2SlowBasic",
+    //     startingPosition: "random"
+    // },
 
-    // Drones
-    {
-        eventTime: 200,
-        npcAIname: "droneAIrandom",
-        npcBasic: "droneBasic",
-        startingPosition: [-10, -10, 700]
-    },
-    {
-        eventTime: 180,
-        npcAIname: "droneAIrandom",
-        npcBasic: "droneBasic",
-        startingPosition: [20, 10, 700]
-    },
-    {
-        eventTime: 180,
-        npcAIname: "droneAIrandom",
-        npcBasic: "droneBasic",
-        startingPosition: [-20, -15, 700]
-    },
-    {
-        eventTime: 150,
-        npcAIname: "droneAIrandom",
-        npcBasic: "droneBasic",
-        startingPosition: [5, 15, 700]
-    },
+    // // Drones
+    // {
+    //     eventTime: 200,
+    //     npcAIname: "droneAIrandom",
+    //     npcBasic: "droneBasic",
+    //     startingPosition: [-10, -10, 700]
+    // },
+    // {
+    //     eventTime: 180,
+    //     npcAIname: "droneAIrandom",
+    //     npcBasic: "droneBasic",
+    //     startingPosition: [20, 10, 700]
+    // },
+    // {
+    //     eventTime: 180,
+    //     npcAIname: "droneAIrandom",
+    //     npcBasic: "droneBasic",
+    //     startingPosition: [-20, -15, 700]
+    // },
+    // {
+    //     eventTime: 150,
+    //     npcAIname: "droneAIrandom",
+    //     npcBasic: "droneBasic",
+    //     startingPosition: [5, 15, 700]
+    // },
     {
         eventTime: 120,
         npcAIname: "droneAIrandom",

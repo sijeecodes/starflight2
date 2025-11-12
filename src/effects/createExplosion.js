@@ -1,7 +1,7 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 function createExplosion(scene, target, type, { sprites, materials, velocities, lifetimes, rotations }) {
-    const texture = new THREE.TextureLoader().load('../artSrc/fire.png');
+    const texture = new THREE.TextureLoader().load("../artSrc/fire.png");
     const existingSprites = sprites.length;
     let count = 0;
 

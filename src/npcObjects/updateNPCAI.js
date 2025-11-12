@@ -1,4 +1,4 @@
-import npcAIPatternLoader from './npcAIPatternLoader';
+import npcAIPatternLoader from "./npcAIPatternLoader";
 
 function updateNPCAI(obj, pcPos) {
     npcAIPatternLoader(obj);

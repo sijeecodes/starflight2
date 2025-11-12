@@ -1,6 +1,6 @@
 const backgroundData = [
     [
-        '../../artSrc/back.png',
+        "../../artSrc/back.png",
         {
             size: [800, 800],
             position: [0, 0, 1000],
@@ -9,7 +9,7 @@ const backgroundData = [
         }
     ],
     [
-        '../../artSrc/back.png',
+        "../../artSrc/back.png",
         {
             size: [1000, 800],
             position: [-600, 0, 400],
@@ -18,7 +18,7 @@ const backgroundData = [
         }
     ],
     [
-        '../../artSrc/back.png',
+        "../../artSrc/back.png",
         {
             size: [1000, 800],
             position: [-700, 0, -500],
@@ -27,7 +27,7 @@ const backgroundData = [
         }
     ],
     [
-        '../../artSrc/back.png',
+        "../../artSrc/back.png",
         {
             size: [1000, 800],
             position: [-300, -100, -1000],
@@ -36,7 +36,7 @@ const backgroundData = [
         }
     ],
     [
-            '../../artSrc/planet1.png',
+            "../../artSrc/planet1.png",
         {
             size: [60, 60],
             position: [120, - 100, 700],
@@ -45,7 +45,7 @@ const backgroundData = [
         }
     ],
     [
-        '../../artSrc/planet2.png',
+        "../../artSrc/planet2.png",
         {
             size: [120, 120],
             position: [120, 50, 700],

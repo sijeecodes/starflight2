@@ -11,6 +11,14 @@ function createPCShip() {
 
     loader.load('../artSrc/ship.glb', (object) => pcShip.add(object.scene));
     pcShip.add(aimFrame);
+    initiatePCShip(pcShip);
+
+    return pcShip;
+};
+
+function initiatePCShip(pcShip) {
+    pcShip.position.set(0, 0, 0);
+    pcShip.rotation.set(0, 0, 0);
     pcShip.collisionSize = 8;
     pcShip.blasterCoolTime = 0;
     pcShip.blasterDelay = 1;
@@ -32,9 +40,8 @@ function createPCShip() {
     pcShip.energyCoolTime = 60;
     pcShip.energyDelay = 60;
     pcShip.energyRecharge = 10;
-
-    return pcShip;
-};
+    pcShip.visible = true;
+}
 
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
@@ -92,4 +99,4 @@ function createPCBlaster(pcShip) {
     return blaster;
 }
 
-export { createPCShip, createPCBlaster };
+export { createPCShip, createPCBlaster, initiatePCShip };

@@ -1,0 +1,22 @@
+import selectMenu from "./selectMenu";
+
+function gameOver(scene, document, keyStates) {
+    if (!keyStates.pressed) return;
+    document.getElementById("canvas").style.opacity = 0.5;
+    document.getElementById("inGame").style.opacity = 0;
+    document.getElementById("gameOver").style.opacity = 1;
+    
+    const options = [...document.querySelectorAll(".gameOverOption")];
+    let id = selectMenu(options, keyStates);
+
+    if (id == "returnToTitle") {
+        document.getElementById("canvas").style.opacity = 1;
+        document.getElementById("inGame").style.opacity = 0;
+        document.getElementById("gameOver").style.opacity = 0;
+        document.getElementById("titleScreen").style.opacity = 1;
+        scene.gameState = "initiateGame";
+    }
+    keyStates.pressed = false;
+}
+
+export default gameOver;

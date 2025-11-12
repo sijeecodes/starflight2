@@ -8,10 +8,12 @@ const initKeyState = function () {
         leftRoll: false,
         boost: false,
         blaster: false,
+        enter: false,
+        esc: false,
         upDownKey: "inverted",
         pressed: false
     };
-}
+};
 
 const setKeyState = function (keyStates, event) {
     let upKey1 = "KeyW";
@@ -44,9 +46,10 @@ const setKeyState = function (keyStates, event) {
     if (event.code == "Period") { keyStates.boost = true; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
     if (event.code == "Enter") { keyStates.enter = true; return keyStates; }
+    if (event.code == "Escape") { keyStates.esc = true; return keyStates; }
 
     return keyStates;
-}
+};
 
 const resetKeyState = function (keyStates, event, upDownKey) {
     let upKey1 = "KeyW";
@@ -79,8 +82,9 @@ const resetKeyState = function (keyStates, event, upDownKey) {
     if (event.code == "Period") { keyStates.boost = false; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
     if (event.code == "Enter") { keyStates.enter = false; return keyStates; }
+    if (event.code == "Escape") { keyStates.esc = false; return keyStates; }
 
     return keyStates;
-}
+};
 
 export { initKeyState, setKeyState, resetKeyState };

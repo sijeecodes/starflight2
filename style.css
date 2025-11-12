@@ -5,12 +5,11 @@
 
 body {
     font-family: 'starfont';
-    margin: 0;
-    display: block;
-    background: black;
     display: flex;
-    justify-content: center;
     height: 100vh;
+    background: black;
+    margin: 0;
+    justify-content: center;
 }
 
 #canvas {
@@ -25,7 +24,7 @@ body {
     z-index: 10;
 }
 
-/* Ingame UI */
+/* In game UI */
 #inGame {
     display: block;
     padding: 1rem 1rem 1rem 1rem;
@@ -56,7 +55,12 @@ body {
 }
 
 /* Title Screen */
-#titleScreen {
+#titleScreen,
+#settings,
+#instructions,
+#gameOver,
+#missionComplete,
+#pause {
     position: absolute;
     left: 0;
     top: 0;
@@ -67,17 +71,25 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 100;
+    opacity: 0;
+}
+
+#titleScreen {
     opacity: 1;
 }
 
+/* #gameOver {
+    opacity: 1;
+} */
+
 h1 {
     color: black;
+    font-size: 9rem;
     text-shadow:
         5px 5px 0 Yellow,
         -5px -5px 0 Yellow,
         5px -5px 0 Yellow,
         -5px 5px 0 Yellow;
-    font-size: 9rem;
     margin-top: 0;
     margin-bottom: 15%;
 }
@@ -102,16 +114,26 @@ h3 {
     margin-bottom: 1rem;
 }
 
-.titleScreenOptions {
+.titleScreenOptions,
+.settingsOptions,
+.instructionsOptions,
+.gameOverOptions,
+.missionCompleteOptions,
+.pauseOptions {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.titleScreenOption {
-    color: #e2e2e2;
+.titleScreenOption,
+.settingsOption,
+.instructionsOption,
+.gameOverOption,
+.missionCompleteOption,
+.pauseOption {
     height: 3.5rem;
+    color: #e2e2e2;
     font-size: 2.3rem;
     line-height: 2.3rem;
     padding: 0.25rem 0;
@@ -119,7 +141,12 @@ h3 {
     list-style-type: none;
 }
 
-.titleScreenOption span {
+.titleScreenOption span,
+.settingsOption span,
+.instructionsOption span,
+.gameOverOption span,
+.missionCompleteOption span,
+.pauseOption span {
     display: inline-block;
     transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
 }
@@ -131,56 +158,22 @@ h3 {
                  0 0 24px #fbff00;
 }
 
-
+ul {
+    padding-inline-start: 0;
+}
 
 /* Settings Menu */
-#settings {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    z-index: 100;
-    opacity: 0;
-}
-
-.settingsOptions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.settingsOption {
-    color: #e2e2e2;
-    height: 3.5rem;
-    font-size: 2.3rem;
-    line-height: 2.3rem;
-    padding: 0.25rem 0;
-    margin: 0.25rem 0;
-    list-style-type: none;
-}
-
 .settingsContainer {
     text-align: center;
 }
 
-.settingsOption span {
-    display: inline-block;
-    transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
-}
-
 .upDownSettings {
     display: inline;
+    color: #e2e2e2;
     font-size: 2.3rem;
     line-height: 2.3rem;
     padding: 0.25rem 0;
     margin: 0.25rem 0;
-    color: #e2e2e2;
 }
 
 .controls {
@@ -191,30 +184,16 @@ h3 {
 }
 
 .controlsTable {
-    margin: 0 auto;
     font-size: 1.4rem;
+    margin: 0 auto;
 }
 
 .controlsTable td {
-    padding: 0.2rem 3.5rem;
     text-align: left;
+    padding: 0.2rem 3.5rem;
 }
 
 /* Title Screen: Instructions Menu */
-#instructions {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    z-index: 100;
-    opacity: 0;
-}
-
 .instructionsContainer {
     max-width: 65rem;
 }
@@ -226,31 +205,31 @@ h3 {
 
 .instructionsContainer p,
 .instructionsContainer li {
+    color: #e2e2e2;
     font-size: 1.5rem;
     line-height: 2rem;
     margin: 1rem 0;
-    color: #e2e2e2;
 }
 
 .instructionsOptions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin-top: 4rem;
 }
 
 .instructionsOption {
-    color: #e2e2e2;
-    height: 3.5rem;
-    font-size: 2.3rem;
-    line-height: 2.3rem;
-    padding: 0.25rem 0;
-    padding-left: 1rem;
-    margin: 0.25rem 0;
+    list-style-type: circle;
 }
 
-.instructionsOption span {
-    display: inline-block;
-    transition: font-size 0.2s, color 0.2s, text-shadow 0.2s;
+/* game over, mission complete, pause */
+.gameOverOptions,
+.missionCompleteOptions,
+.pauseOptions {
+    margin-top: 5rem;
+}
+
+.congrats {
+    color: #e2e2e2;
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-top: 1rem;
 }

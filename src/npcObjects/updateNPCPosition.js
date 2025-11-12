@@ -19,7 +19,6 @@ function updateNPCPosition(scene, obj) {
         let targetSpeed = obj.targetPosition
                              .map((p, i) => (p - currentPos[i]) / estTime);
 
-        //in target speed turns opposite of current speed == just past target point
         targetSpeed.forEach((target, i) => {
             if (target * speed[i] < 0) arrived = true;
         });

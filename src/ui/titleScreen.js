@@ -5,6 +5,7 @@ function titleScreen(scene, document, keyStates) {
     document.getElementById("canvas").style.opacity = 1;
     document.getElementById("inGame").style.opacity = 0;
     document.getElementById("titleScreen").style.opacity = 1;
+    document.getElementById("changeShip").style.opacity = 0;
     document.getElementById("settings").style.opacity = 0;
     document.getElementById("instructions").style.opacity = 0;
     
@@ -12,6 +13,7 @@ function titleScreen(scene, document, keyStates) {
     let id = selectMenu(options, keyStates);
 
     if (id == "startGame")      scene.gameState = "intro";
+    if (id == "toChangeShip")   scene.gameState = "changeShip";
     if (id == "toSettings")     scene.gameState = "settings";
     if (id == "toInstructions") scene.gameState = "instructions";
 

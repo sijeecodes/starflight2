@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import initiateGame from './initiateGame';
+import { initiateGame, reloadPCShip } from './initiateGame';
 import { createStarGeo, createStarMaterial } from './environment/createStars';
 import { initKeyState } from './ui/setKeyStates';
 import { createPCShip } from './pcObjects/createPCObjects';
@@ -10,6 +10,7 @@ import setWindow from './ui/setWindow';
 import gameLogic from "./gameLogic";
 import titleScreen from './ui/titleScreen';
 import intro from './ui/intro';
+import changeShip from './ui/changeShip';
 import settings from './ui/settings';
 import instructions from './ui/instructions';
 import gameOver from './ui/gameOver';
@@ -24,6 +25,7 @@ let npcObjects = { npcs: [], npcBlasters: [] };
 let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 let keyStates = initKeyState();
 let scene = new THREE.Scene();
+scene.shipNumber = 0;
 scene.add(new THREE.Points(starGeo, createStarMaterial()));
 scene.backgroundObjs = [];
 createLights(scene);
@@ -42,8 +44,9 @@ function animate() {
         renderer.render(scene, camera);
         return;
     }
-    if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
     if (scene.gameState == "intro") intro(scene, camera, document);
+    if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
+    if (scene.gameState == "changeShip") changeShip(scene, document, keyStates, pcObjects);
     if (scene.gameState == "settings") settings(scene, document, keyStates);
     if (scene.gameState == "instructions") instructions(scene, document, keyStates);
     if (scene.gameState == "instructions") instructions(scene, document, keyStates);

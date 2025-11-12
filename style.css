@@ -56,6 +56,7 @@ body {
 
 /* Title Screen */
 #titleScreen,
+#changeShip,
 #settings,
 #instructions,
 #gameOver,
@@ -77,10 +78,6 @@ body {
 #titleScreen {
     opacity: 1;
 }
-
-/* #gameOver {
-    opacity: 1;
-} */
 
 h1 {
     color: black;
@@ -115,6 +112,7 @@ h3 {
 }
 
 .titleScreenOptions,
+.changeShipOptions,
 .settingsOptions,
 .instructionsOptions,
 .gameOverOptions,
@@ -127,6 +125,7 @@ h3 {
 }
 
 .titleScreenOption,
+.changeShipOption,
 .settingsOption,
 .instructionsOption,
 .gameOverOption,
@@ -162,7 +161,29 @@ ul {
     padding-inline-start: 0;
 }
 
-/* Settings Menu */
+/* changeShip Menu */
+.changeShip {
+    text-align: center;
+}
+
+.changeShip p {
+    color: #e2e2e2;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+#shipDesc {
+    width:100%;
+    height: 6rem;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 23rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* settings Menu */
 .settingsContainer {
     text-align: center;
 }
@@ -193,7 +214,7 @@ ul {
     padding: 0.2rem 3.5rem;
 }
 
-/* Title Screen: Instructions Menu */
+/* instructions Menu */
 .instructionsContainer {
     max-width: 65rem;
 }
@@ -219,7 +240,7 @@ ul {
     list-style-type: circle;
 }
 
-/* game over, mission complete, pause */
+/* gameOver, missionComplete, pause Menu */
 .gameOverOptions,
 .missionCompleteOptions,
 .pauseOptions {

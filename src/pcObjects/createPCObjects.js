@@ -3,44 +3,47 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import { LineMaterial } from 'three/addons/lines/LineMaterial';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
+import pcShipData from './pcShipData';
 
-function createPCShip() {
+function createPCShip(shipNumber = 0) {
     const loader = new GLTFLoader();
     const pcShip = new THREE.Group();
     const aimFrame = createAimFrame();
 
-    loader.load('../artSrc/ship.glb', (object) => pcShip.add(object.scene));
+    loader.load(pcShipData[shipNumber].src, (object) => pcShip.add(object.scene));
     pcShip.add(aimFrame);
-    initiatePCShip(pcShip);
+    initiatePCShip(pcShip, shipNumber);
 
     return pcShip;
 };
 
-function initiatePCShip(pcShip) {
+function initiatePCShip(pcShip, shipNumber = 0) {
     pcShip.position.set(0, 0, 0);
     pcShip.rotation.set(0, 0, 0);
-    pcShip.collisionSize = 8;
     pcShip.blasterCoolTime = 0;
-    pcShip.blasterDelay = 1;
-    pcShip.speed = [0, 0, 0];
-    pcShip.maxSpeed = [3.0, 1.8, 4];
-    pcShip.speedAccel = [0.6, 0.4, 0.5];
-    pcShip.speedDecel = [0.93, 0.93, 0.90];
-    pcShip.rolling = false;
     pcShip.rollCoolTime = 0;
-    pcShip.rollDelay = 15;
-    pcShip.rollCost = 15;
-    pcShip.boostCost = 2;
-    pcShip.hpMax = 300;
-    pcShip.hp = 300;
-    pcShip.hpDisplayed = 300;
-    pcShip.energyMax = 100
-    pcShip.energy = 50;
-    pcShip.energyDisplayed = 50;
-    pcShip.energyCoolTime = 60;
-    pcShip.energyDelay = 60;
-    pcShip.energyRecharge = 10;
+    pcShip.energyCoolTime = 0;
+    pcShip.speed = [0, 0, 0];
+    pcShip.rolling = false;
     pcShip.visible = true;
+
+    pcShip.collisionSize = pcShipData[shipNumber].data.collisionSize;
+    pcShip.blasterDelay = pcShipData[shipNumber].data.blasterDelay;
+    pcShip.maxSpeed = pcShipData[shipNumber].data.maxSpeed;
+    pcShip.speedAccel = pcShipData[shipNumber].data.speedAccel;
+    pcShip.speedDecel = pcShipData[shipNumber].data.speedDecel;
+    pcShip.rollDelay = pcShipData[shipNumber].data.rollDelay;
+    pcShip.rollCost = pcShipData[shipNumber].data.rollCost;
+    pcShip.boostCost = pcShipData[shipNumber].data.boostCost;
+    pcShip.hpMax = pcShipData[shipNumber].data.hpMax;
+    pcShip.hp = pcShipData[shipNumber].data.hp;
+    pcShip.hpDisplayed = pcShipData[shipNumber].data.hpDisplayed;
+    pcShip.energyMax = pcShipData[shipNumber].data.energyMax;
+    pcShip.energy = pcShipData[shipNumber].data.energy;
+    pcShip.energyDisplayed = pcShipData[shipNumber].data.energyDisplayed;
+    pcShip.energyDelay = pcShipData[shipNumber].data.energyDelay;
+    pcShip.energyRecharge = pcShipData[shipNumber].data.energyRecharge;
+    pcShip.shipNumber = shipNumber;
 }
 
 function createAimFrame() {
@@ -75,26 +78,38 @@ function createAimFrame() {
 }
 
 function createPCBlaster(pcShip) {
-    const blasterSpeed = 10;
-    const geometry = new THREE.SphereGeometry(3, 5, 5);  //rad, width seg, height seg
+    const blasterData = pcShipData[pcShip.shipNumber].blaster;
+    let geometry, blasterColor, blasterColiSize;
+    if (blasterData.shape == "sphere") {
+        geometry = new THREE.SphereGeometry(blasterData.size, 5, 5);  //rad, width seg, height seg
+        blasterColiSize = blasterData.size/2;
+    } else if (blasterData.shape == "capsule") {
+        geometry = new THREE.CapsuleGeometry(blasterData.size, blasterData.size * 8, 2, 8); //rad, h, cap seg, rad seg
+        geometry.rotateX(Math.PI / 2);
+        blasterColiSize = blasterData.size/4;
+    }
+    if (blasterData.color == "blue") blasterColor = 0x00ffff;
+    if (blasterData.color == "green") blasterColor = 0x00ff00;
+    if (blasterData.color == "orange") blasterColor = 0xff9900;
+    if (blasterData.color == "violet") blasterColor = 0xbb00ff;
+
     const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
-        color: 0x00ffff,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
+        color: blasterColor,
         transparent: true,
         opacity: 0.8,
         blending: THREE.AdditiveBlending,
     });
-
     const blaster = new THREE.Mesh(geometry, material);
-    blaster.speed = [0, 0, 25];
     blaster.position.copy(pcShip.position);
     blaster.rotation.copy(pcShip.rotation);
+    blaster.collisionSize = blasterColiSize;
+    blaster.power = blasterData.power;
+    blaster.speed = [0, 0, 0];
     blaster.speed[0] = pcShip.speed[0];
     blaster.speed[1] = pcShip.speed[1];
-    blaster.speed[2] = Math.sqrt(Math.pow(blasterSpeed, 2)
+    blaster.speed[2] = Math.sqrt(Math.pow(blasterData.speed, 2)
         - Math.pow(blaster.speed[0], 2)
         - Math.pow(blaster.speed[1], 2));
-    blaster.power = 1;
-    blaster.collisionSize = 3;
 
     return blaster;
 }

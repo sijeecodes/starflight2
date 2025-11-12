@@ -1,3 +1,4 @@
+import { createPCShip } from './pcObjects/createPCObjects';
 import { initiatePCShip } from './pcObjects/createPCObjects';
 import disposeObject from './misc/disposeObject';
 import disposeSprite from './misc/disposeSprite';
@@ -16,18 +17,27 @@ function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera) {
     npcObjects = { npcs: [], npcBlasters: [] };
     explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 
-    scene.levelArr = [];
+    console.log(scene);
+    scene.remove(scene.levelArr);
+    scene.levelArr = undefined;
     scene.gameState = "titleScreen";
     scene.timeStamp = 0;
     scene.boostSpeed = 0;
     scene.boostalbe = true;
-    scene.add(pcObjects.pcShip);
-    initiatePCShip(pcObjects.pcShip);
+
+    reloadPCShip(scene, pcObjects)
     createBackground(scene);
     createLevelArr(scene)
-    
     camera.position.set(50, 25, 192);
     camera.lookAt(0, 0, 0);
 }
 
-export default initiateGame;
+function reloadPCShip(scene, pcObjects) {
+    disposeObject(scene, pcObjects.pcShip);
+    pcObjects.pcShip = undefined;
+    pcObjects.pcShip = createPCShip(scene.shipNumber);
+    scene.add(pcObjects.pcShip);
+    initiatePCShip(pcObjects.pcShip, scene.shipNumber);
+}
+
+export { initiateGame, reloadPCShip };

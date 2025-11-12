@@ -1,8 +1,8 @@
 import * as THREE from "three";
-import { initiateGame, reloadPCShip } from "./initiateGame";
 import { createStarGeo, createStarMaterial } from "./environment/createStars";
-import { initKeyState } from "./ui/setKeyStates";
 import { createPCShip } from "./pcObjects/createPCObjects";
+import { initKeyState } from "./ui/setKeyStates";
+import { initiateGame } from "./initiateGame";
 import createLights from "./environment/createLights";
 import updateStars from "./environment/updateStars";
 import setWindow from "./ui/setWindow";
@@ -39,7 +39,6 @@ document.getElementById("canvas").appendChild(renderer.domElement);
 let gameLoop = setInterval(animate, 1000 / 30);
 function animate() {
     updateStars(scene, starGeo);
-    console.log(npcObjects.npcs);
     if (scene.gameState == "missionComplete") missionComplete(scene, document, keyStates);
     if (scene.gameState == "playing" || scene.gameState == "missionComplete") {
         gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, camera, keyStates);
@@ -60,9 +59,8 @@ function animate() {
     if (scene.gameState == "initiateGame") {
         initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera, gameLoop, animate);
         resetObjects();
-        scene.gameState == "titleScreen";
     }
-
+    updatePCIdle (scene, pcObjects.pcShip);
     renderer.render(scene, camera);
 }
 

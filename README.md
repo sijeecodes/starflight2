@@ -1,4 +1,4 @@
-# StarFlight 2 (Under deveoplment)
+# StarFlight 2
 
  - A simple space flight game using Three.js / Javascript.
 
@@ -27,7 +27,7 @@
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
 
 ### NPC AI
- - Format : { aiName: { timeTriggered: [ { triggerTime: "time", patternName: "name" }, … ], hpTirggered: [{ triggerHP: "hp", patternName: "name" }, …] }, aiName2: {[],[]}, ... }
+ - Format : { aiName: { timeTriggered: [ { triggerTime: "time", patternName: "name" }, … ], hpTriggered: [{ triggerHP: "hp", patternName: "name" }, …] }, aiName2: {[],[]}, ... }
  - aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
  - timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
  - hpTriggered : When NPC's HP drops below "triggerHP", "patternName" pattern is activated.
@@ -44,7 +44,7 @@
  #### Action lists: name(value)
  1. move([x, y, z]) : Sets NPC "targetPosition" to move (+x, +y, +z) amount.
  2. moveTo([x, y, z]) : Sets NPC "targetPosition" to (x, y, z).
- 3. ramdomMoveTo([x1, x2, y1, y2, z1, z2]) : Sets NPC "targetPosition" to move in (x1 ~ x2, y1 ~ y2, z1 ~ z2) range.
+ 3. randomMoveTo([x1, x2, y1, y2, z1, z2]) : Sets NPC "targetPosition" to move in (x1 ~ x2, y1 ~ y2, z1 ~ z2) range.
  4. blaster("pc" or "front") : Fires blaster to "PC" or "Front".
  5. setPatternTime(int value) : Sets PatternTimer to "value". Set 0 to loop current AI pattern. 
  6. setDefaultSpeed([x, y, z]) : Sets NPC "defaultSpeed" to (x, y, z). Moves based on NPC(not world axis).

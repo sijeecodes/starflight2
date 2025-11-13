@@ -1,12 +1,25 @@
 import * as THREE from "three";
+import playSound from "./playSound";
+
+const HIT_SOUND_SRC = ["../soundSrc/hitSound1.mp3", "../soundSrc/hitSound2.mp3"];
+const EXPLOSION_SOUND_SRC = ["../soundSrc/explosion1.mp3", "../soundSrc/explosion2.mp3", "../soundSrc/explosion3.mp3"];
+const EXPLOSION_TEXTURE = "../artSrc/fire.png";
+const HIT_VOLUME = 0.1;
+const EXPLOSION_VOLUME = 0.4;
 
 function createExplosion(scene, target, type, { sprites, materials, velocities, lifetimes, rotations }) {
-    const texture = new THREE.TextureLoader().load("../artSrc/fire.png");
+    const texture = new THREE.TextureLoader().load(EXPLOSION_TEXTURE);
     const existingSprites = sprites.length;
     let count = 0;
 
-    if (type == "hit")     count = 7;
-    if (type == "explode") count = 40;
+    if (type == "hit") {
+        playSound(HIT_SOUND_SRC[Math.round(Math.random())], HIT_VOLUME);
+        count = 7;
+    }
+    if (type == "explode") {
+        playSound(EXPLOSION_SOUND_SRC[Math.floor(Math.random()*3)], EXPLOSION_VOLUME);
+        count = 40;
+    }
 
     for (let i = existingSprites; i < existingSprites + count; i++) {
         const material = new THREE.SpriteMaterial({
@@ -45,8 +58,8 @@ function createExplosion(scene, target, type, { sprites, materials, velocities, 
             rotations[i] = (Math.random() - 0.5) * 8;
             materials[i] = material;
             sprite.position.set(
-                target.position.x, 
-                target.position.y, 
+                target.position.x,
+                target.position.y,
                 target.position.z
             );
         }

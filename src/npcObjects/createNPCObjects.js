@@ -3,11 +3,14 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 import npcBasicData from "./npcData/npcBasicData";
 import npcAIData from "./npcData/npcAIData";
 import updateNPCAI from "./updateNPCAI";
+import playSound from "../effects/playSound";
+
+const BLASTER_VOLUME = 0.3
 
 function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosition }) {
     const objBasic = npcBasicData[npcBasic];
-    let obj = new THREE.Group();
     const loader = new GLTFLoader();
+    let obj = new THREE.Group();
 
     loader.load(objBasic.npcGlb, (object) => obj.add(object.scene));
     obj = deepCopy(obj, objBasic);
@@ -35,7 +38,7 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
             ];
     }
     if (obj.unpassable) scene.boostalbe = false;
-    
+
     obj.position.set(startingPosition[0], startingPosition[1], startingPosition[2]);
     npcObjects.npcs.push(obj);
     updateNPCAI(obj);
@@ -45,10 +48,12 @@ function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosit
 function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     if (npc.fireBlaster == "none") return;
 
+    playSound(npc.blasterSoundSrc, BLASTER_VOLUME);
+
     let blasterColor = 0xff2222;
     let geometry;
     if (npc.blasterShape == "sphere") {
-        geometry = new THREE.SphereGeometry(4, 8, 8); //rad, width seg, height seg
+        geometry = new THREE.SphereGeometry(npc.blasterRadius, 8, 8); //rad, width seg, height seg
 
     } else if (npc.blasterShape == "capsule") {
         geometry = new THREE.CapsuleGeometry(npc.blasterRadius, npc.blasterLength, 2, 8); //rad, h, cap seg, rad seg
@@ -60,8 +65,8 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     if (npc.blasterColor == "green") blasterColor = 0x00ff00;
     if (npc.lasterColor == "orange") blasterColor = 0xff9900;
 
-    const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
-        color: blasterColor,                // 0x00ffff  0x00ff00  0xff9900  0xff2222  0xbb00ff
+    const material = new THREE.MeshBasicMaterial({
+        color: blasterColor,
         transparent: true,
         opacity: 0.8,
         blending: THREE.AdditiveBlending,
@@ -77,9 +82,10 @@ function createNPCBlaster(scene, pcPos, npc, npcBlasters) {
     blaster.translateY(-npc.collisionSize / 5);
 
     if (npc.fireBlaster == "pc") blaster.lookAt(pcPos.x, pcPos.y, pcPos.z);
+
     npc.fireBlaster = "none";
-    scene.add(blaster);
     npcBlasters.push(blaster);
+    scene.add(blaster);
 }
 
 function deepCopy(target = {}, data = {}) {

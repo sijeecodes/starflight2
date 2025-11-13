@@ -22,6 +22,7 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
+            soundSrc: "../soundSrc/pcBlastJoe.mp3",
             speed: 10,
             power: 1,
             shape: "sphere",
@@ -52,6 +53,7 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
+            soundSrc: "../soundSrc/pcBlastBubble.mp3",
             speed: 8,
             power: 2,
             shape: "sphere",
@@ -82,11 +84,12 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
+            soundSrc: "../soundSrc/pcBlastSparrow.mp3",
             speed: 10,
             power: 5,
             shape: "capsule",
             color: "green",
-            size: 1.5
+            size: 0.3
         }
     }
 ]

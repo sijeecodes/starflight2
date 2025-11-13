@@ -18,6 +18,7 @@ const npcBasicData = {
         blasterLength:  3,
         blasterSpeed:   10,
         blasterPower:   1,
+        blasterSoundSrc:"../soundSrc/npcBlast3.mp3",
     },
     droneBasic: {
         npcGlb:         "../artSrc/npcShip1.glb",
@@ -38,6 +39,7 @@ const npcBasicData = {
         blasterLength:  2,
         blasterSpeed:   6,
         blasterPower:   1,
+        blasterSoundSrc:"../soundSrc/npcBlast1.mp3",
     },
     bomberBasic: {
         npcGlb:         "../artSrc/npcShip3.glb",
@@ -58,6 +60,7 @@ const npcBasicData = {
         blasterLength:  4,
         blasterSpeed:   3,
         blasterPower:   5,
+        blasterSoundSrc:"../soundSrc/npcBlast3.mp3",
     },
     fighterBasic: {
         npcGlb:         "../artSrc/npcShip2.glb",
@@ -78,6 +81,7 @@ const npcBasicData = {
         blasterLength:  10,
         blasterSpeed:   9,
         blasterPower:   2,
+        blasterSoundSrc:"../soundSrc/npcBlast2.mp3",
     },
     destroyerBasic: {
         npcGlb:         "../artSrc/npcShip4.glb",
@@ -98,6 +102,7 @@ const npcBasicData = {
         blasterLength:  14,
         blasterSpeed:   10,
         blasterPower:   3,
+        blasterSoundSrc:"../soundSrc/npcBlast4.mp3",
     },
     destroyerStrongerBasic: {
         npcGlb:         "../artSrc/npcShip4.glb",
@@ -118,6 +123,7 @@ const npcBasicData = {
         blasterLength:  14,
         blasterSpeed:   10,
         blasterPower:   3,
+        blasterSoundSrc:"../soundSrc/npcBlast4.mp3",
     },
     cruiserBasic: {
         npcGlb:         "../artSrc/npcShip10.glb",
@@ -138,6 +144,7 @@ const npcBasicData = {
         blasterLength:  20,
         blasterSpeed:   7,
         blasterPower:   5,
+        blasterSoundSrc:"../soundSrc/npcBlas10.mp3",
     },
     cruiserBossBasic: {
         npcGlb:         "../artSrc/npcShip10.glb",
@@ -159,6 +166,7 @@ const npcBasicData = {
         blasterSpeed:   7,
         blasterPower:   5,
         unpassable:     true,
+        blasterSoundSrc:"../soundSrc/npcBlast10.mp3",
     },
     carrierBasic: {
         npcGlb:         "../artSrc/npcShip10.glb",
@@ -179,6 +187,7 @@ const npcBasicData = {
         blasterLength:  20,
         blasterSpeed:   7,
         blasterPower:   5,
+        blasterSoundSrc:"../soundSrc/npcBlast10.mp3",
     },
     bossBasic: {
         npcGlb:         "../artSrc/npcShip100.glb",
@@ -200,6 +209,7 @@ const npcBasicData = {
         blasterSpeed:   5,
         blasterPower:   7,
         unpassable:     true,
+        blasterSoundSrc:"../soundSrc/npcBlast3.mp3",
     },
     asteroid1FastBasic: {
         npcGlb:         "../artSrc/asteroid1.glb",

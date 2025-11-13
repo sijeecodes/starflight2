@@ -18,6 +18,8 @@ function createPCShip(shipNumber = 0) {
 };
 
 function initiatePCShip(pcShip, shipNumber = 0) {
+    const shipData = pcShipData[shipNumber].data;
+
     pcShip.position.set(0, 0, 0);
     pcShip.rotation.set(0, 0, 0);
     pcShip.blasterCoolTime = 0;
@@ -27,23 +29,23 @@ function initiatePCShip(pcShip, shipNumber = 0) {
     pcShip.rolling = false;
     pcShip.visible = true;
 
-    pcShip.collisionSize = pcShipData[shipNumber].data.collisionSize;
-    pcShip.blasterDelay = pcShipData[shipNumber].data.blasterDelay;
-    pcShip.maxSpeed = pcShipData[shipNumber].data.maxSpeed;
-    pcShip.speedAccel = pcShipData[shipNumber].data.speedAccel;
-    pcShip.speedDecel = pcShipData[shipNumber].data.speedDecel;
-    pcShip.rollDelay = pcShipData[shipNumber].data.rollDelay;
-    pcShip.rollCost = pcShipData[shipNumber].data.rollCost;
-    pcShip.boostCost = pcShipData[shipNumber].data.boostCost;
-    pcShip.hpMax = pcShipData[shipNumber].data.hpMax;
-    pcShip.hp = pcShipData[shipNumber].data.hp;
-    pcShip.hpDisplayed = pcShipData[shipNumber].data.hpDisplayed;
-    pcShip.energyMax = pcShipData[shipNumber].data.energyMax;
-    pcShip.energy = pcShipData[shipNumber].data.energy;
-    pcShip.energyDisplayed = pcShipData[shipNumber].data.energyDisplayed;
-    pcShip.energyDelay = pcShipData[shipNumber].data.energyDelay;
-    pcShip.energyRecharge = pcShipData[shipNumber].data.energyRecharge;
-    pcShip.shipNumber = shipNumber;
+    pcShip.collisionSize    = shipData.collisionSize;
+    pcShip.blasterDelay     = shipData.blasterDelay;
+    pcShip.maxSpeed         = shipData.maxSpeed;
+    pcShip.speedAccel       = shipData.speedAccel;
+    pcShip.speedDecel       = shipData.speedDecel;
+    pcShip.rollDelay        = shipData.rollDelay;
+    pcShip.rollCost         = shipData.rollCost;
+    pcShip.boostCost        = shipData.boostCost;
+    pcShip.hpMax            = shipData.hpMax;
+    pcShip.hp               = shipData.hp;
+    pcShip.hpDisplayed      = shipData.hpDisplayed;
+    pcShip.energyMax        = shipData.energyMax;
+    pcShip.energy           = shipData.energy;
+    pcShip.energyDisplayed  = shipData.energyDisplayed;
+    pcShip.energyDelay      = shipData.energyDelay;
+    pcShip.energyRecharge   = shipData.energyRecharge;
+    pcShip.shipNumber       = shipNumber;
 }
 
 function createAimFrame() {
@@ -78,27 +80,35 @@ function createAimFrame() {
 }
 
 function createPCBlaster(pcShip) {
+    const audio = new Audio(pcShipData[pcShip.shipNumber].blaster.soundSrc);
+    audio.volume = 0.1;
+    audio.play();
+
     const blasterData = pcShipData[pcShip.shipNumber].blaster;
     let geometry, blasterColor, blasterColiSize;
+
     if (blasterData.shape == "sphere") {
         geometry = new THREE.SphereGeometry(blasterData.size, 5, 5);  //rad, width seg, height seg
-        blasterColiSize = blasterData.size/2;
+        blasterColiSize = blasterData.size / 2;
+
     } else if (blasterData.shape == "capsule") {
-        geometry = new THREE.CapsuleGeometry(blasterData.size, blasterData.size * 8, 2, 8); //rad, h, cap seg, rad seg
+        geometry = new THREE.CapsuleGeometry(blasterData.size, 20, 2, 8); //rad, h, cap seg, rad seg
         geometry.rotateX(Math.PI / 2);
-        blasterColiSize = blasterData.size/4;
+        blasterColiSize = 10;
     }
+
     if (blasterData.color == "blue") blasterColor = 0x00ffff;
     if (blasterData.color == "green") blasterColor = 0x00ff00;
     if (blasterData.color == "orange") blasterColor = 0xff9900;
     if (blasterData.color == "violet") blasterColor = 0xbb00ff;
 
-    const material = new THREE.MeshBasicMaterial({      // blue green orange red violet
+    const material = new THREE.MeshBasicMaterial({
         color: blasterColor,
         transparent: true,
         opacity: 0.8,
         blending: THREE.AdditiveBlending,
     });
+
     const blaster = new THREE.Mesh(geometry, material);
     blaster.position.copy(pcShip.position);
     blaster.rotation.copy(pcShip.rotation);

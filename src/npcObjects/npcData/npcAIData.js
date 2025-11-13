@@ -1206,11 +1206,11 @@ const npcAIData = {
         timeTriggered: [
             { triggerTime: 0, aiPattern: "cruiserBossIntroPattern" },
             { triggerTime: 60, aiPattern: "cruiserBlastLoop" },
-            { triggerTime: 900,  aiPattern: "cruiserDefaultMoveZ" }, 
-            { triggerTime: 900, aiPattern: "cruiserBlastLoop" },
+            { triggerTime: 1050,  aiPattern: "cruiserDefaultMoveZ" }, 
+            { triggerTime: 1050, aiPattern: "cruiserBlastLoop" },
         ],
         hpTriggered: [
-            { triggerHP: 10,  aiPattern: "charge" }, 
+            { triggerHP: 23,  aiPattern: "charge" }, 
         ],
     },
 

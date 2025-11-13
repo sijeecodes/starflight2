@@ -5,7 +5,7 @@ function gameOver(scene, document, keyStates) {
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("inGame").style.opacity = 0;
     document.getElementById("gameOver").style.opacity = 1;
-    
+
     const options = [...document.querySelectorAll(".gameOverOption")];
     let id = selectMenu(options, keyStates);
 

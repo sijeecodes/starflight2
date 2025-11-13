@@ -5,7 +5,7 @@ function missionComplete(scene, document, keyStates) {
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("inGame").style.opacity = 0;
     document.getElementById("missionComplete").style.opacity = 1;
-    
+
     const options = [...document.querySelectorAll(".missionCompleteOption")];
     let id = selectMenu(options, keyStates);
 

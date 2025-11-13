@@ -36,7 +36,7 @@ const backgroundData = [
         }
     ],
     [
-            "../../artSrc/planet1.png",
+        "../../artSrc/planet1.png",
         {
             size: [60, 60],
             position: [120, - 100, 700],

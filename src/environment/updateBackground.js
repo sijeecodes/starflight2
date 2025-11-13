@@ -1,6 +1,6 @@
 function updateBackgrounds(scene, bgObjs) {
     if (!bgObjs || bgObjs.length < 1) return;
-    
+
     let newBgObjs = bgObjs.filter(bg => {
         if (bg.speed) {
             bg.position.z -= bg.speed;

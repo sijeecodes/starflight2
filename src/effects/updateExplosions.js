@@ -12,7 +12,7 @@ function updateExplosions(scene, { sprites, materials, velocities, lifetimes, ro
     sprites.forEach((s, i) => {
         if (lifetimes[i] <= 0) {
             disposeSprite(scene, s.uuid);
-            return;   
+            return;
         }
 
         s.position.x += velocities[i].x;

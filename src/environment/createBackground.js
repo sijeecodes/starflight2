@@ -17,8 +17,8 @@ function makeBackgroundObject(
         position: [positionX, positionY, positionZ],
         rotationY,
         speed
-    }) 
-{
+    }
+) {
     const backgroundGeo = new THREE.PlaneGeometry(sizeX, sizeY);
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(fileName,

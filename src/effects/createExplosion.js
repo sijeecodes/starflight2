@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import playSound from "./playSound";
 
-const HIT_SOUND_SRC = ["../soundSrc/hitSound1.mp3", "../soundSrc/hitSound2.mp3"];
-const EXPLOSION_SOUND_SRC = ["../soundSrc/explosion1.mp3", "../soundSrc/explosion2.mp3", "../soundSrc/explosion3.mp3"];
-const EXPLOSION_TEXTURE = "../artSrc/fire.png";
+const HIT_SOUND_SRC = ["soundSrc/hitSound1.mp3", "soundSrc/hitSound2.mp3"];
+const EXPLOSION_SOUND_SRC = ["soundSrc/explosion1.mp3", "soundSrc/explosion2.mp3", "soundSrc/explosion3.mp3"];
+const EXPLOSION_TEXTURE = "artSrc/fire.png";
 const HIT_VOLUME = 0.1;
 const EXPLOSION_VOLUME = 0.4;
 

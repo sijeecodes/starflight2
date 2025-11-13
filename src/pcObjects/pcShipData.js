@@ -1,7 +1,7 @@
 const pcShipData = [
     {
         name: "Regular-Joe",
-        src: "../artSrc/ship1.glb",
+        src: "artSrc/ship1.glb",
         desc: "Average balanced ship for most users.",
         data: {
             collisionSize: 8,
@@ -22,7 +22,7 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
-            soundSrc: "../soundSrc/pcBlastJoe.mp3",
+            soundSrc: "soundSrc/pcBlastJoe.mp3",
             speed: 9,
             power: 1,
             shape: "sphere",
@@ -32,7 +32,7 @@ const pcShipData = [
     },
     {
         name: "Bubbles",
-        src: "../artSrc/ship2.glb",
+        src: "artSrc/ship2.glb",
         desc: "Easily pops enemies. Slow but sturdy and easy to hit enemies.",
         data: {
             collisionSize: 9,
@@ -53,7 +53,7 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
-            soundSrc: "../soundSrc/pcBlastBubble.mp3",
+            soundSrc: "soundSrc/pcBlastBubble.mp3",
             speed: 7,
             power: 3,
             shape: "sphere",
@@ -63,11 +63,11 @@ const pcShipData = [
     },
     {
         name: "Sparrow",
-        src: "../artSrc/ship3.glb",
+        src: "artSrc/ship3.glb",
         desc: "Hard to handle, but swift and powerful.",
         data: {
             collisionSize: 7,
-            blasterDelay: 3,
+            blasterDelay: 4,
             maxSpeed: [3.0, 1.8, 5],
             speedAccel: [0.6, 0.4, 0.6],
             speedDecel: [0.91, 0.91, 0.90],
@@ -84,12 +84,12 @@ const pcShipData = [
             energyRecharge: 10,
         },
         blaster: {
-            soundSrc: "../soundSrc/pcBlastSparrow.mp3",
+            soundSrc: "soundSrc/pcBlastSparrow.mp3",
             speed: 10,
             power: 5,
             shape: "capsule",
             color: "orange",
-            size: 0.33
+            size: 1.3
         }
     }
 ]

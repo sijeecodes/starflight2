@@ -1,6 +1,6 @@
-const SELECT_SOUND_SRC = "../../soundSrc/select.mp3";
-const CONFIRM_SOUND_SRC = "../../soundSrc/confirm.mp3";
-const ADJUST_SOUND_SRC = "../../soundSrc/adjust.mp3";
+const SELECT_SOUND_SRC = "soundSrc/select.mp3";
+const CONFIRM_SOUND_SRC = "soundSrc/confirm.mp3";
+const ADJUST_SOUND_SRC = "soundSrc/adjust.mp3";
 
 
 function playSound(src, vol = 0.3) {

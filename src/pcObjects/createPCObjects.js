@@ -92,9 +92,9 @@ function createPCBlaster(pcShip) {
         blasterColiSize = blasterData.size / 2 + 1;
 
     } else if (blasterData.shape == "capsule") {
-        geometry = new THREE.CapsuleGeometry(blasterData.size, 20, 2, 8); //rad, h, cap seg, rad seg
+        geometry = new THREE.CapsuleGeometry(blasterData.size, 27, 2, 8); //rad, h, cap seg, rad seg
         geometry.rotateX(Math.PI / 2);
-        blasterColiSize = 10;
+        blasterColiSize = 15;
     }
 
     if (blasterData.color == "blue") blasterColor = 0x00ffff;

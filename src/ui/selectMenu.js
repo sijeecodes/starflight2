@@ -1,10 +1,10 @@
 const selectMenu = (options, keyStates) => {
     let selected = options.findIndex(e => e.classList.contains("selected"));
-    let upKey = keyStates.down;
-    let downKey = keyStates.up;
+    let upKey = keyStates.up;
+    let downKey = keyStates.down;
     if (keyStates.upDownKey == "unInverted") {
-        upKey = keyStates.up;
-        downKey = keyStates.down;
+        upKey = keyStates.down;
+        downKey = keyStates.up;
     }
 
     if (downKey) {

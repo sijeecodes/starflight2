@@ -5,7 +5,7 @@ import disposeSprite from "./misc/disposeSprite";
 import createBackground from "./environment/createBackground";
 import createLevelArr from "./level/createLevelArr";
 
-function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera, gameLoop, animate) {
+function initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera) {
 
     if (scene.backgroundObjs.length > 0) scene.backgroundObjs.forEach(e => disposeSprite(scene, e.uuid));
     if (pcObjects.pcBlasters.length > 0) pcObjects.pcBlasters.forEach(e => disposeObject(scene, e));

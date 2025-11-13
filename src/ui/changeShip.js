@@ -13,7 +13,7 @@ function changeShip(scene, document, keyStates, pcObjects) {
 
     if (keyStates.right) {
         scene.shipNumber++;
-        if (scene.shipNumber >= pcShipData.length - 1) scene.shipNumber = 0;
+        if (scene.shipNumber >= pcShipData.length) scene.shipNumber = 0;
 
         document.getElementById("shipName").textContent = pcShipData[scene.shipNumber].name;
         document.getElementById("shipDesc").textContent = pcShipData[scene.shipNumber].desc;

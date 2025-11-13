@@ -9,6 +9,7 @@ import setWindow from "./ui/setWindow";
 
 import gameLogic from "./gameLogic";
 import updatePCIdle from "./pcObjects/updatePCIdle";
+
 import titleScreen from "./ui/titleScreen";
 import intro from "./ui/intro";
 import changeShip from "./ui/changeShip";
@@ -25,6 +26,7 @@ let pcObjects = { pcShip: createPCShip(), pcBlasters: [] };
 let npcObjects = { npcs: [], npcBlasters: [] };
 let explosionObjects = { sprites: [], materials: [], velocities: [], lifetimes: [], rotations: [] };
 let keyStates = initKeyState();
+let stopMusic;
 let scene = new THREE.Scene();
 scene.shipNumber = 0;
 scene.add(new THREE.Points(starGeo, createStarMaterial()));
@@ -36,7 +38,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 setWindow(window, document, keyStates, camera, renderer);
 document.getElementById("canvas").appendChild(renderer.domElement);
 
-let gameLoop = setInterval(animate, 1000 / 30);
+setInterval(animate, 1000 / 30);
 function animate() {
     updateStars(scene, starGeo);
     if (scene.gameState == "missionComplete") missionComplete(scene, document, keyStates);
@@ -47,7 +49,7 @@ function animate() {
     } else {
 
     }
-    if (scene.gameState == "intro") intro(scene, camera, document, pcObjects.pcShip);
+    if (scene.gameState == "intro") stopMusic = intro(scene, camera, document, pcObjects.pcShip);
     if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
     if (scene.gameState == "changeShip") changeShip(scene, document, keyStates, pcObjects);
     if (scene.gameState == "settings") settings(scene, document, keyStates);
@@ -57,8 +59,9 @@ function animate() {
     if (scene.gameState == "gameOver") gameOver(scene, document, keyStates);
     if (scene.gameState == "pause") { pause(scene, document, keyStates); return; }
     if (scene.gameState == "initiateGame") {
-        initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera, gameLoop, animate);
+        initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera);
         resetObjects();
+        stopMusic();
     }
     updatePCIdle (scene, pcObjects.pcShip);
     renderer.render(scene, camera);

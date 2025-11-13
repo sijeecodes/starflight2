@@ -17,14 +17,14 @@ const initKeyState = function () {
 
 const setKeyState = function (keyStates, event) {
     let upKey1 = "KeyW";
-    let upKey2 = "ArrowDown";
+    let upKey2 = "ArrowUp";
     let downKey1 = "KeyS";
-    let downKey2 = "ArrowUp";
+    let downKey2 = "ArrowDown";
     if (keyStates.upDownKey == "unInverted") {
         upKey1 = "KeyS";
-        upKey2 = "ArrowUp";
+        upKey2 = "ArrowDown";
         downKey1 = "KeyW";
-        downKey2 = "ArrowDown";
+        downKey2 = "ArrowUp";
     }
     keyStates.pressed = true;
     
@@ -53,14 +53,14 @@ const setKeyState = function (keyStates, event) {
 
 const resetKeyState = function (keyStates, event, upDownKey) {
     let upKey1 = "KeyW";
-    let upKey2 = "ArrowDown";
+    let upKey2 = "ArrowUp";
     let downKey1 = "KeyS";
-    let downKey2 = "ArrowUp";
+    let downKey2 = "ArrowDown";
     if (keyStates.upDownKey == "unInverted") {
         upKey1 = "KeyS";
-        upKey2 = "ArrowUp";
+        upKey2 = "ArrowDown";
         downKey1 = "KeyW";
-        downKey2 = "ArrowDown";
+        downKey2 = "ArrowUp";
     }
     keyStates.pressed = true;
 

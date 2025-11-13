@@ -1,6 +1,7 @@
 import { reloadPCShip } from "../initiateGame";
 import selectMenu from "./selectMenu";
 import pcShipData from "../pcObjects/pcShipData";
+import playSound from "../effects/playSound";
 
 function changeShip(scene, document, keyStates, pcObjects) {
     if (!keyStates.pressed) return;
@@ -18,6 +19,7 @@ function changeShip(scene, document, keyStates, pcObjects) {
         document.getElementById("shipName").textContent = pcShipData[scene.shipNumber].name;
         document.getElementById("shipDesc").textContent = pcShipData[scene.shipNumber].desc;
         reloadPCShip(scene, pcObjects);
+        playSound("adjust")
     }
     if (keyStates.left) {
         scene.shipNumber--;
@@ -26,10 +28,12 @@ function changeShip(scene, document, keyStates, pcObjects) {
         document.getElementById("shipName").textContent = pcShipData[scene.shipNumber].name;
         document.getElementById("shipDesc").textContent = pcShipData[scene.shipNumber].desc;
         reloadPCShip(scene, pcObjects);
+        playSound("adjust");
     }
 
     if (id == "returnToTitle") {
         scene.gameState = "titleScreen";
+        playSound("confirm");
     }
     keyStates.pressed = false;
 }

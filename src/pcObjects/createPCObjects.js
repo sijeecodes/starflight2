@@ -4,7 +4,9 @@ import { LineMaterial } from "three/addons/lines/LineMaterial";
 import { LineGeometry } from "three/addons/lines/LineGeometry.js";
 import { Line2 } from "three/addons/lines/Line2.js";
 import pcShipData from "./pcShipData";
+import playSound from "../effects/playSound";
 
+const BLASTER_VOLUME = 0.2;
 function createPCShip(shipNumber = 0) {
     const loader = new GLTFLoader();
     const pcShip = new THREE.Group();
@@ -80,16 +82,14 @@ function createAimFrame() {
 }
 
 function createPCBlaster(pcShip) {
-    const audio = new Audio(pcShipData[pcShip.shipNumber].blaster.soundSrc);
-    audio.volume = 0.1;
-    audio.play();
+    playSound(pcShipData[pcShip.shipNumber].blaster.soundSrc, BLASTER_VOLUME);
 
     const blasterData = pcShipData[pcShip.shipNumber].blaster;
     let geometry, blasterColor, blasterColiSize;
 
     if (blasterData.shape == "sphere") {
         geometry = new THREE.SphereGeometry(blasterData.size, 5, 5);  //rad, width seg, height seg
-        blasterColiSize = blasterData.size / 2;
+        blasterColiSize = blasterData.size / 2 + 1;
 
     } else if (blasterData.shape == "capsule") {
         geometry = new THREE.CapsuleGeometry(blasterData.size, 20, 2, 8); //rad, h, cap seg, rad seg

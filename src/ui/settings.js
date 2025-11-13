@@ -1,4 +1,5 @@
 import selectMenu from "./selectMenu";
+import playSound from "../effects/playSound";
 
 function settings(scene, document, keyStates) {
     if (!keyStates.pressed) return;
@@ -11,6 +12,7 @@ function settings(scene, document, keyStates) {
 
     if (id == "returnToTitle") {
         scene.gameState = "titleScreen";
+        playSound("confirm");
     }
     if (id == "invertUpDown") {
         let text = "inverted(default)";
@@ -31,6 +33,7 @@ function settings(scene, document, keyStates) {
         document.getElementById("upDownSettings").textContent = text;
         document.getElementById("upKey").textContent = upKey;
         document.getElementById("downKey").textContent = downKey;
+        playSound("adjust");
     }
     keyStates.pressed = false;
 }

@@ -1,4 +1,5 @@
 import selectMenu from "./selectMenu";
+import playSound from "../effects/playSound";
 
 function pause(scene, document, keyStates) {
     if (!keyStates.pressed) return;
@@ -21,6 +22,7 @@ function pause(scene, document, keyStates) {
         document.getElementById("inGame").style.opacity = 1;
         document.getElementById("pause").style.opacity = 0;
         scene.gameState = "playing";
+        playSound("confirm");
     }
     keyStates.pressed = false;
 }

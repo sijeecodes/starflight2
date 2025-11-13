@@ -1,4 +1,5 @@
 import selectMenu from "./selectMenu";
+import playSound from "../effects/playSound";
 
 function gameOver(scene, document, keyStates) {
     if (!keyStates.pressed) return;
@@ -15,6 +16,7 @@ function gameOver(scene, document, keyStates) {
         document.getElementById("gameOver").style.opacity = 0;
         document.getElementById("titleScreen").style.opacity = 1;
         scene.gameState = "initiateGame";
+        playSound("confirm");
     }
     keyStates.pressed = false;
 }

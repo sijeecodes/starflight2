@@ -1,3 +1,5 @@
+import playSound from "../effects/playSound";
+
 const selectMenu = (options, keyStates) => {
     let selected = options.findIndex(e => e.classList.contains("selected"));
     let upKey = keyStates.up;
@@ -11,11 +13,13 @@ const selectMenu = (options, keyStates) => {
         options[selected].classList.remove("selected");
         selected = (selected + 1) % options.length;
         options[selected].classList.add("selected");
+        playSound("select");
 
     } else if (upKey) {
         options[selected].classList.remove("selected");
         selected = (selected - 1 + options.length) % options.length;
         options[selected].classList.add("selected");
+        playSound("select");
 
     } else if (keyStates.enter) {
         const id = options[selected].id;

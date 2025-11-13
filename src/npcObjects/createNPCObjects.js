@@ -5,8 +5,7 @@ import npcAIData from "./npcData/npcAIData";
 import updateNPCAI from "./updateNPCAI";
 import playSound from "../effects/playSound";
 
-const BLASTER_VOLUME = 0.3
-
+const BLASTER_VOLUME = 0.3;
 function createNPCObject(scene, npcObjects, { npcAIname, npcBasic, startingPosition }) {
     const objBasic = npcBasicData[npcBasic];
     const loader = new GLTFLoader();

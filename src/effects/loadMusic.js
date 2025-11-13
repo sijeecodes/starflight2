@@ -1,6 +1,6 @@
 function loadMusic() {
     const audio = new Audio("./soundSrc/bgMusic.mp3");
-    audio.volume = 0.4;
+    audio.volume = 0.5;
     audio.loop = true;
     audio.play();
 

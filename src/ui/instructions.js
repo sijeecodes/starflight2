@@ -1,4 +1,5 @@
 import selectMenu from "./selectMenu";
+import playSound from "../effects/playSound";
 
 function instructions(scene, document, keyStates) {
     if (!keyStates.pressed) return;
@@ -11,6 +12,7 @@ function instructions(scene, document, keyStates) {
 
     if (id == "returnToTitle") {
         scene.gameState = "titleScreen";
+        playSound("confirm");
     }
     keyStates.pressed = false;
 }

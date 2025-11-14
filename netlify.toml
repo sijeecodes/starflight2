@@ -1,6 +1,0 @@
-[build]
-  command = "npx vite build"      # Runs your Vite build
-  publish = "dist"               # Serves the output folder
-
-# Optional: Base dir (leave empty if package.json is in root)
-# base = ""                     # Uncomment if needed

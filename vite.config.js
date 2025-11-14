@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/starflight2/',
+  base: '/',
   build: {
     rollupOptions: {
       output: {

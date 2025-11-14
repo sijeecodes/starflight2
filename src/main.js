@@ -12,7 +12,7 @@ import updatePCIdle from "./pcObjects/updatePCIdle";
 
 import titleScreen from "./ui/titleScreen";
 import intro from "./ui/intro";
-// import startingGame from "./ui/startingGame";
+import startingGame from "./ui/startingGame";
 import changeShip from "./ui/changeShip";
 import settings from "./ui/settings";
 import instructions from "./ui/instructions";
@@ -50,7 +50,7 @@ function animate() {
     } else {
 
     }
-    if (scene.gameState == "intro") stopMusic = intro(scene, camera, document, pcObjects.pcShip);
+    if (scene.gameState == "intro") intro(scene, camera, document, pcObjects.pcShip);
     if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
     if (scene.gameState == "changeShip") changeShip(scene, document, keyStates, pcObjects);
     if (scene.gameState == "settings") settings(scene, document, keyStates);
@@ -65,7 +65,7 @@ function animate() {
         stopMusic();
     }
     if (scene.gameState !== "startingGame") updatePCIdle(scene, pcObjects.pcShip);
-    else startingGame(scene, camera, pcObjects.pcShip);
+    else stopMusic = startingGame(scene, camera, pcObjects.pcShip);
 
     renderer.render(scene, camera);
 }

@@ -12,7 +12,7 @@ import updatePCIdle from "./pcObjects/updatePCIdle";
 
 import titleScreen from "./ui/titleScreen";
 import intro from "./ui/intro";
-import startingGame from "./ui/startingGame";
+// import startingGame from "./ui/startingGame";
 import changeShip from "./ui/changeShip";
 import settings from "./ui/settings";
 import instructions from "./ui/instructions";
@@ -64,10 +64,9 @@ function animate() {
         resetObjects();
         stopMusic();
     }
-    scene.gameState !== "startingGame" ? 
-        updatePCIdle (scene, pcObjects.pcShip): 
-        startingGame(scene, camera, pcObjects.pcShip);
-        
+    if (scene.gameState !== "startingGame") updatePCIdle(scene, pcObjects.pcShip);
+    else startingGame(scene, camera, pcObjects.pcShip);
+
     renderer.render(scene, camera);
 }
 

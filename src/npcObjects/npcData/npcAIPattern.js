@@ -40,6 +40,13 @@ const npcAIPattern = {
         { actionTime: 160, action: "blaster", value: "front" },
         { actionTime: 170, action: "setRotation", value: "pc" },
         { actionTime: 180, action: "setRotation", value: "pc" },
+        { actionTime: 190, action: "blaster", value: "front" },
+        { actionTime: 200, action: "setRotation", value: "pc" },
+        { actionTime: 210, action: "setRotation", value: "pc" },
+        { actionTime: 220, action: "blaster", value: "front" },
+        { actionTime: 230, action: "setRotation", value: "pc" },
+        { actionTime: 240, action: "blaster", value: "front" },
+        { actionTime: 250, action: "setRotation", value: "pc" },
     ],
     droneIntroPattern: [ // need time 200
         { actionTime: 0, action: "move", value: [0, 0, -500] },

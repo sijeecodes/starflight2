@@ -128,7 +128,7 @@ const npcBasicData = {
     cruiserBasic: {
         npcGlb:         "artSrc/npcShip10.glb",
         type:           "npcHeavy",
-        collisionSize:  17,
+        collisionSize:  33,
         hp:             45,
         power:          20,
         maxSpeed:       1,
@@ -149,9 +149,9 @@ const npcBasicData = {
     cruiserBossBasic: {
         npcGlb:         "artSrc/npcShip10.glb",
         type:           "npcHeavy",
-        collisionSize:  17,
+        collisionSize:  33,
         hp:             220,
-        power:          50,
+        power:          30,
         maxSpeed:       1,
         speedAccel:     [0.05, 0.05, 0.05],
         speedDecel:     [0.95, 0.95, 0.95],
@@ -171,7 +171,7 @@ const npcBasicData = {
     carrierBasic: {
         npcGlb:         "artSrc/npcShip10.glb",
         type:           "npcHeavy",
-        collisionSize:  17,
+        collisionSize:  33,
         hp:             500,
         power:          20,
         maxSpeed:       1,

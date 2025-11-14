@@ -151,7 +151,7 @@ const npcBasicData = {
         type:           "npcHeavy",
         collisionSize:  17,
         hp:             220,
-        power:          500,
+        power:          50,
         maxSpeed:       1,
         speedAccel:     [0.05, 0.05, 0.05],
         speedDecel:     [0.95, 0.95, 0.95],

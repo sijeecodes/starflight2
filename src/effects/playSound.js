@@ -12,7 +12,6 @@ function playSound(src, vol = 0.3) {
     const audio = new Audio(source);
     audio.volume = vol;
     audio.play();
-    console.log("play?", src);
 }
 
 export default playSound;

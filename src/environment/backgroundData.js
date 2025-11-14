@@ -39,18 +39,18 @@ const backgroundData = [
         "artSrc/planet1.png",
         {
             size: [60, 60],
-            position: [120, - 100, 700],
+            position: [120, -100, 700],
             rotationY: Math.PI,
-            speed: 0.05
+            speed: 0.06
         }
     ],
     [
         "artSrc/planet2.png",
         {
-            size: [120, 120],
-            position: [120, 50, 700],
+            size: [140, 140],
+            position: [150, 50, 800],
             rotationY: Math.PI,
-            speed: 0.08
+            speed: 0.09
         }
     ]
 ];

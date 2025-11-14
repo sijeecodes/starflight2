@@ -38,12 +38,12 @@ const setKeyState = function (keyStates, event) {
     if (event.code == downKey2) { keyStates.down = true; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "KeyE") { keyStates.rightRoll = true; return keyStates; }
-    if (event.code == "Comma") { keyStates.rightRoll = true; return keyStates; }
+    if (event.code == "KeyM") { keyStates.rightRoll = true; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = true; return keyStates; }
     if (event.code == "KeyQ") { keyStates.leftRoll = true; return keyStates; }
-    if (event.code == "KeyM") { keyStates.leftRoll = true; return keyStates; }
+    if (event.code == "KeyN") { keyStates.leftRoll = true; return keyStates; }
     if (event.code == "KeyX") { keyStates.boost = true; return keyStates; }
-    if (event.code == "Period") { keyStates.boost = true; return keyStates; }
+    if (event.code == "Comma") { keyStates.boost = true; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = true; return keyStates; }
     if (event.code == "Enter") { keyStates.enter = true; return keyStates; }
     if (event.code == "Escape") { keyStates.esc = true; return keyStates; }
@@ -74,12 +74,12 @@ const resetKeyState = function (keyStates, event, upDownKey) {
     if (event.code == downKey2) { keyStates.down = false; return keyStates; }
     if (event.code == "KeyV") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "KeyE") { keyStates.rightRoll = false; return keyStates; }
-    if (event.code == "Comma") { keyStates.rightRoll = false; return keyStates; }
+    if (event.code == "KeyM") { keyStates.rightRoll = false; return keyStates; }
     if (event.code == "KeyC") { keyStates.leftRoll = false; return keyStates; }
     if (event.code == "KeyQ") { keyStates.leftRoll = false; return keyStates; }
-    if (event.code == "KeyM") { keyStates.leftRoll = false; return keyStates; }
+    if (event.code == "KeyN") { keyStates.leftRoll = false; return keyStates; }
     if (event.code == "KeyX") { keyStates.boost = false; return keyStates; }
-    if (event.code == "Period") { keyStates.boost = false; return keyStates; }
+    if (event.code == "Comma") { keyStates.boost = false; return keyStates; }
     if (event.code == "Space") { keyStates.blaster = false; return keyStates; }
     if (event.code == "Enter") { keyStates.enter = false; return keyStates; }
     if (event.code == "Escape") { keyStates.esc = false; return keyStates; }

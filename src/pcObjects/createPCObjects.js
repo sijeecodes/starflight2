@@ -101,6 +101,7 @@ function createPCBlaster(pcShip) {
     if (blasterData.color == "green") blasterColor = 0x00ff00;
     if (blasterData.color == "orange") blasterColor = 0xff9900;
     if (blasterData.color == "violet") blasterColor = 0xbb00ff;
+    if (blasterData.color == "bubbleGum") blasterColor = 0xff0081;
 
     const material = new THREE.MeshBasicMaterial({
         color: blasterColor,

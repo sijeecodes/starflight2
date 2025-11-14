@@ -65,7 +65,7 @@ function animate() {
         stopMusic();
     }
     if (scene.gameState !== "startingGame") updatePCIdle(scene, pcObjects.pcShip);
-    else stopMusic = startingGame(scene, camera, pcObjects.pcShip);
+    else stopMusic = startingGame(scene, camera, document, pcObjects.pcShip);
 
     renderer.render(scene, camera);
 }

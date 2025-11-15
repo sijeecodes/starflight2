@@ -13,11 +13,15 @@ function titleScreen(scene, document, keyStates) {
     const options = [...document.querySelectorAll(".titleScreenOption")];
     let id = selectMenu(options, keyStates);
 
-    if (id == "startGame")      { scene.gameState = "intro";        playSound("confirm"); }
     if (id == "toChangeShip")   { scene.gameState = "changeShip";   playSound("confirm"); }
     if (id == "toSettings")     { scene.gameState = "settings";     playSound("confirm"); }
     if (id == "toInstructions") { scene.gameState = "instructions"; playSound("confirm"); }
-
+    if (id == "startGame") {
+        document.getElementById("titleScreen").style.opacity = 0;
+        scene.gameState = "intro";
+        scene.timeStamp = 0;
+    }
+    
     keyStates.pressed = false;
 }
 

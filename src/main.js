@@ -50,7 +50,8 @@ function animate() {
     } else {
 
     }
-    if (scene.gameState == "intro") intro(scene, camera, document, pcObjects.pcShip);
+    if (scene.gameState == "intro") intro(scene, camera, pcObjects.pcShip);
+    if (scene.gameState == "startingGame") stopMusic = startingGame(scene, camera, document, pcObjects.pcShip);
     if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
     if (scene.gameState == "changeShip") changeShip(scene, document, keyStates, pcObjects);
     if (scene.gameState == "settings") settings(scene, document, keyStates);
@@ -64,8 +65,7 @@ function animate() {
         resetObjects();
         stopMusic();
     }
-    if (scene.gameState !== "startingGame") updatePCIdle(scene, pcObjects.pcShip);
-    else stopMusic = startingGame(scene, camera, document, pcObjects.pcShip);
+    if (scene.gameState !== "intro") updatePCIdle(scene, pcObjects.pcShip);
 
     renderer.render(scene, camera);
 }

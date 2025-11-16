@@ -13,9 +13,9 @@ function titleScreen(scene, document, keyStates) {
     const options = [...document.querySelectorAll(".titleScreenOption")];
     let id = selectMenu(options, keyStates);
 
-    if (id == "toChangeShip")   { scene.gameState = "changeShip";   playSound("confirm"); }
-    if (id == "toSettings")     { scene.gameState = "settings";     playSound("confirm"); }
-    if (id == "toInstructions") { scene.gameState = "instructions"; playSound("confirm"); }
+    if (id == "toChangeShip")   { scene.gameState = "changeShip";   playSound("confirm", 0.4); }
+    if (id == "toSettings")     { scene.gameState = "settings";     playSound("confirm", 0.4); }
+    if (id == "toInstructions") { scene.gameState = "instructions"; playSound("confirm", 0.4); }
     if (id == "startGame") {
         document.getElementById("titleScreen").style.opacity = 0;
         scene.gameState = "intro";

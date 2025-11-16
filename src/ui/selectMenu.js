@@ -13,13 +13,13 @@ const selectMenu = (options, keyStates) => {
         options[selected].classList.remove("selected");
         selected = (selected + 1) % options.length;
         options[selected].classList.add("selected");
-        playSound("select");
+        playSound("select", 0.4);
 
     } else if (upKey) {
         options[selected].classList.remove("selected");
         selected = (selected - 1 + options.length) % options.length;
         options[selected].classList.add("selected");
-        playSound("select");
+        playSound("select", 0.4);
 
     } else if (keyStates.enter) {
         const id = options[selected].id;

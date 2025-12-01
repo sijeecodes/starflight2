@@ -1,10 +1,24 @@
 # StarFlight 2
 
- - A simple space flight game using Three.js / Javascript.
+ - A simple space flight game using Javascript & Three.js.
+
+ ![playVideo](./starflight2.gif)
 
 ## Key Features
- - Level Data driven NPC spawn.
- - NPC Data driven NPC stats and AI.
+ - Level-Data driven NPC spawn.
+ - NPC-Data driven NPC stats and NPC AI.
+ - PC-Data driven PC stats.
+
+## Tools Used
+ - VSCode - Coding
+ - Blender - 3D Modeling Adjustments
+ - Gimp - Image Editing
+ - Reaper - Sound Editing
+
+## Art / Sound Resources
+ - 3D Models: https://sketchfab.com/
+ - Sounds: https://pixabay.com/sound-effects/
+ - Music: https://www.bensound.com
 
 ## Level System
  - Level NPC Objects are spawned by Level Data.
@@ -77,7 +91,6 @@
 ## Misc
 
  - This is my second personal game project using Javascript.
- - Planning to build more featured game than the game I made 6 years ago.
 
 ## Author
 

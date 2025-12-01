@@ -1,8 +1,5 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
-import { LineMaterial } from "three/addons/lines/LineMaterial";
-import { LineGeometry } from "three/addons/lines/LineGeometry.js";
-import { Line2 } from "three/addons/lines/Line2.js";
 import createAimFrame from "./createAimFrame";
 import initiatePCShip from "./initiatePCShip";
 import pcShipData from "./pcShipData";

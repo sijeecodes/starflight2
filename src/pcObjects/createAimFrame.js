@@ -1,3 +1,8 @@
+import * as THREE from "three";
+import { LineMaterial } from "three/addons/lines/LineMaterial";
+import { LineGeometry } from "three/addons/lines/LineGeometry.js";
+import { Line2 } from "three/addons/lines/Line2.js";
+
 function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([

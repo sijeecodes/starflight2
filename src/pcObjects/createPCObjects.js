@@ -3,10 +3,13 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 import { LineMaterial } from "three/addons/lines/LineMaterial";
 import { LineGeometry } from "three/addons/lines/LineGeometry.js";
 import { Line2 } from "three/addons/lines/Line2.js";
+import createAimFrame from "./createAimFrame";
+import initiatePCShip from "./initiatePCShip";
 import pcShipData from "./pcShipData";
 import playSound from "../effects/playSound";
 
 const BLASTER_VOLUME = 0.2;
+
 function createPCShip(shipNumber = 0) {
     const loader = new GLTFLoader();
     const pcShip = new THREE.Group();
@@ -18,68 +21,6 @@ function createPCShip(shipNumber = 0) {
 
     return pcShip;
 };
-
-function initiatePCShip(pcShip, shipNumber = 0) {
-    const shipData = pcShipData[shipNumber].data;
-
-    pcShip.position.set(0, 0, 0);
-    pcShip.rotation.set(0, 0, 0);
-    pcShip.blasterCoolTime = 0;
-    pcShip.rollCoolTime = 0;
-    pcShip.energyCoolTime = 0;
-    pcShip.speed = [0, 0, 0];
-    pcShip.rolling = false;
-    pcShip.visible = true;
-
-    pcShip.collisionSize    = shipData.collisionSize;
-    pcShip.blasterDelay     = shipData.blasterDelay;
-    pcShip.maxSpeed         = shipData.maxSpeed;
-    pcShip.speedAccel       = shipData.speedAccel;
-    pcShip.speedDecel       = shipData.speedDecel;
-    pcShip.rollDelay        = shipData.rollDelay;
-    pcShip.rollCost         = shipData.rollCost;
-    pcShip.boostCost        = shipData.boostCost;
-    pcShip.hpMax            = shipData.hpMax;
-    pcShip.hp               = shipData.hp;
-    pcShip.hpDisplayed      = shipData.hpDisplayed;
-    pcShip.energyMax        = shipData.energyMax;
-    pcShip.energy           = shipData.energy;
-    pcShip.energyDisplayed  = shipData.energyDisplayed;
-    pcShip.energyDelay      = shipData.energyDelay;
-    pcShip.energyRecharge   = shipData.energyRecharge;
-    pcShip.shipNumber       = shipNumber;
-}
-
-function createAimFrame() {
-    const frameGeo1 = new LineGeometry();
-    frameGeo1.setPositions([
-        2.8, -2.4, 0,
-        -2.8, -2.4, 0,
-        0, 2.0, 0,
-        2.8, -2.4, 0
-    ]);
-    const frameGeo2 = new LineGeometry();
-    frameGeo2.setPositions([
-        1.4, -1.2, 50,
-        -1.4, -1.2, 50,
-        0, 1.0, 50,
-        1.47, -1.2, 50
-    ]);
-    const lineMaterial = new LineMaterial({
-        color: 0x42ff00,
-        opacity: 0.6,
-        linewidth: 5,
-        depthTest: false,
-        transparent: true,
-        resolution: new THREE.Vector2(window.innerWidth, window.innerHeight)
-    });
-    const aimFrame = new THREE.Group();
-    aimFrame.add(new Line2(frameGeo1, lineMaterial));
-    aimFrame.add(new Line2(frameGeo2, lineMaterial));
-    aimFrame.position.set(0, 0, 120);
-
-    return aimFrame;
-}
 
 function createPCBlaster(pcShip) {
     playSound(pcShipData[pcShip.shipNumber].blaster.soundSrc, BLASTER_VOLUME);
@@ -125,4 +66,4 @@ function createPCBlaster(pcShip) {
     return blaster;
 }
 
-export { createPCShip, createPCBlaster, initiatePCShip };
+export { createPCShip, createPCBlaster };

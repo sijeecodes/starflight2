@@ -732,13 +732,13 @@ const levelData = [
     // Cruisers
     {
         eventTime: 70,
-        npcAIname: "cruiserAIstaticC",
+        npcAIname: "cruiserAIstatic",
         npcBasic: "cruiserBasic",
         startingPosition: [50, -20, 700]
     },
     {
         eventTime: 10,
-        npcAIname: "cruiserAIstaticC",
+        npcAIname: "cruiserAIstatic",
         npcBasic: "cruiserBasic",
         startingPosition: [-50, -20, 700]
     },

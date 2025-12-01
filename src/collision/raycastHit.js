@@ -1,11 +1,16 @@
 import * as THREE from "three";
 
+const VERTEX_INTERVAL = 15;
+const HITMARK_DURATION = 15;
+const RAYCASTER_THRESHOLD = 0.01;
+const HIT_COLOR = 0xff0000;
+
 function raycastHit(origin, target) {
     const raycaster = new THREE.Raycaster();
     const direction = new THREE.Vector3();
     const vertices = getVertices(origin);
     let collided = false;
-    raycaster.params.Mesh.threshold = 0.01;
+    raycaster.params.Mesh.threshold = RAYCASTER_THRESHOLD;
 
     for (const vertex of vertices) {
         raycaster.set(vertex, direction.subVectors(vertex, target.position).normalize());
@@ -22,10 +27,10 @@ function raycastHit(origin, target) {
         if(target.hitMark <= 0) {
             target.traverse(
                 (child) => child.isMesh ? 
-                           child.material.color.set(0xff0000)
+                           child.material.color.set(HIT_COLOR)
                            : null);
         }
-        target.hitMark = 15;
+        target.hitMark = HITMARK_DURATION;
         return true;
     }
     return false;
@@ -34,7 +39,7 @@ function raycastHit(origin, target) {
 function getVertices(obj) {
     const vertices = [];
     let interval = 1;
-    if (obj.type == "npcHeavy" || obj.type == "asteroid") interval = 15;
+    if (obj.type == "npcHeavy" || obj.type == "asteroid") interval = VERTEX_INTERVAL;
 
     obj.traverse((child) => {
         if (child.isMesh && child.geometry) {

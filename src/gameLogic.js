@@ -19,8 +19,8 @@ function gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, cam
     if (keyStates.esc) scene.gameState = "pause";
     if (pcObjects.pcShip.hp <= 0) pcObjects.pcShip.visible = false;
     if (pcObjects.pcShip.hpDisplayed <= 0) scene.gameState = "gameOver";
-    if (scene.levelArr.length <= 0 
-        && npcObjects.npcs.length <= 0) scene.gameState = "missionComplete";
+    if (scene.levelArr.length <= 0 && 
+        npcObjects.npcs.length <= 0) scene.gameState = "missionComplete";
 }
 
 export default gameLogic;

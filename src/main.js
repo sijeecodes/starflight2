@@ -47,19 +47,17 @@ function animate() {
         gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, camera, keyStates);
         renderer.render(scene, camera);
         return;
-    } else {
-
-    }
-    if (scene.gameState == "intro") intro(scene, camera, pcObjects.pcShip);
+    } 
+    if (scene.gameState == "intro")        intro(scene, camera, pcObjects.pcShip);
     if (scene.gameState == "startingGame") stopMusic = startingGame(scene, camera, document, pcObjects.pcShip);
-    if (scene.gameState == "titleScreen") titleScreen(scene, document, keyStates);
-    if (scene.gameState == "changeShip") changeShip(scene, document, keyStates, pcObjects);
-    if (scene.gameState == "settings") settings(scene, document, keyStates);
+    if (scene.gameState == "titleScreen")  titleScreen(scene, document, keyStates);
+    if (scene.gameState == "changeShip")   changeShip(scene, document, keyStates, pcObjects);
+    if (scene.gameState == "settings")     settings(scene, document, keyStates);
     if (scene.gameState == "instructions") instructions(scene, document, keyStates);
     if (scene.gameState == "instructions") instructions(scene, document, keyStates);
     if (scene.gameState == "instructions") instructions(scene, document, keyStates);
-    if (scene.gameState == "gameOver") gameOver(scene, document, keyStates);
-    if (scene.gameState == "pause") { pause(scene, document, keyStates); return; }
+    if (scene.gameState == "gameOver")     gameOver(scene, document, keyStates);
+    if (scene.gameState == "pause")      { pause(scene, document, keyStates); return; }
     if (scene.gameState == "initiateGame") {
         initiateGame(scene, pcObjects, npcObjects, explosionObjects, camera);
         resetObjects();

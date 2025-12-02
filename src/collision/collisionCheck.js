@@ -34,7 +34,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                 newNpcs.push(npc);
             }
         });
-        pcBlasterGone ? null : newBlasters.push(pcBlaster);
+        !pcBlasterGone && newBlasters.push(pcBlaster);
         npcs.length = 0;
         npcs.push(...newNpcs);
     });

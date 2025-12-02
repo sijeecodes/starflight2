@@ -1,4 +1,4 @@
-import playSound from "../effects/playSound";
+import playSound from "../../effects/playSound";
 
 const selectMenu = (options, keyStates) => {
     let selected = options.findIndex(e => e.classList.contains("selected"));

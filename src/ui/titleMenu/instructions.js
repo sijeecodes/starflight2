@@ -1,5 +1,5 @@
-import selectMenu from "./selectMenu";
-import playSound from "../effects/playSound";
+import selectMenu from "../util/selectMenu";
+import playSound from "../../effects/playSound";
 
 function instructions(scene, document, keyStates) {
     if (!keyStates.pressed) return;

@@ -1,5 +1,5 @@
-import disposeObject from "../misc/disposeObject";
-import { createPCBlaster } from "../pcObjects/createPCObjects";
+import disposeObject from "../../misc/disposeObject";
+import { createPCBlaster } from "../createPCObjects";
 
 function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
     const blasterRange = 700;

@@ -6,12 +6,12 @@
 
 ## Key Features
  - Level-Data driven NPC spawn.
- - NPC-Data driven NPC stats and NPC AI.
- - PC-Data driven PC stats.
+ - NPC-Data driven NPC Ships & AI.
+ - PC-Data driven PC Ship.
 
 ## Tools Used
  - VSCode - Coding
- - Blender - 3D Modeling Adjustments
+ - Blender - 3D Resource Editing
  - Gimp - Image Editing
  - Reaper - Sound Editing
 

@@ -1,5 +1,5 @@
 import selectMenu from "./selectMenu";
-import playSound from "../effects/playSound";
+import playSound from "../../effects/playSound";
 
 function pause(scene, document, keyStates) {
     if (!keyStates.pressed) return;

@@ -1,4 +1,4 @@
-import npcAIPattern from './npcData/npcAIPattern';
+import npcAIPattern from '../npcData/npcAIPattern';
 
 function npcAIPatternLoader(obj) {
     const timeEvents = obj.npcAI.timeTriggered;

@@ -1,4 +1,4 @@
-import disposeObject from "../misc/disposeObject";
+import disposeObject from "../../misc/disposeObject";
 
 function updateNPCBlasters(scene, npcBlasters) {
     if (!npcBlasters) return;

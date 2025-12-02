@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 import createAimFrame from "./createAimFrame";
-import initiatePCShip from "./initiatePCShip";
-import pcShipData from "./pcShipData";
+import initiatePCShip from "./pcObjects/initiatePCShip";
+import pcShipData from "./pcData/pcShipData";
 import playSound from "../effects/playSound";
 
 const BLASTER_VOLUME = 0.2;

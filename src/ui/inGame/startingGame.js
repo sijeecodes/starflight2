@@ -1,4 +1,4 @@
-import loadMusic from "../effects/loadMusic";
+import loadMusic from "../../effects/loadMusic";
 
 function startingGame(scene, camera, document, pcShip) {
     document.getElementById("inGame").style.opacity = 1;

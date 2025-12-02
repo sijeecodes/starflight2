@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 import npcBasicData from "./npcData/npcBasicData";
 import npcAIData from "./npcData/npcAIData";
-import updateNPCAI from "./updateNPCAI";
+import updateNPCAI from "./npcAI/updateNPCAI";
 import playSound from "../effects/playSound";
 
 const BLASTER_VOLUME = 0.3;

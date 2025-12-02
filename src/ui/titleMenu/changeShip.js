@@ -1,7 +1,7 @@
-import { reloadPCShip } from "../initiateGame";
-import selectMenu from "./selectMenu";
+import { reloadPCShip } from "../../initiateGame";
+import selectMenu from "../util/selectMenu";
 import pcShipData from "../pcObjects/pcShipData";
-import playSound from "../effects/playSound";
+import playSound from "../../effects/playSound";
 
 function changeShip(scene, document, keyStates, pcObjects) {
     if (!keyStates.pressed) return;

@@ -1,4 +1,4 @@
-import updatePCBlasters from "./updatePCBlasters";
+import updatePCBlasters from "./pcObjects/updatePCBlasters";
 
 const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStates) {
     const maxWidth = 35;

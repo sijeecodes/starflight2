@@ -1,6 +1,7 @@
 import * as THREE from "three";
 
-const VERTEX_INTERVAL = 15;
+const VERTEX_INTERVAL_NORM = 1;
+const VERTEX_INTERVAL_BIG = 15;
 const HITMARK_DURATION = 15;
 const RAYCASTER_THRESHOLD = 0.01;
 const HIT_COLOR = 0xff0000;
@@ -13,6 +14,7 @@ function raycastHit(origin, target) {
     raycaster.params.Mesh.threshold = RAYCASTER_THRESHOLD;
 
     for (const vertex of vertices) {
+        // set raycast - origin, direction
         raycaster.set(vertex, direction.subVectors(vertex, target.position).normalize());
         raycaster.far = origin.collisionSize;
 
@@ -38,8 +40,9 @@ function raycastHit(origin, target) {
 
 function getVertices(obj) {
     const vertices = [];
-    let interval = 1;
-    if (obj.type == "npcHeavy" || obj.type == "asteroid") interval = VERTEX_INTERVAL;
+    let interval = VERTEX_INTERVAL_NORM;
+    if (obj.type == "npcHeavy" || obj.type == "asteroid") interval = VERTEX_INTERVAL_BIG;
+
 
     obj.traverse((child) => {
         if (child.isMesh && child.geometry) {
@@ -49,7 +52,9 @@ function getVertices(obj) {
 
             for (let i = 0; i < position.count; i += interval) {
                 const vertex = new THREE.Vector3();
+                // set vertex point from model
                 vertex.fromBufferAttribute(position, i);
+                // apply world coordinate to vertex points
                 vertex.applyMatrix4(matrix);
                 vertices.push(vertex);
             }

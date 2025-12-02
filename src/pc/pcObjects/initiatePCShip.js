@@ -1,4 +1,4 @@
-import pcShipData from "./pcShipData";
+import pcShipData from "../pcData/pcShipData";
 
 function initiatePCShip (pcShip, shipNumber = 0) {
     const shipData = pcShipData[shipNumber].data;

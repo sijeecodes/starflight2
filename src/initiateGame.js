@@ -1,5 +1,5 @@
-import { createPCShip } from "./pcObjects/createPCObjects";
-import initiatePCShip from "./pcObjects/initiatePCShip";
+import { createPCShip } from "./pc/createPCObjects";
+import initiatePCShip from "./pc/pcObjects/initiatePCShip";
 import disposeObject from "./misc/disposeObject";
 import disposeSprite from "./misc/disposeSprite";
 import createBackground from "./environment/createBackground";

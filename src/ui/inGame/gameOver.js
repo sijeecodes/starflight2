@@ -1,4 +1,4 @@
-import selectMenu from "./selectMenu";
+import selectMenu from "../util/selectMenu";
 import playSound from "../../effects/playSound";
 
 function gameOver(scene, document, keyStates) {

@@ -1,24 +1,24 @@
 import * as THREE from "three";
 import { createStarGeo, createStarMaterial } from "./environment/createStars";
-import { createPCShip } from "./pcObjects/createPCObjects";
-import { initKeyState } from "./ui/setKeyStates";
+import { createPCShip } from "./pc/createPCObjects";
+import { initKeyState } from "./ui/util/setKeyStates";
 import { initiateGame } from "./initiateGame";
 import createLights from "./environment/createLights";
 import updateStars from "./environment/updateStars";
-import setWindow from "./ui/setWindow";
+import setWindow from "./ui/util/setWindow";
 
 import gameLogic from "./gameLogic";
-import updatePCIdle from "./pcObjects/updatePCIdle";
+import updatePCIdle from "./pc/updatePCIdle";
 
-import titleScreen from "./ui/titleScreen";
-import intro from "./ui/intro";
-import startingGame from "./ui/startingGame";
-import changeShip from "./ui/changeShip";
-import settings from "./ui/settings";
-import instructions from "./ui/instructions";
-import gameOver from "./ui/gameOver";
-import missionComplete from "./ui/missionComplete";
-import pause from "./ui/pause";
+import changeShip from "./ui/titleMenu/changeShip";
+import instructions from "./ui/titleMenu/instructions";
+import settings from "./ui/titleMenu/settings";
+import titleScreen from "./ui/titleMenu/titleScreen";
+import gameOver from "./ui/inGame/gameOver";
+import intro from "./ui/inGame/intro";
+import missionComplete from "./ui/inGame/missionComplete";
+import pause from "./ui/inGame/pause";
+import startingGame from "./ui/inGame/startingGame";
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);

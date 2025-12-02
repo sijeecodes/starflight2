@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
-import createAimFrame from "./createAimFrame";
+import createAimFrame from "./pcObjects/createAimFrame";
 import initiatePCShip from "./pcObjects/initiatePCShip";
 import pcShipData from "./pcData/pcShipData";
 import playSound from "../effects/playSound";

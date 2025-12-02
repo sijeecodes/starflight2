@@ -1,10 +1,10 @@
 import collisionCheck from "./collision/collisionCheck";
 import updateBackground from "./environment/updateBackground";
 import updateLevel from "./level/updateLevel";
-import updatePCObjects from "./pcObjects/updatePCObjects";
-import updateNPCObjects from "./npcObjects/updateNPCObjects";
+import updatePCObjects from "./pc/updatePCObjects";
+import updateNPCObjects from "./npc/updateNPCObjects";
 import updateExplosions from "./effects/updateExplosions";
-import updateGauge from "./ui/updateGauge";
+import updateGauge from "./ui/inGame/updateGauge";
 
 function gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, camera, keyStates) {
     updateBackground(scene, scene.backgroundObjs);

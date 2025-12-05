@@ -1,7 +1,7 @@
 import selectMenu from "../util/selectMenu";
 import playSound from "../../effects/playSound";
 
-function pause(scene, document, keyStates) {
+export default function pause(scene, document, keyStates) {
     if (!keyStates.pressed) return;
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("inGame").style.opacity = 0.2;
@@ -26,5 +26,3 @@ function pause(scene, document, keyStates) {
     }
     keyStates.pressed = false;
 }
-
-export default pause;

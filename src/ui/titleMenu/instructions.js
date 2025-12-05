@@ -1,7 +1,7 @@
 import selectMenu from "../util/selectMenu";
 import playSound from "../../effects/playSound";
 
-function instructions(scene, document, keyStates) {
+export default function instructions(scene, document, keyStates) {
     if (!keyStates.pressed) return;
     document.getElementById("canvas").style.opacity = 0.5;
     document.getElementById("titleScreen").style.opacity = 0;
@@ -16,5 +16,3 @@ function instructions(scene, document, keyStates) {
     }
     keyStates.pressed = false;
 }
-
-export default instructions;

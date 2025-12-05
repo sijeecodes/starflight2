@@ -1,6 +1,6 @@
 import { speedDecelerateX } from "./updatePCShipSpeed";
 
-function updatePCShipLR(pcShip, keyStates, maxWidth, diagonal) {
+export default function updatePCShipLR(pcShip, keyStates, maxWidth, diagonal) {
     let accelX = pcShip.speedAccel[0];
     let decelX = pcShip.speedDecel[0];
     let maxX = pcShip.maxSpeed[0];
@@ -72,5 +72,3 @@ function updatePCShipLR(pcShip, keyStates, maxWidth, diagonal) {
     pcShip.speed[0] = speedX;
     return diagonal;
 }
-
-export default updatePCShipLR;

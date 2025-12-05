@@ -1,6 +1,6 @@
 import { speedDecelerateX } from "./updatePCShipSpeed";
 
-function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
+export default function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
     let decelX = pcShip.speedDecel[0];
     let pos = pcShip.position;
     let rot = pcShip.rotation;
@@ -35,7 +35,7 @@ function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
         }
 
     } else {
-        if (keyStates.rightRoll && pcShip.rollCoolTime == 0 
+        if (keyStates.rightRoll && pcShip.rollCoolTime == 0
             && pcShip.energy >= pcShip.rollCost && !scene.boostSpeed) {
 
             pcShip.rolling = "rightRoll";
@@ -44,7 +44,7 @@ function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
             speedY = 0;
             (pos.x > -maxWidth) ? speedX = -maxX * 2 : speedX = speedX * decelX;
         }
-        if (keyStates.leftRoll && pcShip.rollCoolTime == 0 
+        if (keyStates.leftRoll && pcShip.rollCoolTime == 0
             && pcShip.energy >= pcShip.rollCost && !scene.boostSpeed) {
 
             pcShip.rolling = "leftRoll";
@@ -57,5 +57,3 @@ function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
 
     pcShip.speed = [speedX, speedY, pcShip.speed[2]];
 }
-
-export default updatePCShipRoll;

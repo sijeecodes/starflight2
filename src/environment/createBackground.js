@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import backgroundData from "./backgroundData";
 
-function createBackground(scene) {
+export default function createBackground(scene) {
     let dataset = backgroundData.map(e => e);
     dataset.forEach(data => {
         makeBackgroundObject(scene, scene.backgroundObjs, ...data);
@@ -42,5 +42,3 @@ function makeBackgroundObject(
         }
     );
 }
-
-export default createBackground;

@@ -7,7 +7,7 @@ const EXPLOSION_TEXTURE = "artSrc/fire.png";
 const HIT_VOLUME = 0.1;
 const EXPLOSION_VOLUME = 0.4;
 
-function createExplosion(scene, target, type, { sprites, materials, velocities, lifetimes, rotations }) {
+export default function createExplosion(scene, target, type, { sprites, materials, velocities, lifetimes, rotations }) {
     const texture = new THREE.TextureLoader().load(EXPLOSION_TEXTURE);
     const existingSprites = sprites.length;
     let count = 0;
@@ -17,7 +17,7 @@ function createExplosion(scene, target, type, { sprites, materials, velocities, 
         count = 7;
     }
     if (type == "explode") {
-        playSound(EXPLOSION_SOUND_SRC[Math.floor(Math.random()*3)], EXPLOSION_VOLUME);
+        playSound(EXPLOSION_SOUND_SRC[Math.floor(Math.random() * 3)], EXPLOSION_VOLUME);
         count = 40;
     }
 
@@ -67,5 +67,3 @@ function createExplosion(scene, target, type, { sprites, materials, velocities, 
         sprites.push(sprite);
     }
 }
-
-export default createExplosion;

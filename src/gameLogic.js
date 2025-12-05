@@ -6,7 +6,7 @@ import updateNPCObjects from "./npc/updateNPCObjects";
 import updateExplosions from "./effects/updateExplosions";
 import updateGauge from "./ui/inGame/updateGauge";
 
-function gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, camera, keyStates) {
+export default function gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, camera, keyStates) {
     updateBackground(scene, scene.backgroundObjs);
     updateLevel(scene, npcObjects);
     updateNPCObjects(scene, pcObjects.pcShip.position, npcObjects);
@@ -22,8 +22,3 @@ function gameLogic(scene, npcObjects, pcObjects, explosionObjects, document, cam
     if (scene.levelArr.length <= 0 && 
         npcObjects.npcs.length <= 0) scene.gameState = "missionComplete";
 }
-
-export default gameLogic;
-
-
-

@@ -1,4 +1,4 @@
-function updateGauge(document, pcObjects) {
+export default function updateGauge(document, pcObjects) {
     updateHP(document, pcObjects);
     updateEnergy(document, pcObjects);
 }
@@ -24,5 +24,3 @@ function updateEnergy(document, pcObjects) {
     pcObjects.pcShip.energyDisplayed = energyDisplayed;
     document.getElementById("energy").style.width = energyDisplayed * 4 + "px";
 }
-
-export default updateGauge;

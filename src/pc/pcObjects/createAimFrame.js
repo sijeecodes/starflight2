@@ -3,7 +3,7 @@ import { LineMaterial } from "three/addons/lines/LineMaterial";
 import { LineGeometry } from "three/addons/lines/LineGeometry.js";
 import { Line2 } from "three/addons/lines/Line2.js";
 
-function createAimFrame() {
+export default function createAimFrame() {
     const frameGeo1 = new LineGeometry();
     frameGeo1.setPositions([
         2.8, -2.4, 0,
@@ -33,5 +33,3 @@ function createAimFrame() {
 
     return aimFrame;
 }
-
-export default createAimFrame;

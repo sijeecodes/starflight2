@@ -1,7 +1,7 @@
 import disposeObject from "../../misc/disposeObject";
 import { createPCBlaster } from "../createPCObjects";
 
-function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
+export default function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
     const blasterRange = 700;
     const blasterCoolTime = pcShip.blasterCoolTime;
     const blasterDelay = pcShip.blasterDelay;
@@ -32,5 +32,3 @@ function updatePCBlasters(scene, pcShip, pcBlasters, keyStates) {
     pcBlasters.length = 0;
     pcBlasters.push(...newBlasters);
 }
-
-export default updatePCBlasters;

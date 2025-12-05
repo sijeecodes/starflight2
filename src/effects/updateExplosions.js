@@ -1,6 +1,6 @@
 import disposeSprite from "../misc/disposeSprite";
 
-function updateExplosions(scene, { sprites, materials, velocities, lifetimes, rotations }) {
+export default function updateExplosions(scene, { sprites, materials, velocities, lifetimes, rotations }) {
     if (!sprites || sprites.length < 1) return;
 
     const newSprites = [];
@@ -54,5 +54,3 @@ function updateExplosions(scene, { sprites, materials, velocities, lifetimes, ro
     lifetimes.push(...newLifetimes);
     rotations.push(...newRotations);
 }
-
-export default updateExplosions;

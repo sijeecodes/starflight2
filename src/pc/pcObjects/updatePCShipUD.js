@@ -1,6 +1,6 @@
 import { speedDecelerateY } from "./updatePCShipSpeed";
 
-function updatePCShipUD(pcShip, keyStates, maxHeight, diagonal) {
+export default function updatePCShipUD(pcShip, keyStates, maxHeight, diagonal) {
     let accelY = pcShip.speedAccel[1];
     let decelY = pcShip.speedDecel[1];
     let maxY = pcShip.maxSpeed[1];
@@ -72,5 +72,3 @@ function updatePCShipUD(pcShip, keyStates, maxHeight, diagonal) {
     pcShip.speed[1] = speedY;
     return diagonal;
 }
-
-export default updatePCShipUD;

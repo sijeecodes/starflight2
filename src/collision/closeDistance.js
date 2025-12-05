@@ -1,4 +1,4 @@
-function closeDistance(pcBlaster, npc) {
+export default function closeDistance(pcBlaster, npc) {
     if (pcBlaster.position.distanceTo(npc.position)
         <= pcBlaster.collisionSize + npc.collisionSize) {
 
@@ -6,5 +6,3 @@ function closeDistance(pcBlaster, npc) {
     }
     return false;
 }
-
-export default closeDistance;

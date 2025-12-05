@@ -1,6 +1,6 @@
 import npcAIPattern from '../npcData/npcAIPattern';
 
-function npcAIPatternLoader(obj) {
+export default function npcAIPatternLoader(obj) {
     const timeEvents = obj.npcAI.timeTriggered;
     const hpEvents = obj.npcAI.hpTriggered;
 
@@ -21,5 +21,3 @@ function npcAIPatternLoader(obj) {
         hpEvents.shift();
     }
 }
-
-export default npcAIPatternLoader;

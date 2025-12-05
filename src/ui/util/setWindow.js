@@ -1,6 +1,6 @@
 import { setKeyState, resetKeyState } from "./setKeyStates";
 
-function setWindow(window, document, keyStates, camera, renderer) {
+export default function setWindow(window, document, keyStates, camera, renderer) {
     window.addEventListener("keydown", (e) => keyStates = setKeyState(keyStates, e));
     window.addEventListener("keyup", (e) => keyStates = resetKeyState(keyStates, e));
     window.addEventListener("resize", () => sizeRenderer(window, document, camera, renderer), false);
@@ -21,5 +21,3 @@ function sizeRenderer(window, document, camera, renderer) {
     document.getElementById("gameUI").style.width = newWidth + "px";
     document.getElementById("gameUI").style.height = newHeight + "px";
 };
-
-export default setWindow;   

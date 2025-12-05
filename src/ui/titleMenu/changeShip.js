@@ -3,7 +3,7 @@ import selectMenu from "../util/selectMenu";
 import pcShipData from "../../pc/pcData/pcShipData";
 import playSound from "../../effects/playSound";
 
-function changeShip(scene, document, keyStates, pcObjects) {
+export default function changeShip(scene, document, keyStates, pcObjects) {
     if (!keyStates.pressed) return;
 
     document.getElementById("titleScreen").style.opacity = 0;
@@ -37,5 +37,3 @@ function changeShip(scene, document, keyStates, pcObjects) {
     }
     keyStates.pressed = false;
 }
-
-export default changeShip;

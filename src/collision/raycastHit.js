@@ -6,7 +6,7 @@ const HITMARK_DURATION = 15;
 const RAYCASTER_THRESHOLD = 0.01;
 const HIT_COLOR = 0xff0000;
 
-function raycastHit(origin, target) {
+export default function raycastHit(origin, target) {
     const raycaster = new THREE.Raycaster();
     const direction = new THREE.Vector3();
     const vertices = getVertices(origin);
@@ -26,9 +26,9 @@ function raycastHit(origin, target) {
     }
 
     if (collided) {
-        if(target.hitMark <= 0) {
+        if (target.hitMark <= 0) {
             target.traverse(
-                (child) => child.isMesh ? 
+                (child) => child.isMesh ?
                            child.material.color.set(HIT_COLOR)
                            : null);
         }
@@ -62,5 +62,3 @@ function getVertices(obj) {
     });
     return vertices;
 }
-
-export default raycastHit;

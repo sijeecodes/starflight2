@@ -1,6 +1,6 @@
 import pcShipData from "../pcData/pcShipData";
 
-function initiatePCShip (pcShip, shipNumber = 0) {
+export default function initiatePCShip (pcShip, shipNumber = 0) {
     const shipData = pcShipData[shipNumber].data;
 
     pcShip.position.set(0, 0, 0);
@@ -30,5 +30,3 @@ function initiatePCShip (pcShip, shipNumber = 0) {
     pcShip.energyRecharge   = shipData.energyRecharge;
     pcShip.shipNumber       = shipNumber;
 }
-
-export default initiatePCShip;

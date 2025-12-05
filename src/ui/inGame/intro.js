@@ -1,4 +1,4 @@
-function intro(scene, camera, pcShip) {
+export default function intro(scene, camera, pcShip) {
     let cp = camera.position;
 
     cp.y -= (cp.y - 10) * 0.15;
@@ -20,5 +20,3 @@ function intro(scene, camera, pcShip) {
     }
     scene.timeStamp++;
 }
-
-export default intro;

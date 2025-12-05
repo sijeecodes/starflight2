@@ -1,7 +1,7 @@
 import selectMenu from "../util/selectMenu";
 import playSound from "../../effects/playSound";
 
-function titleScreen(scene, document, keyStates) {
+export default function titleScreen(scene, document, keyStates) {
     if (!keyStates.pressed) return;
     document.getElementById("canvas").style.opacity = 1;
     document.getElementById("inGame").style.opacity = 0;
@@ -24,5 +24,3 @@ function titleScreen(scene, document, keyStates) {
     
     keyStates.pressed = false;
 }
-
-export default titleScreen;

@@ -1,6 +1,6 @@
 import npcAIPatternLoader from "./npcAIPatternLoader";
 
-function updateNPCAI(obj, pcPos) {
+export default function updateNPCAI(obj, pcPos) {
     npcAIPatternLoader(obj);
 
     if (!obj.aiPattern || !obj.aiPattern[obj.aiPatternCurrentStep + 1]) return;
@@ -79,5 +79,3 @@ function setDefaultSpeed(obj, value) {
     obj.defaultSpeed[1] = value[1];
     obj.defaultSpeed[2] = value[2];
 }
-
-export default updateNPCAI;

@@ -1,4 +1,4 @@
-function updateNPCPosition(scene, obj) {
+export default function updateNPCPosition(scene, obj) {
     if (obj.type == "asteroid") {
         obj.position.x += obj.defaultSpeed[0]; 
         obj.position.y += obj.defaultSpeed[1]; 
@@ -71,5 +71,3 @@ function estimateTime(currentPos, targetPos, maxSpeed) {
 
     return distance / maxSpeed;
 }
-
-export default updateNPCPosition;

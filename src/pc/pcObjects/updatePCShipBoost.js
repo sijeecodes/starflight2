@@ -1,4 +1,4 @@
-function updatePCShipBoost(scene, pcShip, keyStates) {
+export default function updatePCShipBoost(scene, pcShip, keyStates) {
     let accelZ = pcShip.speedAccel[2];
     let decelZ = pcShip.speedDecel[2];
     let maxZ = pcShip.maxSpeed[2];
@@ -16,5 +16,3 @@ function updatePCShipBoost(scene, pcShip, keyStates) {
         if (scene.boostSpeed < 0.01) scene.boostSpeed = 0;
     }
 }
-
-export default updatePCShipBoost;

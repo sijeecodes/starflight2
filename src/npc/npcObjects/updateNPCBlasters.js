@@ -1,6 +1,6 @@
 import disposeObject from "../../misc/disposeObject";
 
-function updateNPCBlasters(scene, npcBlasters) {
+export default function updateNPCBlasters(scene, npcBlasters) {
     if (!npcBlasters) return;
 
     let newBlasters = [];
@@ -17,5 +17,3 @@ function updateNPCBlasters(scene, npcBlasters) {
     npcBlasters.length = 0;
     npcBlasters.push(...newBlasters);
 }
-
-export default updateNPCBlasters;

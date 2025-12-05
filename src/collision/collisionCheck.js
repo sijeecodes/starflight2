@@ -3,7 +3,7 @@ import closeDistance from "./closeDistance";
 import raycastHit from "./raycastHit";
 import createExplosion from "../effects/createExplosion";
 
-function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
+export default function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
     const pcShip = pcObjects.pcShip;
     const pcBlasters = pcObjects.pcBlasters;
     const npcs = npcObjects.npcs;
@@ -24,7 +24,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                     pcBlasterGone = true;
 
                     npc.hp -= pcBlaster.power;
-                    if ( npc.hp <= 0 ) {
+                    if (npc.hp <= 0) {
                         createExplosion(scene, npc, "explode", explosionObjects);
                         if (npc.unpassable) scene.boostalbe = true;
                         disposeObject(scene, npc);
@@ -51,7 +51,7 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
                 pcShip.hp -= npc.power;
                 npc.hp -= 1;
 
-                if ( npc.hp <= 0 ) {
+                if (npc.hp <= 0) {
                     createExplosion(scene, npc, "explode", explosionObjects);
                     if (npc.unpassable) scene.boostalbe = true;
 
@@ -63,8 +63,8 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
         if (npc.hitMark > 0) {
             npc.hitMark -= 1;
             if (npc.hitMark == 0) {
-                npc.traverse((child) => { 
-                    if (child.isMesh) child.material.color.set(0xffffff) 
+                npc.traverse((child) => {
+                    if (child.isMesh) child.material.color.set(0xffffff)
                 })
             }
         }
@@ -89,5 +89,3 @@ function collisionCheck(scene, pcObjects, npcObjects, explosionObjects) {
 
     if (pcShip.hp < 0) pcShip.hp = 0;
 }
-
-export default collisionCheck;

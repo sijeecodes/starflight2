@@ -1,6 +1,6 @@
 import loadMusic from "../../effects/loadMusic";
 
-function startingGame(scene, camera, document, pcShip) {
+export default function startingGame(scene, camera, document, pcShip) {
     document.getElementById("inGame").style.opacity = 1;
     pcShip.position.set(0, 0, 0);
     camera.position.set(0, 10, -200);
@@ -10,5 +10,3 @@ function startingGame(scene, camera, document, pcShip) {
 
     return loadMusic();
 }
-
-export default startingGame;

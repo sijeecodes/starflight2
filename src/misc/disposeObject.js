@@ -1,4 +1,4 @@
-function disposeObject(scene, obj) {
+export default function disposeObject(scene, obj) {
     obj.traverse((child) => {
         if (child.isMesh) {
             child.geometry.dispose();
@@ -13,5 +13,3 @@ function disposeObject(scene, obj) {
     });
     scene.remove(obj);
 }
-
-export default disposeObject;

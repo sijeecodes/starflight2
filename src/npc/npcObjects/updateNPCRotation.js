@@ -1,4 +1,4 @@
-function updateNPCRotation(obj) {
+export default function updateNPCRotation(obj) {
     const targetR = obj.targetRotation;
     let r = [obj.rotation.x, obj.rotation.y, obj.rotation.z];
 
@@ -26,5 +26,3 @@ function differenceWithPI(n) {
     if (n > Math.PI) return n - 2 * Math.PI;
     return -n;
 }
-
-export default updateNPCRotation;

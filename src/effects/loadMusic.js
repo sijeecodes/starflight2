@@ -1,4 +1,4 @@
-function loadMusic() {
+export default function loadMusic() {
     const audio = new Audio("soundSrc/bgMusic.mp3");
     audio.volume = 0.5;
     audio.loop = true;
@@ -10,5 +10,3 @@ function loadMusic() {
     }
     return stop;
 }
-
-export default loadMusic;

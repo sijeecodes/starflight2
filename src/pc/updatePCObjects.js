@@ -28,12 +28,10 @@ const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStat
 
     let [maxX, maxY] = pcShip.maxSpeed;
     let [speedX, speedY, speedZ] = pcShip.speed;
-
     //update ship position based on speed
     pcShip.position.x += speedX;
     pcShip.position.y += speedY;
     pcShip.position.z = scene.boostSpeed * 15;
-    pcShip.speed = [speedX, speedY, speedZ];
 
     //update ship rotation based on speed
     if (!pcShip.rolling) {

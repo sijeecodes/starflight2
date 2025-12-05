@@ -41,7 +41,7 @@ const backgroundData = [
             size: [60, 60],
             position: [120, -100, 700],
             rotationY: Math.PI,
-            speed: 0.06
+            speed: 0.013
         }
     ],
     [
@@ -50,7 +50,7 @@ const backgroundData = [
             size: [140, 140],
             position: [150, 50, 800],
             rotationY: Math.PI,
-            speed: 0.09
+            speed: 0.02
         }
     ]
 ];

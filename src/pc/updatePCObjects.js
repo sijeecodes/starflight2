@@ -1,224 +1,49 @@
+import updatePCShipBoost from "./pcObjects/updatePCShipBoost";
+import updatePCShipLR from "./pcObjects/updatePCShipLR";
+import updatePCShipUD from "./pcObjects/updatePCShipUD";
+import updatePCShipRoll from "./pcObjects/updatePCShipRoll";
 import updatePCBlasters from "./pcObjects/updatePCBlasters";
 
 const updatePCObjects = function (scene, camera, { pcShip, pcBlasters }, keyStates) {
     const maxWidth = 35;
     const maxHeight = 15;
-    let [maxX, maxY, maxZ] = pcShip.maxSpeed;
-    let [accelX, accelY, accelZ] = pcShip.speedAccel;
-    let [decelX, decelY, decelZ] = pcShip.speedDecel;
-    let [speedX, speedY, speedZ] = pcShip.speed;
-    let pos = pcShip.position;
-    let rot = pcShip.rotation;
     let diagonal = false;
 
-    function speedDecelerateX() {
-        if (speedX != 0) speedX = speedX * decelX;
-        if (Math.abs(speedX) < 0.001) speedX = 0;
-    }
-
-    function speedDecelerateY() {
-        if (speedY != 0) speedY = speedY * decelY;
-        if (Math.abs(speedY) < 0.001) speedY = 0;
-    }
-
     if (!pcShip.rolling) {
-        if (keyStates.boost && pcShip.energy > 0 && scene.boostalbe) {
-            pcShip.energy -= pcShip.boostCost;
-            scene.timeStamp += 2;
-
-            if (keyStates.boost && scene.boostSpeed < maxZ) {
-                scene.boostSpeed += accelZ / 2;
-                if (scene.boostSpeed > maxZ) scene.boostSpeed = maxZ;
-            }
-        } else if (scene.boostSpeed > 0) {
-            scene.boostSpeed = scene.boostSpeed * decelZ;
-            if (scene.boostSpeed < 0.01) scene.boostSpeed = 0;
-        }
-
-        if (keyStates.right && keyStates.left) {
-            speedDecelerateX();
-        } else {
-            if ((keyStates.up && !keyStates.down) || (!keyStates.up && keyStates.down)) {
-                maxX = maxX * 0.86;
-                maxY = maxY * 0.86;
-                accelX = accelX * 0.86;
-                accelY = accelY * 0.86;
-                decelX = 1 - ((1 - decelX) * 0.86);
-                decelY = 1 - ((1 - decelY) * 0.86);
-                diagonal = true;
-            }
-
-            if (keyStates.right && pos.x > -maxWidth) {
-                if (diagonal) {
-                    if (speedX > 0) speedX = speedX * decelX;
-
-                    if (speedX < -maxX) {
-                        speedX = speedX * decelX;
-                        if (speedX > -maxX) speedX = -maxX;
-                    }
-                    else {
-                        speedX -= accelX;
-                        if (speedX < -maxX) speedX = -maxX;
-                    }
-                }
-                else {
-                    if (speedX > 0) speedX = speedX * decelX;
-
-                    speedX -= accelX;
-                    if (speedX < -maxX) speedX = -maxX;
-                }
-            }
-            else speedDecelerateX();
-
-            if (keyStates.left && pos.x < maxWidth) {
-                if (diagonal) {
-                    if (speedX < 0) speedX = speedX * decelX;
-
-                    if (speedX > maxX) {
-                        speedX = speedX * decelX;
-                        if (speedX < maxX) speedX = maxX;
-                    }
-                    else {
-                        speedX += accelX;
-                        if (speedX > maxX) speedX = maxX;
-                    }
-                }
-                else {
-                    if (speedX < 0) speedX = speedX * decelX;
-
-                    speedX += accelX;
-                    if (speedX > maxX) speedX = maxX;
-                }
-            }
-            else speedDecelerateX();
-        }
-
-        if (keyStates.up && keyStates.down) {
-            speedDecelerateY();
-        } else {
-            if ((keyStates.right && !keyStates.left) || (!keyStates.right && keyStates.left)) {
-                maxX = maxX / 2;
-                maxY = maxY / 2;
-                accelX = accelX / 2;
-                accelY = accelY / 2;
-                decelX = 1 - ((1 - decelX) / 2);
-                decelY = 1 - ((1 - decelY) / 2);
-                diagonal = true;
-            }
-
-            if (keyStates.up && pos.y > -maxHeight) {
-                if (diagonal) {
-                    if (speedY > 0) speedY = speedY * decelY;
-
-                    if (speedY < -maxY) {
-                        speedY = speedY * decelY;
-                        if (speedY > -maxY) speedY = -maxY;
-                    }
-                    else {
-                        speedY -= accelY;
-                        if (speedY < -maxY) speedY = -maxY;
-                    }
-                }
-                else {
-                    if (speedY > 0) speedY = speedY * decelY;
-
-                    speedY -= accelY;
-                    if (speedY < -maxY) speedY = -maxY;
-                }
-            }
-            else speedDecelerateY();
-
-            if (keyStates.down && pos.y < maxHeight) {
-                if (diagonal) {
-                    if (speedY < 0) speedY = speedY * decelY;
-
-                    if (speedY > maxY) {
-                        speedY = speedY * decelY;
-                        if (speedY < maxY) speedY = maxY;
-                    }
-                    else {
-                        speedY += accelY;
-                        if (speedY > maxY) speedY = maxY;
-                    }
-                }
-                else {
-                    if (speedY < 0) speedY = speedY * decelY;
-
-                    speedY += accelY;
-                    if (speedY > maxY) speedY = maxY;
-                }
-            }
-            else speedDecelerateY();
-        }
+        updatePCShipBoost(scene, pcShip, keyStates);
+        //move ship left/right
+        diagonal = updatePCShipLR(pcShip, keyStates, maxWidth, diagonal);
+        //move ship up/down
+        diagonal = updatePCShipUD(pcShip, keyStates, maxHeight, diagonal);
     }
+    updatePCShipRoll(scene, pcShip, keyStates, maxWidth);
 
-    if (!pcShip.rolling && keyStates.rightRoll && !scene.boostSpeed && pcShip.rollCoolTime == 0) {
-        pcShip.rolling = "rightRoll";
-        pcShip.rollCoolTime = pcShip.rollDelay;
-        pcShip.energy -= pcShip.rollCost;
-
-        rot.z += (Math.PI * 2 - rot.z) * 0.25;
-        speedX = 0;
-        speedY = 0;
-    } else if (pcShip.rolling == "rightRoll") {
-        rot.z += (Math.PI * 2 - rot.z) * 0.25;
-
-        if (pos.x > -maxWidth) {
-            speedX = -maxX;
-        } else {
-            speedX = speedX * decelX;
-        }
-
-        if (rot.z >= Math.PI * 1.9) {
-            rot.z -= Math.PI * 2;
-            pcShip.rolling = false;
-            speedDecelerateX();
-        }
-    }
-    if (!pcShip.rolling && keyStates.leftRoll && !scene.boostSpeed && pcShip.rollCoolTime == 0) {
-        pcShip.rolling = "leftRoll";
-        pcShip.rollCoolTime = pcShip.rollDelay;
-        pcShip.energy -= pcShip.rollCost;
-
-        rot.z += (-Math.PI * 2 - rot.z) * 0.25;
-        speedX = 0;
-        speedY = 0;
-    } else if (pcShip.rolling == "leftRoll") {
-        rot.z += (-Math.PI * 2 - rot.z) * 0.25;
-
-        if (pos.x < maxWidth) {
-            speedX = maxX;
-        } else {
-            speedX = speedX * decelX;
-        }
-
-        if (rot.z <= -Math.PI * 1.9) {
-            rot.z += Math.PI * 2;
-            pcShip.rolling = false;
-            speedDecelerateX();
-        }
-    }
-    if (pcShip.rollCoolTime > 0) pcShip.rollCoolTime--;
-
+    //update energy
     pcShip.energyCoolTime--;
     if (pcShip.energy <= pcShip.energyMax && pcShip.energyCoolTime <= 0) {
         pcShip.energy += pcShip.energyRecharge;
         pcShip.energyCoolTime = pcShip.energyDelay;
-        if(pcShip.energy > pcShip.energyMax) pcShip.energy = pcShip.energyMax;
+        if (pcShip.energy > pcShip.energyMax) pcShip.energy = pcShip.energyMax;
     }
 
+    let [maxX, maxY] = pcShip.maxSpeed;
+    let [speedX, speedY, speedZ] = pcShip.speed;
+
+    //update ship position based on speed
     pcShip.position.x += speedX;
     pcShip.position.y += speedY;
     pcShip.position.z = scene.boostSpeed * 15;
     pcShip.speed = [speedX, speedY, speedZ];
 
+    //update ship rotation based on speed
     if (!pcShip.rolling) {
-        pcShip.rotation.z = -speedX / maxX / 12 * Math.PI;
+        pcShip.rotation.z = -speedX / maxX / 7 * Math.PI;
         pcShip.rotation.y = speedX / maxX / 30 * Math.PI;
         pcShip.rotation.x = -speedY / maxY / 30 * Math.PI;
     }
 
-    camera.rotation.z = Math.PI + speedX / maxX / 150 * Math.PI;
+    //update camera rotation based on ship movement speed
+    camera.rotation.z = Math.PI + speedX / maxX / 50 * Math.PI;
     camera.rotation.y = -pcShip.position.x / 1000;
     camera.rotation.x = Math.PI - (pcShip.position.y - 50) / 1000;
 

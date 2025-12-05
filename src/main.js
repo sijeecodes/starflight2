@@ -6,10 +6,6 @@ import { initiateGame } from "./initiateGame";
 import createLights from "./environment/createLights";
 import updateStars from "./environment/updateStars";
 import setWindow from "./ui/util/setWindow";
-
-import gameLogic from "./gameLogic";
-import updatePCIdle from "./pc/updatePCIdle";
-
 import changeShip from "./ui/titleMenu/changeShip";
 import instructions from "./ui/titleMenu/instructions";
 import settings from "./ui/titleMenu/settings";
@@ -19,6 +15,8 @@ import intro from "./ui/inGame/intro";
 import missionComplete from "./ui/inGame/missionComplete";
 import pause from "./ui/inGame/pause";
 import startingGame from "./ui/inGame/startingGame";
+import updatePCIdle from "./pc/pcObjects/updatePCIdle";
+import gameLogic from "./gameLogic";
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 3000);

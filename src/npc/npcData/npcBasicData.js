@@ -144,7 +144,7 @@ const npcBasicData = {
         blasterLength:  20,
         blasterSpeed:   7,
         blasterPower:   5,
-        blasterSoundSrc:"soundSrc/npcBlas10.mp3",
+        blasterSoundSrc:"soundSrc/npcBlast10.mp3",
     },
     cruiserBossBasic: {
         npcGlb:         "artSrc/npcShip10.glb",

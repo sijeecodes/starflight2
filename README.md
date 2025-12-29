@@ -37,7 +37,8 @@
 
 ## Level System
  - Level NPC Objects are spawned by Level Data.
- - ex>    after [100] frames - spawn [NPC_A] with [NPC_BasicData_A] & [NPC_AI_A] in position [x1, y1, z1],
+ - ex>    
+          after [100] frames - spawn [NPC_A] with [NPC_BasicData_A] & [NPC_AI_A] in position [x1, y1, z1],
           after [300] frames - spawn [NPC_B] with [NPC_BasicData_A] & [NPC_AI_B] in position [x2, y2, z2],
           ...
 
@@ -55,7 +56,8 @@
  1. NPC AI : Data of NPCs AI Patterns and trigger conditions. NPC AI Patterns can be triggered by time or HP.
  2. NPC AI Patterns : Defines NPC action after delayed time. NPC AI Pattern data are used in NPC AI. 
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
- - ex> NPC_Data    - NPC Basic: [Speed, Power, HP, Shape...etc]
+ - ex> 
+       NPC_Data    - NPC Basic: [Speed, Power, HP, Shape...etc]
                    - NPC AI: [30]frames after spawn run [AI_Pattern_A],
                             [100]frames after spawn run [AI_Pattern_B],
                             When HP drops below [3] run [AI_Pattern_Charge]

@@ -48,18 +48,18 @@
  - After "delayTime" is passed, NPC will be spawned based on data.
  - Format
  
-    [
-        {
-            eventTime: "delayTime", 
-            npcAI: "npcAIname", 
-            npcBasic: "npcBasicName", 
-            startingPosition: "[x,y,z]"
-        },
-        {
+        [
+            {
+                eventTime: "delayTime", 
+                npcAI: "npcAIname", 
+                npcBasic: "npcBasicName", 
+                startingPosition: "[x,y,z]"
+            },
+            {
+                ...
+            },
             ...
-        },
-        ...
-    ]
+        ]
 
 
  - Each level data object contains 4 below attributes.
@@ -69,30 +69,30 @@
  4. startPosition : Spawn position of the NPC Object.
  - ex>
 
-    {
-        eventTime: 10,
-        npcAIname: "cruiserAIstaticCarrier",
-        npcBasic: "carrierBasic",
-        startingPosition: [105, 0, 700]
-    },
-    {
-        eventTime: 100,
-        npcAIname: "droneAIrandom8hQFLS",
-        npcBasic: "droneBasic",
-        startingPosition: [105, -5, 650]
-    },
-    {
-        eventTime: 50,
-        npcAIname: "droneAIrandom3hQFLS",
-        npcBasic: "droneBasic",
-        startingPosition: [105, -5, 600]
-    },
-    {
-        eventTime: 50,
-        npcAIname: "droneAIrandom6hQFLS",
-        npcBasic: "droneBasic",
-        startingPosition: [105, -5, 550]
-    },
+        {
+            eventTime: 10,
+            npcAIname: "cruiserAIstaticCarrier",
+            npcBasic: "carrierBasic",
+            startingPosition: [105, 0, 700]
+        },
+        {
+            eventTime: 100,
+            npcAIname: "droneAIrandom8hQFLS",
+            npcBasic: "droneBasic",
+            startingPosition: [105, -5, 650]
+        },
+        {
+            eventTime: 50,
+            npcAIname: "droneAIrandom3hQFLS",
+            npcBasic: "droneBasic",
+            startingPosition: [105, -5, 600]
+        },
+        {
+            eventTime: 50,
+            npcAIname: "droneAIrandom6hQFLS",
+            npcBasic: "droneBasic",
+            startingPosition: [105, -5, 550]
+        },
 
 
 ## NPC System
@@ -102,45 +102,45 @@
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
  - concept> 
 
-    NPC_Data    - NPC Basic: [Speed, Power, HP, Shape...etc]
-                - NPC AI: [30]frames after spawn run [AI_Pattern_A],
-                        [100]frames after spawn run [AI_Pattern_B],
-                        When HP drops below [3] run [AI_Pattern_Charge]
-                        
-    NPC_Pattern - AI_Pattern_A: [0] frames after spawn [randomMove] in [x1~x2, y1~y2, z1~z2],
-                                [30] frames after spawn [lookAt] target [PC],
-                                [45] frames after spawn [fire_Blaster],
-                                [60] frames after spawn [Set_Pattern_Time] to [30] => creates Loop from 30 to 60
-                - AI_Pattern_B: ...
-                - AI_Pattern_Charge: [0] frames after spawn [Set_Default_Speed] to [0, 0, 2]
-                                    [15] frames after spawn [lookAt] target [PC],
+        NPC_Data    - NPC Basic: [Speed, Power, HP, Shape...etc]
+                    - NPC AI: [30]frames after spawn run [AI_Pattern_A],
+                            [100]frames after spawn run [AI_Pattern_B],
+                            When HP drops below [3] run [AI_Pattern_Charge]
+                            
+        NPC_Pattern - AI_Pattern_A: [0] frames after spawn [randomMove] in [x1~x2, y1~y2, z1~z2],
                                     [30] frames after spawn [lookAt] target [PC],
-                                    [45] frames after spawn [lookAt] target [PC],
-                                    [55] frames after spawn [Set_Pattern_Time] to [10] => creates Loop from 10 to 55
+                                    [45] frames after spawn [fire_Blaster],
+                                    [60] frames after spawn [Set_Pattern_Time] to [30] => creates Loop from 30 to 60
+                    - AI_Pattern_B: ...
+                    - AI_Pattern_Charge: [0] frames after spawn [Set_Default_Speed] to [0, 0, 2]
+                                        [15] frames after spawn [lookAt] target [PC],
+                                        [30] frames after spawn [lookAt] target [PC],
+                                        [45] frames after spawn [lookAt] target [PC],
+                                        [55] frames after spawn [Set_Pattern_Time] to [10] => creates Loop from 10 to 55
 
 
 ### NPC AI
  - Format
  
-    { 
-        aiName: { 
-            timeTriggered: [ 
-                { triggerTime: "time", patternName: "name" },
-                { triggerTime: "time", patternName: "name" },
-                 … 
-            ], 
-            hpTriggered: [
-                { triggerHP: "hp", patternName: "name" },
-                { triggerHP: "hp", patternName: "name" },
-                 …
-            ] 
-        }, 
-        aiName2: {
-            timeTriggered: [ ... ],
-            hpTriggered: [ ... ]
-        }, 
-        ... 
-    }
+        { 
+            aiName: { 
+                timeTriggered: [ 
+                    { triggerTime: "time", patternName: "name" },
+                    { triggerTime: "time", patternName: "name" },
+                    … 
+                ], 
+                hpTriggered: [
+                    { triggerHP: "hp", patternName: "name" },
+                    { triggerHP: "hp", patternName: "name" },
+                    …
+                ] 
+            }, 
+            aiName2: {
+                timeTriggered: [ ... ],
+                hpTriggered: [ ... ]
+            }, 
+            ... 
+        }
     
  1. aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
  2. timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
@@ -148,48 +148,48 @@
  4. patternName : Name of NPC AI Pattern to load.
  - ex>
 
-    destroyerAIrandomC: {
-        timeTriggered: [
-            { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
-            { triggerTime: 60, aiPattern: "destroyerBlastLoop" },
-            { triggerTime: 300, aiPattern: "destroyerRandomMove" },
-            { triggerTime: 700, aiPattern: "charge" },
-        ],
-        hpTriggered: [
-            { triggerHP: 5,  aiPattern: "charge" }, 
-        ],
-    },
-    destroyerAIrandom1H: {
-        timeTriggered: [
-            { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
-            { triggerTime: 300, aiPattern: "destroyerRandomMove1H" },
-        ],
-        hpTriggered: [],
-    },
-    destroyerAIrandom2H: {
-        timeTriggered: [
-            { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
-            { triggerTime: 300, aiPattern: "destroyerRandomMove2H" },
-        ],
-        hpTriggered: [],
-    },
+        destroyerAIrandomC: {
+            timeTriggered: [
+                { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
+                { triggerTime: 60, aiPattern: "destroyerBlastLoop" },
+                { triggerTime: 300, aiPattern: "destroyerRandomMove" },
+                { triggerTime: 700, aiPattern: "charge" },
+            ],
+            hpTriggered: [
+                { triggerHP: 5,  aiPattern: "charge" }, 
+            ],
+        },
+        destroyerAIrandom1H: {
+            timeTriggered: [
+                { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
+                { triggerTime: 300, aiPattern: "destroyerRandomMove1H" },
+            ],
+            hpTriggered: [],
+        },
+        destroyerAIrandom2H: {
+            timeTriggered: [
+                { triggerTime: 0, aiPattern: "destroyerIntroPattern" },
+                { triggerTime: 300, aiPattern: "destroyerRandomMove2H" },
+            ],
+            hpTriggered: [],
+        },
 
 
 ### NPC AI Pattern
  - A "pattenName" named NPC AI Pattern contains array of "action"s with timeStamp and values.
  - Format
  
-    { 
-        patternName: [
-            { actionTime: "time", action: "nameOfAction", value: "valueForAction" },
-            { actionTime: "time", action: "nameOfAction", value: "valueForAction" },
-            ...
-        ], 
-        patternName2: [
-            ...
-        ], 
-        ... 
-    }
+        { 
+            patternName: [
+                { actionTime: "time", action: "nameOfAction", value: "valueForAction" },
+                { actionTime: "time", action: "nameOfAction", value: "valueForAction" },
+                ...
+            ], 
+            patternName2: [
+                ...
+            ], 
+            ... 
+        }
 
  1. patternName : Name of the pattern. When pattern starts, PatternTimer starts.
  2. actionTime : Timestamp from PatternTimer for the action to be triggered. 
@@ -206,44 +206,44 @@
  7. setRotation([x, y, z] or "pc") : Sets NPC "targetRotation" to (x, y, z) or to face pc.
  - ex>
 
-     bossFirstAttack: [
-        { actionTime: 10, action: "blaster", value: "pc" },
-        { actionTime: 30, action: "blaster", value: "pc" },
-        { actionTime: 50, action: "blaster", value: "pc" },
-        { actionTime: 70, action: "blaster", value: "pc" },
-        { actionTime: 190, action: "setPatternTime", value: 0 },
-    ],
-    bossLoop: [
-        { actionTime: 0, action: "setRotation", value: "pc" },
-        { actionTime: 10, action: "blaster", value: "pc" },
-        { actionTime: 20, action: "blaster", value: "pc" },
-        { actionTime: 30, action: "blaster", value: "pc" },
-        { actionTime: 35, action: "setRotation", value: "pc" },
-        { actionTime: 40, action: "blaster", value: "pc" },
-        { actionTime: 50, action: "blaster", value: "pc" },
-        { actionTime: 60, action: "blaster", value: "pc" },
-        { actionTime: 60, action: "setRotation", value: [0, 0, 0] },
-        { actionTime: 65, action: "randomMoveTo", value: [-5, 5, -5, 5, 190, 200] },
-        { actionTime: 125, action: "randomMoveTo", value: [-5, 5, -5, 5, 190, 200] },
-        { actionTime: 130, action: "setPatternTime", value: 0 },
-    ],
+        bossFirstAttack: [
+            { actionTime: 10, action: "blaster", value: "pc" },
+            { actionTime: 30, action: "blaster", value: "pc" },
+            { actionTime: 50, action: "blaster", value: "pc" },
+            { actionTime: 70, action: "blaster", value: "pc" },
+            { actionTime: 190, action: "setPatternTime", value: 0 },
+        ],
+        bossLoop: [
+            { actionTime: 0, action: "setRotation", value: "pc" },
+            { actionTime: 10, action: "blaster", value: "pc" },
+            { actionTime: 20, action: "blaster", value: "pc" },
+            { actionTime: 30, action: "blaster", value: "pc" },
+            { actionTime: 35, action: "setRotation", value: "pc" },
+            { actionTime: 40, action: "blaster", value: "pc" },
+            { actionTime: 50, action: "blaster", value: "pc" },
+            { actionTime: 60, action: "blaster", value: "pc" },
+            { actionTime: 60, action: "setRotation", value: [0, 0, 0] },
+            { actionTime: 65, action: "randomMoveTo", value: [-5, 5, -5, 5, 190, 200] },
+            { actionTime: 125, action: "randomMoveTo", value: [-5, 5, -5, 5, 190, 200] },
+            { actionTime: 130, action: "setPatternTime", value: 0 },
+        ],
     
  
 ## NPC Basic
  - Basic data for NPC.
  - Format
     
-    { 
-        npcBasicNameA: { 
-            attribute1: value, 
-            attribute2: value,
+        { 
+            npcBasicNameA: { 
+                attribute1: value, 
+                attribute2: value,
+                ...
+            }, 
+            npcBasicNameB: {
+                ...
+            }, 
             ...
-        }, 
-        npcBasicNameB: {
-            ...
-        }, 
-        ...
-    }
+        }
 
    
 ### Attributes : attributeName(value)
@@ -260,28 +260,28 @@
  11. targetRotation([x, y, z]) : Target rotation the NPC is rotating to.
  - ex>
 
-    bossBasic: {
-        npcGlb:         "artSrc/npcShip100.glb",
-        type:           "npcHeavy",
-        collisionSize:  30,
-        hp:             450,
-        power:          10,
-        maxSpeed:       1,
-        speedAccel:     [0.2, 0.2, 0.2],
-        speedDecel:     [0.91, 0.91, 0.91],
-        speed:          [0, 0, 0],
-        defaultSpeed:   [0, 0, 0],
-        targetPosition: [],
-        targetRotation: [0, 0, 0],
-        blasterColor:   "violet",
-        blasterShape:   "sphere",
-        blasterRadius:  3,
-        blasterLength:  3,
-        blasterSpeed:   5,
-        blasterPower:   7,
-        unpassable:     true,
-        blasterSoundSrc:"soundSrc/npcBlast3.mp3",
-    },
+        bossBasic: {
+            npcGlb:         "artSrc/npcShip100.glb",
+            type:           "npcHeavy",
+            collisionSize:  30,
+            hp:             450,
+            power:          10,
+            maxSpeed:       1,
+            speedAccel:     [0.2, 0.2, 0.2],
+            speedDecel:     [0.91, 0.91, 0.91],
+            speed:          [0, 0, 0],
+            defaultSpeed:   [0, 0, 0],
+            targetPosition: [],
+            targetRotation: [0, 0, 0],
+            blasterColor:   "violet",
+            blasterShape:   "sphere",
+            blasterRadius:  3,
+            blasterLength:  3,
+            blasterSpeed:   5,
+            blasterPower:   7,
+            unpassable:     true,
+            blasterSoundSrc:"soundSrc/npcBlast3.mp3",
+        },
 
 
 ### Other Basic NPC Attributes

@@ -1,13 +1,28 @@
 # StarFlight 2
-
- - A simple space flight game using Javascript & Three.js.
+ - Data-driven space flight game using Javascript & Three.js.
+ - All spawning and behaviors controlled by data (JSON-like objects).
 
  ![playVideo](./starflight2.gif)
 
+## Controls
+ - Movement: "WASD" or "↑ ↓ → ←"
+ - Menu Selection:  Enter
+ - Fire Blaster:    Space
+ - Roll Left/Right: "N, M" or "C, V"
+ - Forward Boost:   ","    or "X" 
+
+## Instructions
+ - Change ship for Easy(Bubbles), Hard(Sparrow) Modes.
+ - When "Roll"ing, you don't get hit.
+ - Bypass ships with Boost to avoid engagement.
+ - You can change up/down invert in "Settings"
+
 ## Key Features
  - Level-Data driven NPC spawn.
- - NPC-Data driven NPC Ships & AI.
+ - NPC-Data driven NPC Ships.
+ - AI-Data & AI-Pattern-Data driven NPC Patterns & Behavior.
  - PC-Data driven PC Ship.
+ - No Physics engine. Just Javascript & Three.js.
 
 ## Tools Used
  - VSCode - Coding
@@ -22,38 +37,54 @@
 
 ## Level System
  - Level NPC Objects are spawned by Level Data.
+ - ex>    after [100] frames - spawn [NPC_A] with [NPC_BasicData_A] & [NPC_AI_A] in position [x1, y1, z1],
+          after [300] frames - spawn [NPC_B] with [NPC_BasicData_A] & [NPC_AI_B] in position [x2, y2, z2],
+          ...
 
 ### Level Data
- - Format : [{eventTime: "timeStamp", npcAI: "npcAIname", npcBasic: "npcBasicName", startingPosition: "[x,y,z]"}, {...} ...]
- - Event time of the first event will be checked.
- - When time is met, NPC is constructed based on data.
- - The ran data will be removed from the level data array.
+ - Format : [{eventTime: "delayTime", npcAI: "npcAIname", npcBasic: "npcBasicName", startingPosition: "[x,y,z]"}, {...} ...]
+ - After "delayTime" is passed, NPC will be spawned based on data.
  - Each level data object contains 4 below attributes.
- 1. eventTime    : Timestamp of the time the NPC Object is produced.
- 2. npcAI        : Name of NPC AI pattern used for the NPC Object.
- 3. npcBasic    : Name of NPC's basic data used for stats and rendering.
+ 1. eventTime     : Delay time for the NPC Object to be produced.
+ 2. npcAI         : Name of NPC AI pattern used for the NPC Object.
+ 3. npcBasic      : Name of NPC's basic data used for stats and rendering.
  4. startPosition : Spawn position of the NPC Object.
 
 ## NPC System
- - NPC stats and behaviors based on data. Three data are combined for an NPC.
- 1. NPC AI : NPC AI Patterns are triggered by conditions inside this data.
- 2. NPC AI Patterns : NPC AI Pattern data, used in NPC AI. Defines NPC behavior.
+ - NPC stats & behaviors are based on data.
+ 1. NPC AI : Data of NPCs AI Patterns and trigger conditions. NPC AI Patterns can be triggered by time or HP.
+ 2. NPC AI Patterns : Defines NPC action after delayed time. NPC AI Pattern data are used in NPC AI. 
  3. NPC Basic : NPC speed, power, hp, collision data and 3D resource used for NPC.
+ - ex> NPC_Data    - NPC Basic: [Speed, Power, HP, Shape...etc]
+                   - NPC AI: [30]frames after spawn run [AI_Pattern_A],
+                            [100]frames after spawn run [AI_Pattern_B],
+                            When HP drops below [3] run [AI_Pattern_Charge]
+                            
+       NPC_Pattern - AI_Pattern_A: [0] frames after spawn [randomMove] in [x1~x2, y1~y2, z1~z2],
+                                   [30] frames after spawn [lookAt] target [PC],
+                                   [45] frames after spawn [fire_Blaster],
+                                   [60] frames after spawn [Set_Pattern_Time] to [30] => creates Loop from 30 to 60
+                   - AI_Pattern_B: ...
+                   - AI_Pattern_Charge: [0] frames after spawn [Set_Default_Speed] to [0, 0, 2]
+                                        [15] frames after spawn [lookAt] target [PC],
+                                        [30] frames after spawn [lookAt] target [PC],
+                                        [45] frames after spawn [lookAt] target [PC],
+                                        [55] frames after spawn [Set_Pattern_Time] to [10] => creates Loop from 10 to 55
 
 ### NPC AI
  - Format : { aiName: { timeTriggered: [ { triggerTime: "time", patternName: "name" }, … ], hpTriggered: [{ triggerHP: "hp", patternName: "name" }, …] }, aiName2: {[],[]}, ... }
- - aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
- - timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
- - hpTriggered : When NPC's HP drops below "triggerHP", "patternName" pattern is activated.
- - patternName : Name of NPC AI Pattern to load.
+ 1. aiName : Name of the NPC AI. Each object has 2 array lists, each for time and HP triggered AI patterns.
+ 2. timeTriggered : When game NPC's "elapsedTime" matches "triggerTime", "patternName" pattern is activated.
+ 3. hpTriggered : When NPC's HP drops below "triggerHP", "patternName" pattern is activated.
+ 4. patternName : Name of NPC AI Pattern to load.
 
 ### NPC AI Pattern
  - Format : { patternName: [{ actionTime: "time", action: "nameOfAction", value: "valueForAction" }, {...}, ...], patternName2: [], ... }
  - A "pattenName" named NPC AI Pattern contains array of "action"s with timeStamp and values.
- - patternName : Name of the pattern. When pattern starts, PatternTimer starts.
- - actionTime : Timestamp from PatternTimer for the action to be triggered. 
- - action : The triggered action.
- - value : Value for action.
+ 1. patternName : Name of the pattern. When pattern starts, PatternTimer starts.
+ 2. actionTime : Timestamp from PatternTimer for the action to be triggered. 
+ 3. action : The triggered action.
+ 4. value : Value for action.
 
  #### Action lists: name(value)
  1. move([x, y, z]) : Sets NPC "targetPosition" to move (+x, +y, +z) amount.
@@ -89,11 +120,9 @@
  5. rotation : Rotation of the NPC.
 
 ## Misc
-
  - This is my second personal game project using Javascript.
 
 ## Author
-
  - Simon Jee
 
 ## License

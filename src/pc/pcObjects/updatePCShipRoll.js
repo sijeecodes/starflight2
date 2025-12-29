@@ -12,7 +12,7 @@ export default function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
 
     if (pcShip.rolling) {
         if (pcShip.rolling == "rightRoll") {
-            (pos.x > -maxWidth) ? speedX = -maxX * 1.5 : speedX = speedX * decelX;
+            (pos.x > -maxWidth) ? speedX = -maxX * 2.3 : speedX = speedX * decelX;
             rot.z += (Math.PI * 2 - rot.z) * 0.24;
 
             if (rot.z >= Math.PI * 1.9) {
@@ -22,9 +22,7 @@ export default function updatePCShipRoll(scene, pcShip, keyStates, maxWidth) {
             }
         }
         if (pcShip.rolling == "leftRoll") {
-            (pos.x < maxWidth) ? speedX = maxX * 1.5 : speedX = speedX * decelX;
-
-            console.log(speedX);
+            (pos.x < maxWidth) ? speedX = maxX * 2.3 : speedX = speedX * decelX;
             rot.z += (-Math.PI * 2 - rot.z) * 0.24;
 
             if (rot.z <= -Math.PI * 1.9) {

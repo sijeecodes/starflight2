@@ -12,14 +12,14 @@ const pcShipData = [
             rollDelay: 15,
             rollCost: 15,
             boostCost: 2,
-            hpMax: 200,
-            hp: 200,
-            hpDisplayed: 150,
+            hpMax: 350,
+            hp: 350,
+            hpDisplayed: 350,
             energyMax: 100,
             energy: 50,
             energyDisplayed: 50,
             energyDelay: 60,
-            energyRecharge: 10,
+            energyRecharge: 15,
         },
         blaster: {
             soundSrc: "soundSrc/pcBlastJoe.mp3",
@@ -27,7 +27,7 @@ const pcShipData = [
             power: 1,
             shape: "sphere",
             color: "blue",
-            size: 3
+            size: 4
         }
     },
     {
@@ -43,14 +43,14 @@ const pcShipData = [
             rollDelay: 25,
             rollCost: 20,
             boostCost: 4,
-            hpMax: 300,
-            hp: 300,
-            hpDisplayed: 300,
+            hpMax: 450,
+            hp: 450,
+            hpDisplayed: 450,
             energyMax: 200,
             energy: 50,
             energyDisplayed: 50,
             energyDelay: 60,
-            energyRecharge: 10,
+            energyRecharge: 15,
         },
         blaster: {
             soundSrc: "soundSrc/pcBlastBubble.mp3",
@@ -58,7 +58,7 @@ const pcShipData = [
             power: 2,
             shape: "sphere",
             color: "bubbleGum",
-            size: 5
+            size: 6
         }
     },
     {
@@ -74,14 +74,14 @@ const pcShipData = [
             rollDelay: 5,
             rollCost: 5,
             boostCost: 2,
-            hpMax: 100,
-            hp: 100,
-            hpDisplayed: 100,
+            hpMax: 200,
+            hp: 200,
+            hpDisplayed: 200,
             energyMax: 75,
             energy: 50,
             energyDisplayed: 50,
             energyDelay: 15,
-            energyRecharge: 5,
+            energyRecharge: 10,
         },
         blaster: {
             soundSrc: "soundSrc/pcBlastSparrow.mp3",
@@ -89,7 +89,7 @@ const pcShipData = [
             power: 5,
             shape: "capsule",
             color: "orange",
-            size: 1.3
+            size: 1.5
         }
     }
 ]
